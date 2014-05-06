@@ -48,6 +48,9 @@ gem 'bootstrap-sass', '~> 3.1.1'
 gem 'will_paginate'
 gem 'bootstrap-will_paginate'
 
+# Devise
+gem 'devise'
+
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0.beta'
   gem 'rspec-its'
@@ -56,5 +59,5 @@ group :development, :test do
 end
 
 group :test do
-  gem 'factory_girl_rails', '4.2.1'
+  gem 'factory_girl_rails'
 end
