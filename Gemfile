@@ -51,6 +51,11 @@ gem 'bootstrap-will_paginate'
 # Devise
 gem 'devise'
 
+# OAuth
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'omniauth-twitter'
+
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0.beta'
   gem 'rspec-its'
