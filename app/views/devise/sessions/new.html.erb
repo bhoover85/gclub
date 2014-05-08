@@ -6,18 +6,16 @@
       Aenean hendrerit lectus ac ante volutpat aliquet. Pellentesque quis mi sed felis tempor rutrum eget eget eros. Morbi et diam sollicitudin, rhoncus erat vitae, ornare nulla. Fusce vel orci ullamcorper, interdum tellus non, fringilla mauris. Morbi sit amet neque lacus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed tincidunt ac nibh sit amet laoreet. Sed vulputate varius tortor, vitae elementum lacus tincidunt vel.
     </p>
 
-    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-      <div><%= f.label :email %><br />
-      <%= f.email_field :email, autofocus: true %></div>
+    <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <%= f.input :email, autofocus: true %>
 
-      <div><%= f.label :password %><br />
-        <%= f.password_field :password, autocomplete: "off" %></div>
+      <%= f.input :password, autocomplete: "off" %>
 
       <% if devise_mapping.rememberable? -%>
-        <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
+        <%= f.input_field :remember_me, as: :boolean, inline_label: 'Remember me' %>
       <% end -%>
 
-      <div><%= f.submit "Sign in" %></div>
+      <%= f.submit "Submit", class: "btn btn-primary" %>
     <% end %>
   </div>
 
