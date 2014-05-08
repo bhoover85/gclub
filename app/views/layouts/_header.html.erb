@@ -1,16 +1,16 @@
 <header class="row">
-  <div class="pull-left">
-    <h1><%= link_to 'Great Games', root_url %></h1>
+  <div class="col-md-6 pull-left">
+    <h1><%= link_to 'Great Games Club', root_url %></h1>
   </div>
 
-  <nav class="pull-right signin">
+  <nav class="col-md6 pull-right signin">
     <% if user_signed_in? %>
       Logged in as <strong><%= current_user.email %></strong>.
       <%= link_to "<i class='fa fa-cog'></i> Settings".html_safe, edit_user_registration_path, class: "btn btn-default" %> 
       <%= link_to "<i class='fa fa-sign-out'></i> Logout".html_safe, destroy_user_session_path, method: :delete, class: "btn btn-primary" %>
     <% else %>
       <%= link_to "<i class='fa fa-plus'></i> Sign up".html_safe, new_user_registration_path, class: "btn btn-success" %> 
-      <%= link_to "<i class='fa fa-sign-in'></i> Sign in".html_safe, new_user_session_path, class: "btn btn-primary" %> 
+      <%= link_to "<i class='fa fa-sign-in'></i> Sign in".html_safe, new_user_session_path, class: "btn btn-primary" %>
     <% end %>
   </nav>
 </header>

@@ -32,3 +32,15 @@ body {
 .signin {
   margin: $h1Margin;
 }
+
+.signin-register-buttons > .btn {
+  margin: 10px 0;
+}
+
+.btn-facebook {
+  background-color: #3b5998;
+}
+
+.btn-twitter {
+  background-color: #0084b4;
+}
