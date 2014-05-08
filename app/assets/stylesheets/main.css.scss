@@ -3,3 +3,32 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 @import "bootstrap";
+
+/* mixins, variables, etc. */
+
+$h1Margin: 20px 0 10px 0;
+
+/* links */
+
+a, input {
+  -webkit-transition: 0.3s;
+     -moz-transition: 0.3s;
+       -o-transition: 0.3s;
+      -ms-transition: 0.3s;
+          transition: 0.3s;
+}
+
+header a:link    { text-decoration: none }
+header a:active  { text-decoration: none }
+header a:visited { text-decoration: none }
+header a:hover   { text-decoration: none }
+
+/* page */
+
+body {
+  font-family: 'Open Sans', 'sans-serif';
+}
+
+.signin {
+  margin: $h1Margin;
+}
