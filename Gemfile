@@ -38,6 +38,9 @@ gem 'bcrypt', '~> 3.1.7'
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+# Simple Form
+gem 'simple_form'
+
 # Font Awesome
 gem 'font-awesome-sass'
 
