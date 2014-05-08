@@ -7,10 +7,10 @@
     <% if user_signed_in? %>
       Logged in as <strong><%= current_user.email %></strong>.
       <%= link_to "<i class='fa fa-cog'></i> Settings".html_safe, edit_user_registration_path, class: "btn btn-default" %> 
-      <%= link_to "<i class='fa fa-sign-out'></i> Logout".html_safe, destroy_user_session_path, method: :delete, class: "btn btn-primary"  %>
+      <%= link_to "<i class='fa fa-sign-out'></i> Logout".html_safe, destroy_user_session_path, method: :delete, class: "btn btn-primary" %>
     <% else %>
-      <!-- <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> | -->
-      <!-- <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %> | -->
+      <%= link_to "<i class='fa fa-plus'></i> Sign up".html_safe, new_user_registration_path, class: "btn btn-success" %> 
+      <%= link_to "<i class='fa fa-sign-in'></i> Sign in".html_safe, new_user_session_path, class: "btn btn-primary" %> 
       <%= link_to "<i class='fa fa-facebook-square'></i> Sign in with Facebook".html_safe, user_omniauth_authorize_path(:facebook), class: "btn btn-primary" %>
     <% end %>
   </p>
