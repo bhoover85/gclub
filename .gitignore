@@ -1,4 +1,5 @@
 sftp-config.json
+/config/initializers/devise.rb
 *.rbc
 capybara-*.html
 .rspec
