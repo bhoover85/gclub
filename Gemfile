@@ -54,6 +54,9 @@ gem 'bootstrap-will_paginate'
 # Devise
 gem 'devise'
 
+# Session Store
+gem 'activerecord-session_store'
+
 # OAuth
 gem 'omniauth'
 gem 'omniauth-facebook'

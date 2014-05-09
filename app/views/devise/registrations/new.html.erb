@@ -6,19 +6,15 @@
       Aenean hendrerit lectus ac ante volutpat aliquet. Pellentesque quis mi sed felis tempor rutrum eget eget eros. Morbi et diam sollicitudin, rhoncus erat vitae, ornare nulla. Fusce vel orci ullamcorper, interdum tellus non, fringilla mauris. Morbi sit amet neque lacus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed tincidunt ac nibh sit amet laoreet. Sed vulputate varius tortor, vitae elementum lacus tincidunt vel.
     </p>
 
-    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-      <%= devise_error_messages! %>
+    <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
 
-      <div><%= f.label :email %><br />
-      <%= f.email_field :email, autofocus: true %></div>
+      <%= f.input :email, autofocus: true %>
 
-      <div><%= f.label :password %><br />
-        <%= f.password_field :password, autocomplete: "off" %></div>
+      <%= f.input :password, autocomplete: "off" %>
 
-      <div><%= f.label :password_confirmation %><br />
-        <%= f.password_field :password_confirmation, autocomplete: "off" %></div>
+      <%= f.input :password_confirmation, autocomplete: "off" %>
 
-      <div><%= f.submit "Sign up" %></div>
+      <%= f.submit "Submit", class: "btn btn-primary" %>
     <% end %>
   </div>
 

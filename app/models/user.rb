@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
 
   devise :omniauthable, :omniauth_providers => [:facebook, :twitter]
 
-  def self.find_for_facebook_oauth(auth)
+  def self.find_for_oauth(auth)
     where(auth.slice(:provider, :uid)).first_or_create do |user|
       user.provider = auth.provider
       user.uid = auth.uid
