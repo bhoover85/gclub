@@ -18,10 +18,17 @@ class User < ActiveRecord::Base
   end
 
   def self.new_with_session(params, session)
-    super.tap do |user|
-      if data = session["devise.user_attributes"] && session["devise.user_attributes"]["extra"]["raw_info"]
-        user.email = data["email"] if user.email.blank?
+    if session["devise.user_attributes"]
+      new(session["devise.user_attributes"], without_protection: true) do |user|
+        user.attributes = params
+        user.valid?
       end
+    else
+      super
     end
+  end
+
+  def password_required?
+    super && provider.blank?
   end
 end

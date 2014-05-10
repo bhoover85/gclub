@@ -10,9 +10,11 @@
 
       <%= f.input :email, autofocus: true %>
 
-      <%= f.input :password, autocomplete: "off" %>
+      <% if f.object.password_required? %>
+        <%= f.input :password, autocomplete: "off" %>
 
-      <%= f.input :password_confirmation, autocomplete: "off" %>
+        <%= f.input :password_confirmation, autocomplete: "off" %>
+      <% end %>
 
       <%= f.submit "Sign up", class: "btn btn-primary" %>
     <% end %>
@@ -22,5 +24,3 @@
     <%= render "devise/shared/links" %>
   </div>
 </div>
-
-<%= session["devise.user_attributes"] %>
