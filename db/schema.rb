@@ -11,7 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140513150327) do
+ActiveRecord::Schema.define(version: 20140513185744) do
+
+  create_table "games", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "lists", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "lists_games", id: false, force: true do |t|
+    t.integer "list_id"
+    t.integer "game_id"
+  end
 
   create_table "sessions", force: true do |t|
     t.string   "session_id", null: false
