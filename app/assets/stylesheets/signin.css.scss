@@ -1,5 +1,8 @@
 $h1Margin: 20px 0 10px 0;
 $grayVerticalBorder: 1px solid #ccc;
+$facebook: #3b5998;
+$twitter: #0084b4;
+$google: #d34836;
 
 .header-signin {
   margin: $h1Margin;
@@ -9,20 +12,42 @@ $grayVerticalBorder: 1px solid #ccc;
   margin: 10px 0;
 }
 
+  .signin-register-buttons > .btn:first-child {
+    margin-top: 0;
+    margin-bottom: 10px;
+  }
+
 .btn-facebook {
-  background-color: #3b5998;
-  border-color: #3b5998;
+  background-color: $facebook;
+  border-color: $facebook;
 }
+
+  .btn-facebook:hover {
+    background-color: darken($facebook, 10%);
+    border-color: darken($facebook, 10%);
+  }
 
 .btn-twitter {
-  background-color: #0084b4;
-  border-color: #0084b4;
+  background-color: $twitter;
+  border-color: $twitter;
 }
 
+  .btn-twitter:hover {
+    background-color: darken($twitter, 10%);
+    border-color: darken($twitter, 10%);
+  }
+
+
 .btn-google_oauth2 {
-  background-color: #d34836;
-  border-color: #d34836;
+  background-color: $google;
+  border-color: $google;
 }
+
+  .btn-google_oauth2:hover {
+    background-color: darken($google, 10%);
+    border-color: darken($google, 10%);
+  }
+
 
 .gray-vertical-border {
   border-right: $grayVerticalBorder;
