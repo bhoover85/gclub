@@ -1,2 +1,12 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<div class="row">
+  <div class="col-md-12">
+    <h2 class="pull-left">
+      <%= gravatar_for @user, size: 80 %> <%= @user.email %>'s profile
+    </h2>
+    <h2 class="pull-right">
+      <% if user_signed_in? && current_user?(@user) %>
+        <%= link_to "<i class='fa fa-cog'></i> Settings".html_safe, edit_user_registration_path, class: "btn btn-default" %>
+      <% end %>
+    </h2>
+  </div>
+</div>

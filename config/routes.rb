@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   get 'main/index'
-  get 'users/show'
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+  resources :users, :only => [:show]
 
   root 'main#index'
 

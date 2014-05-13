@@ -6,7 +6,7 @@
   <nav class="col-md6 pull-right header-signin">
     <% if user_signed_in? %>
       Logged in as <strong><%= current_user.email %></strong>.
-      <%= link_to "<i class='fa fa-user'></i> Profile".html_safe, edit_user_registration_path, class: "btn btn-default" %> 
+      <%= link_to "<i class='fa fa-user'></i> Profile".html_safe, current_user, class: "btn btn-default" %> 
       <%= link_to "<i class='fa fa-sign-out'></i> Logout".html_safe, destroy_user_session_path, method: :delete, class: "btn btn-primary" %>
     <% else %>
       <%= link_to "<i class='fa fa-plus'></i> Sign up".html_safe, new_user_registration_path, class: "btn btn-success" %> 
