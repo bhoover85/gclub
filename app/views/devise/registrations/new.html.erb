@@ -8,6 +8,7 @@
 
     <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
 
+<<<<<<< HEAD
       <% if !f.object.password_required? %>
         <% flash[:alert] = "Please enter an email address to complete your registration." %>
       <% end %>
@@ -21,6 +22,15 @@
       <% end %>
 
       <%= f.submit "Sign up", class: "btn btn-primary" %>
+=======
+      <%= f.input :email, autofocus: true %>
+
+      <%= f.input :password, autocomplete: "off" %>
+
+      <%= f.input :password_confirmation, autocomplete: "off" %>
+
+      <%= f.submit "Submit", class: "btn btn-primary" %>
+>>>>>>> signup
     <% end %>
   </div>
 
