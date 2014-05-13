@@ -4,11 +4,6 @@
 
 @import "bootstrap";
 
-/* mixins, variables, etc. */
-
-$h1Margin: 20px 0 10px 0;
-$grayVerticalBorder: 1px solid #ccc;
-
 /* links */
 
 a, input {
@@ -28,31 +23,4 @@ header a:hover   { text-decoration: none }
 
 body {
   font-family: 'Open Sans', 'sans-serif';
-}
-
-.signin {
-  margin: $h1Margin;
-}
-
-.signin-register-buttons > .btn {
-  margin: 10px 0;
-}
-
-.btn-facebook {
-  background-color: #3b5998;
-  border-color: #3b5998;
-}
-
-.btn-twitter {
-  background-color: #0084b4;
-  border-color: #0084b4;
-}
-
-.btn-google_oauth2 {
-  background-color: #d34836;
-  border-color: #d34836;
-}
-
-.gray-vertical-border {
-  border-right: $grayVerticalBorder;
 }
