@@ -24,13 +24,19 @@
     
       <% if provider.to_s == "facebook" %>
         <% icon = 'fa-facebook-square' %>
+        <% providerName = 'Facebook' %>
       <% elsif provider.to_s == "twitter" %>
         <% icon = 'fa-twitter' %>
+        <% providerName = 'Twitter' %>
+      <% elsif provider.to_s == "google_oauth2" %>
+        <% icon = 'fa-google-plus' %>
+        <% providerName = 'Google' %>
       <% elsif provider.to_s == "steam" %>
         <% icon = 'fa-sign-in' %>
+        <% providerName = 'Steam' %>
       <% end %>
 
-      <%= link_to "<i class='fa #{icon} fa-2x'></i> Sign in with #{provider.to_s.titleize}".html_safe, omniauth_authorize_path(resource_name, provider), class: "btn btn-primary btn-lg btn-#{provider}" %><br />
+      <%= link_to "<i class='fa #{icon} fa-2x'></i> Sign in with #{providerName}".html_safe, omniauth_authorize_path(resource_name, provider), class: "btn btn-primary btn-lg btn-#{provider}" %><br />
     <% end -%>
   <% end -%>
 </div>
