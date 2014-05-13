@@ -61,6 +61,7 @@ gem 'activerecord-session_store'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-twitter'
+gem 'omniauth-steam'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0.beta'

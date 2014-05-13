@@ -26,6 +26,8 @@
         <% icon = 'fa-facebook-square' %>
       <% elsif provider.to_s == "twitter" %>
         <% icon = 'fa-twitter' %>
+      <% elsif provider.to_s == "steam" %>
+        <% icon = 'fa-sign-in' %>
       <% end %>
 
       <%= link_to "<i class='fa #{icon} fa-2x'></i> Sign in with #{provider.to_s.titleize}".html_safe, omniauth_authorize_path(resource_name, provider), class: "btn btn-primary btn-lg btn-#{provider}" %><br />
