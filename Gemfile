@@ -62,7 +62,10 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-twitter'
 gem 'omniauth-steam'
-gem "omniauth-google-oauth2"
+gem 'omniauth-google-oauth2'
+
+# Unirest for Metacritic API
+gem 'unirest', :require => 'unirest'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0.beta'

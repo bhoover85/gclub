@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140514131553) do
+ActiveRecord::Schema.define(version: 20140514163930) do
 
   create_table "games", force: true do |t|
     t.string   "name"
@@ -20,9 +20,11 @@ ActiveRecord::Schema.define(version: 20140514131553) do
     t.integer  "year"
     t.text     "description"
     t.string   "genre"
+    t.string   "platform"
   end
 
   add_index "games", ["genre"], name: "index_games_on_genre"
+  add_index "games", ["platform"], name: "index_games_on_platform"
   add_index "games", ["year"], name: "index_games_on_year"
 
   create_table "lists", force: true do |t|

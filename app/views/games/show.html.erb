@@ -1,4 +1,5 @@
 <% provide(:title, @game.name) %>
+<% metacritic_info(@game.name, @game.platform) %>
 
 <div class="row">
   <div class="col-md-12">
@@ -9,9 +10,11 @@
 <div class="row">
   <aside class="col-md-4">
     <section>
-      <div class="game-info">Name: <%= @game.name %></div>
-      <div class="game-info">Year: <%= @game.year %></div>
-      <div class="game-info">Year: <%= @game.platform %></div>
+      <div class="pull-left"><%= image_tag(@thumbnail) %></div>
+      <div class="game-info">Name: <%= @name %></div>
+      <div class="game-info">Release Date: <%= @rlsdate %></div>
+      <div class="game-info">Platform: <%= @platform %></div>
+      <div class="game-info">Score: <%= @score %></div>
       <div class="game-info">Description: <%= @game.description %></div>
     </section>
   </aside>
