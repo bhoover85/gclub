@@ -1,9 +1,13 @@
 class GamesController < ApplicationController
   before_action :authenticate_user!
-  before_action :admin_user, only: [:edit, :updat, :destroy]
+  before_action :admin_user, only: [:new, :edit, :update, :destroy]
 
   def index
     @games = Game.paginate(page: params[:page])
+  end
+
+  def new
+    @game = Game.new
   end
 
   private

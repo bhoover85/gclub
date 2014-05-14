@@ -11,13 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140513185744) do
+ActiveRecord::Schema.define(version: 20140514131553) do
 
   create_table "games", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "year"
+    t.text     "description"
+    t.string   "genre"
   end
+
+  add_index "games", ["genre"], name: "index_games_on_genre"
+  add_index "games", ["year"], name: "index_games_on_year"
 
   create_table "lists", force: true do |t|
     t.string   "name"
