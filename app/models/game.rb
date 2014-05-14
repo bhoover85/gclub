@@ -3,4 +3,5 @@ class Game < ActiveRecord::Base
   validates :year, presence: true
   validates :description, presence: true
   validates :genre, presence: true
+  validates :platform, presence: true
 end
