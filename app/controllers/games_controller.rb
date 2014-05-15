@@ -24,6 +24,20 @@ class GamesController < ApplicationController
     end
   end
 
+  def edit
+    @game = Game.find(params[:id])
+  end
+
+  def update
+    @game = Game.find(params[:id])
+    if @game.update_attributes(game_params)
+      flash[:success] = "Game updated"
+      redirect_to @game
+    else
+      render 'edit'
+    end
+  end
+
   private
 
     def game_params

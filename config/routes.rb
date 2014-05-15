@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
   root 'main#index'
   match '/admin', to: 'admin#index', via: 'get'
+  get 'games/:id/edit' => 'games#edit', as: :edit
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
