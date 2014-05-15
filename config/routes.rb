@@ -3,11 +3,12 @@ Rails.application.routes.draw do
   get 'admin/index'
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
-  resources :users, :only => [:show]
+  resources :users, :only => [:index, :show]
   resources :games
 
   root 'main#index'
   match '/admin', to: 'admin#index', via: 'get'
+
   get 'games/:id/edit' => 'games#edit', as: :edit
 
   # The priority is based upon order of creation: first created -> highest priority.
