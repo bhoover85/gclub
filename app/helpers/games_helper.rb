@@ -10,6 +10,10 @@ module GamesHelper
       platform = 2
     when "pc"
       platform = 3
+    when "wii"
+      platform = 8
+    when "wii u"
+      platform = 68410
     when "playstation 4"
       platform = 72496
     when "xbox one"
