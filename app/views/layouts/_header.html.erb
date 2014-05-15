@@ -5,7 +5,7 @@
 
   <nav class="col-md6 pull-right header-signin">
     <% if user_signed_in? %>
-      Logged in as <strong><%= current_user.email %></strong>.
+      Logged in as <strong><%= current_user.email %></strong>
       <% if current_user.admin? %>
         <%= link_to "<i class='fa fa-gavel'></i> Admin".html_safe, admin_index_path, class: "btn btn-default" %> 
       <% end %>
