@@ -1,5 +1,8 @@
+<% metacritic_info(game.name, game.platform) %>
+
 <li>
   <div class="pull-left">
+    <%= image_tag(@thumbnail, size: "49x69") %>
     <%= link_to game.name, game %>
   </div>
   <div class="pull-right">
