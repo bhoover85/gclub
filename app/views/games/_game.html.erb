@@ -5,6 +5,9 @@
   <div class="pull-right">
     <% if current_user.admin? %>
       <%= link_to "<i class='fa fa-pencil'></i> Edit".html_safe, edit_url(id: game.id), class: "btn btn-default" %>
+      <%= link_to "<i class='fa fa-ban'></i> Delete".html_safe, game, class: "btn btn-danger", 
+        method: :delete, 
+        data: { confirm: "You sure?" }  %>
     <% end %>
   </div>  
 </li>
