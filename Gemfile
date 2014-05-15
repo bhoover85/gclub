@@ -67,6 +67,9 @@ gem 'omniauth-google-oauth2'
 # Unirest for Metacritic API
 gem 'unirest', :require => 'unirest'
 
+# Figaro
+gem 'figaro'
+
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0.beta'
   gem 'rspec-its'
