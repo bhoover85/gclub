@@ -1,0 +1,12 @@
+<div class="pull-left"><%= image_tag(@thumbnail, class: "game-thumbnail") %></div>
+<div>Release Date: <%= @release_date %></div>
+<div>Platform: <%= @platform %></div>
+<div>Metacritic Score: <%= @score %></div>
+<div>Publisher: <%= @publisher %></div>
+
+<div class="clearfix"></div>
+
+<section>
+  <h3>Description</h3>
+  <p><%= @review.html_safe %></p>
+</section>

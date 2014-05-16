@@ -15,22 +15,32 @@ module GamesHelper
       'Keywords'    => "#{name} #{platform}"
     }
 
-    res = req.item_search(query: params).to_h
-    res = res['ItemSearchResponse']['Items']['Item'].first['ASIN']
+    asin = req.item_search(query: params).to_h
+    @asin = asin['ItemSearchResponse']['Items']['Item'].first['ASIN']
 
     params = {
-      'ItemId' => res,
-      'ResponseGroup' => response,
-      'MerchantId' => 'Amazon'
+      'ItemId'        => @asin,
+      'Condition'     => 'All',
+      'ResponseGroup' => response
     }
 
     @res = req.item_lookup(query: params).to_h
 
-    item_attributes = @res['ItemLookupResponse']['Items']['Item']['ItemAttributes']
     editorial_review = @res['ItemLookupResponse']['Items']['Item']['EditorialReviews']['EditorialReview']
-    
-    @rlsdate = item_attributes['ReleaseDate']
-    @review = editorial_review['Content']
+    item_attributes  = @res['ItemLookupResponse']['Items']['Item']['ItemAttributes']
+    offer_summary    = @res['ItemLookupResponse']['Items']['Item']['OfferSummary']
+    item_link        = @res['ItemLookupResponse']['Items']['Item']['ItemLinks']['ItemLink']
+
+    @release_date    = item_attributes['ReleaseDate']
+    @publisher       = item_attributes['Publisher']
+    @list_price      = item_attributes['ListPrice']['FormattedPrice']
+    @review          = editorial_review['Content']
+    @lowest_price    = offer_summary['LowestNewPrice']['FormattedPrice']
+    @savings         = number_to_currency(@list_price.gsub(/[^\d\.]/, '').to_f - @lowest_price.gsub(/[^\d\.]/, '').to_f)
+
+    if item_link[3]['Description'] == "Add To Wishlist"
+      @add_to_wishlist = item_link[3]['URL']
+    end
   end
 
 
@@ -68,7 +78,7 @@ module GamesHelper
     @score     = response.body['result']['score']
     # @rlsdate   = response.body['result']['rlsdate']
     @platform  = response.body['result']['platform']
-    @publisher = response.body['result']['publisher']
+    # @publisher = response.body['result']['publisher']
     @developer = response.body['result']['developer']
     @genre     = response.body['result']['genre']
   end
