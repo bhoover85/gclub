@@ -27,7 +27,10 @@ module GamesHelper
     @res = req.item_lookup(query: params).to_h
 
     item_attributes = @res['ItemLookupResponse']['Items']['Item']['ItemAttributes']
+    editorial_review = @res['ItemLookupResponse']['Items']['Item']['EditorialReviews']['EditorialReview']
+    
     @rlsdate = item_attributes['ReleaseDate']
+    @review = editorial_review['Content']
   end
 
 

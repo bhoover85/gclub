@@ -12,15 +12,22 @@
 </div>
 
 <div class="row">
-  <aside class="col-md-4">
+  <div class="col-md-8">
+    <div class="pull-left"><%= image_tag(@thumbnail) %></div>
+    <div class="game-info">Release Date: <%= @rlsdate %></div>
+    <div class="game-info">Platform: <%= @platform %></div>
+    <div class="game-info">Metacritic Score: <%= @score %></div>
+
+    <div class="clearfix"></div>
+
     <section>
-      <div class="pull-left"><%= image_tag(@thumbnail) %></div>
-      <div class="game-info">Release Date: <%= @rlsdate %></div>
-      <div class="game-info">Platform: <%= @platform %></div>
-      <div class="game-info">Score: <%= @score %></div>
-      <div class="game-info">Description: <%= @game.description %></div>
+      <%= @review.html_safe %>
     </section>
-  </aside>
+  </div>
+
+  <div class="col-md-4">
+    Amazon
+  </div>
 </div>
 
 <pre>
