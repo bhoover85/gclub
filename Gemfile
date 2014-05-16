@@ -70,6 +70,8 @@ gem 'unirest', :require => 'unirest'
 # Figaro
 gem 'figaro'
 
+gem 'vacuum'
+
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0.beta'
   gem 'rspec-its'

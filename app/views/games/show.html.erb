@@ -1,6 +1,10 @@
 <% provide(:title, @game.name) %>
 <% metacritic_info(@game.name, @game.platform) %>
 
+<% amazon_info(@game.name, @game.platform, "Accessories, EditorialReview, Images, ItemAttributes, OfferSummary, Reviews, SalesRank, Similarities, VariationImages") %>
+
+<%= @item_attributes %>
+
 <div class="row">
   <div class="col-md-12">
     <h1 class="pull-left"><%= @game.name %></h1>
@@ -11,7 +15,6 @@
   <aside class="col-md-4">
     <section>
       <div class="pull-left"><%= image_tag(@thumbnail) %></div>
-      <div class="game-info">Name: <%= @name %></div>
       <div class="game-info">Release Date: <%= @rlsdate %></div>
       <div class="game-info">Platform: <%= @platform %></div>
       <div class="game-info">Score: <%= @score %></div>
@@ -19,3 +22,7 @@
     </section>
   </aside>
 </div>
+
+<pre>
+<%= raw JSON.pretty_generate(@res).gsub(" ","&nbsp;") %>
+</pre>

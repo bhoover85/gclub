@@ -1,9 +1,10 @@
-<% metacritic_info(game.name, game.platform) %>
+<%# metacritic_info(game.name, game.platform) %>
 
 <li>
   <div class="pull-left">
-    <%= image_tag(@thumbnail, size: "49x69") %>
-    <%= link_to game.name, game %>
+    <%#= image_tag(@thumbnail, size: "49x69") %>
+    <h4><%= link_to game.name, game %></h4>
+    <%= @rlsdate %>
   </div>
   <div class="pull-right">
     <% if current_user.admin? %>
