@@ -1,7 +1,7 @@
 module GamesHelper
 
-  # Get product information from Amazon.
-  def amazon_info(name, platform, response)
+  # Vacuum config for Amazon API
+  def req_config
     req = Vacuum.new
 
     req.configure(
@@ -9,6 +9,11 @@ module GamesHelper
       aws_secret_access_key: ENV["AMAZON_KEY"],
       associate_tag:         ENV["AMAZON_TAG"]
     )
+  end
+
+  # Amazon item search
+  def item_search(name, platform)
+    req = req_config()
 
     params = {
       'SearchIndex' => 'VideoGames',
@@ -17,29 +22,41 @@ module GamesHelper
 
     asin = req.item_search(query: params).to_h
     @asin = asin['ItemSearchResponse']['Items']['Item'].first['ASIN']
+  end
+
+  # Amazon item lookup
+  def item_lookup(asin, response)
+    req = req_config()
 
     params = {
-      'ItemId'        => @asin,
+      'ItemId'        => asin,
       'Condition'     => 'All',
       'ResponseGroup' => response
     }
 
     @res = req.item_lookup(query: params).to_h
+    @res = @res['ItemLookupResponse']['Items']['Item']
 
-    editorial_review = @res['ItemLookupResponse']['Items']['Item']['EditorialReviews']['EditorialReview']
-    item_attributes  = @res['ItemLookupResponse']['Items']['Item']['ItemAttributes']
-    offer_summary    = @res['ItemLookupResponse']['Items']['Item']['OfferSummary']
-    item_link        = @res['ItemLookupResponse']['Items']['Item']['ItemLinks']['ItemLink']
+    editorial_review = @res['EditorialReviews']['EditorialReview']
+    item_attributes  = @res['ItemAttributes']
+    offer_summary    = @res['OfferSummary']
+    item_link        = @res['ItemLinks']['ItemLink']
+    similar_products = @res['SimilarProducts']['SimilarProduct']
 
-    @release_date    = item_attributes['ReleaseDate']
-    @publisher       = item_attributes['Publisher']
-    @list_price      = item_attributes['ListPrice']['FormattedPrice']
-    @review          = editorial_review['Content']
-    @lowest_price    = offer_summary['LowestNewPrice']['FormattedPrice']
-    @savings         = number_to_currency(@list_price.gsub(/[^\d\.]/, '').to_f - @lowest_price.gsub(/[^\d\.]/, '').to_f)
+    @release_date     = item_attributes['ReleaseDate']
+    @publisher        = item_attributes['Publisher']
+    @list_price       = item_attributes['ListPrice']['FormattedPrice']
+    @review           = editorial_review['Content']
+    @lowest_price     = offer_summary['LowestNewPrice']['FormattedPrice']
+    @savings          = number_to_currency(@list_price.gsub(/[^\d\.]/, '').to_f - @lowest_price.gsub(/[^\d\.]/, '').to_f)
+    @similar_products = similar_products
 
-    if item_link[3]['Description'] == "Add To Wishlist"
-      @add_to_wishlist = item_link[3]['URL']
+    x=0
+    item_link.each do |item|
+      if item_link[x]['Description'] == "Add To Wishlist"
+        @add_to_wishlist = item_link[x]['URL']
+      end
+      x+=1
     end
   end
 
