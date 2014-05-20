@@ -43,6 +43,7 @@ module GamesHelper
     item_link        = @res['ItemLinks']['ItemLink']
     similar_products = @res['SimilarProducts']['SimilarProduct']
 
+    # Session variables for view
     @release_date     = item_attributes['ReleaseDate']
     @publisher        = item_attributes['Publisher']
     @list_price       = item_attributes['ListPrice']['FormattedPrice']
@@ -58,6 +59,20 @@ module GamesHelper
       end
       x+=1
     end
+  end
+
+  # Return similar product URLs of current game
+  def similar_products_url(asin)
+    req = req_config()
+
+    params = {
+      'ItemId'        => asin,
+      'Condition'     => 'All'
+    }
+
+    res = req.item_lookup(query: params).to_h
+
+    return res['ItemLookupResponse']['Items']['Item']['DetailPageURL']
   end
 
 

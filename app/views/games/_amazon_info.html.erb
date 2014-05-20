@@ -9,5 +9,5 @@
 
 <h3>Similar</h3>
 <% @similar_products.each do |product| %>
-  <div><%= product['Title'] %></div>
+  <div><%= link_to product['Title'], similar_products_url(product['ASIN']) %></div>
 <% end %>
