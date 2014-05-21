@@ -7,7 +7,8 @@ Rails.application.routes.draw do
   resources :games
 
   root 'main#index'
-  match '/admin', to: 'admin#index', via: 'get'
+  match '/admin',      to: 'admin#index', via: 'get'
+  match '/year/:year', to: 'main#index',  via: 'get'
 
   get 'games/:id/edit' => 'games#edit', as: :edit
 
