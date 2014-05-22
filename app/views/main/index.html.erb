@@ -2,12 +2,13 @@
 
 <div>
   Select year: 
+  <%= link_to "All",  root_url %>
   <%= link_to "2013", '/year/2013' %>
   <%= link_to "2014", '/year/2014' %>
 </div>
 
-<h1>Games</h1>
-
-<ul class="games">
-  <%= render @games %>
-</ul>
+<div class="col-md-8">
+  <ul class="games">
+    <%= render @games %>
+  </ul>
+</div>
