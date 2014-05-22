@@ -1,17 +1,17 @@
-<%# metacritic_info(game.name, game.platform) %>
+<% metacritic_info(game.name, game.platform) %>
 
 <li>
   <div class="pull-left">
-    <%#= image_tag(@thumbnail, size: "49x69") %>
+    <%= image_tag(@thumbnail, size: "49x69") %>
     <h4><%= link_to game.name, game %></h4>
     <%= @rlsdate %>
   </div>
-  <div class="pull-right">
-    <% if current_user.admin? %>
-      <%= link_to "<i class='fa fa-pencil'></i> Edit".html_safe, edit_url(id: game.id), class: "btn btn-default" %>
-      <%= link_to "<i class='fa fa-ban'></i> Delete".html_safe, game, class: "btn btn-danger", 
-        method: :delete, 
-        data: { confirm: "You sure?" }  %>
-    <% end %>
-  </div>  
+  <% if user_signed_in? && current_user.admin? %>
+    <div class="pull-right">
+        <%= link_to "<i class='fa fa-pencil'></i> Edit".html_safe, edit_url(id: game.id), class: "btn btn-default" %>
+        <%= link_to "<i class='fa fa-ban'></i> Delete".html_safe, game, class: "btn btn-danger", 
+          method: :delete, 
+          data: { confirm: "You sure?" }  %>
+    </div>  
+  <% end %>
 </li>
