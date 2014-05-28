@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140528135646) do
+ActiveRecord::Schema.define(version: 20140528165623) do
 
   create_table "games", force: true do |t|
     t.string   "name"
@@ -26,6 +26,11 @@ ActiveRecord::Schema.define(version: 20140528135646) do
   add_index "games", ["genre"], name: "index_games_on_genre"
   add_index "games", ["platform"], name: "index_games_on_platform"
   add_index "games", ["year"], name: "index_games_on_year"
+
+  create_table "games_wishlists", id: false, force: true do |t|
+    t.integer "wishlist_id"
+    t.integer "game_id"
+  end
 
   create_table "sessions", force: true do |t|
     t.string   "session_id", null: false
@@ -62,11 +67,9 @@ ActiveRecord::Schema.define(version: 20140528135646) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
 
-  create_table "wishlists_games", id: false, force: true do |t|
-    t.integer "wishlist_id"
-    t.integer "game_id"
-  end
+  add_index "wishlists", ["user_id"], name: "index_wishlists_on_user_id"
 
 end

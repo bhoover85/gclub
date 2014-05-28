@@ -3,7 +3,14 @@ Rails.application.routes.draw do
   get 'admin/index'
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
-  resources :users, :only => [:index, :show]
+  
+  resources :users, :only => [:index, :show] do
+    member do
+      get :wishlist
+    end
+  end
+  
+
   resources :games
 
   root 'main#index'

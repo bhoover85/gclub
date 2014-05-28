@@ -8,4 +8,10 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
   end
+
+  def wishlist
+    @user = User.find(params[:id])
+    @wishlist = @user.wishlist
+    render 'wishlist'
+  end
 end
