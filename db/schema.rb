@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140514163930) do
+ActiveRecord::Schema.define(version: 20140528135646) do
 
   create_table "games", force: true do |t|
     t.string   "name"
@@ -26,17 +26,6 @@ ActiveRecord::Schema.define(version: 20140514163930) do
   add_index "games", ["genre"], name: "index_games_on_genre"
   add_index "games", ["platform"], name: "index_games_on_platform"
   add_index "games", ["year"], name: "index_games_on_year"
-
-  create_table "lists", force: true do |t|
-    t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "lists_games", id: false, force: true do |t|
-    t.integer "list_id"
-    t.integer "game_id"
-  end
 
   create_table "sessions", force: true do |t|
     t.string   "session_id", null: false
@@ -68,5 +57,16 @@ ActiveRecord::Schema.define(version: 20140514163930) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+
+  create_table "wishlists", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "wishlists_games", id: false, force: true do |t|
+    t.integer "wishlist_id"
+    t.integer "game_id"
+  end
 
 end
