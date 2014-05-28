@@ -7,7 +7,7 @@ namespace :db do
 end
 
 def create_users
-  49.times do |n|
+  9.times do |n|
     name  = Faker::Name.name
     email = "example-#{n+1}@example.com"
     password  = "password"

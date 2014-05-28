@@ -20,6 +20,8 @@
   </div>
 </div>
 
-<!-- <pre> -->
-<%#= raw JSON.pretty_generate(@res).gsub(" ","&nbsp;") %>
-<!-- </pre> -->
+<% if Rails.env.development? %>
+  <pre>
+  <%= raw JSON.pretty_generate(@res).gsub(" ","&nbsp;") %>
+  </pre>
+<% end %>
