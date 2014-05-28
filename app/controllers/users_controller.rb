@@ -11,6 +11,7 @@ class UsersController < ApplicationController
 
   def wishlist
     @user = User.find(params[:id])
+    @wishlist = Wishlist.find_or_create_by(user_id: current_user.id)
     @wishlist = @user.wishlist
     render 'wishlist'
   end
