@@ -1,9 +1,3 @@
 <% provide(:title, "Wishlist") %>
 
-<% if @wishlist %>
-  <div class="user_avatars">
-    <% @wishlist.games.each do |game| %>
-      asdf
-    <% end %>
-  </div>
-<% end %>
+<%= render 'users/wishlist' %>
