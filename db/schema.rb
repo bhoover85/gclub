@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140528220134) do
+ActiveRecord::Schema.define(version: 20140528222720) do
 
   create_table "games", force: true do |t|
     t.string   "name"
@@ -58,24 +58,15 @@ ActiveRecord::Schema.define(version: 20140528220134) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 
-  create_table "wishes", id: false, force: true do |t|
-    t.integer  "wishlist_id"
-    t.integer  "game_id"
+  create_table "wishlists", id: false, force: true do |t|
+    t.integer  "wisher_id"
+    t.integer  "wished_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "wishes", ["game_id", "wishlist_id"], name: "index_wishes_on_game_id_and_wishlist_id", unique: true
-  add_index "wishes", ["game_id"], name: "index_wishes_on_game_id"
-  add_index "wishes", ["wishlist_id"], name: "index_wishes_on_wishlist_id"
-
-  create_table "wishlists", force: true do |t|
-    t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "user_id"
-  end
-
-  add_index "wishlists", ["user_id"], name: "index_wishlists_on_user_id"
+  add_index "wishlists", ["wished_id", "wisher_id"], name: "index_wishlists_on_wished_id_and_wisher_id", unique: true
+  add_index "wishlists", ["wished_id"], name: "index_wishlists_on_wished_id"
+  add_index "wishlists", ["wisher_id"], name: "index_wishlists_on_wisher_id"
 
 end

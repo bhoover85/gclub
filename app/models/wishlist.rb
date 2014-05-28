@@ -1,4 +1,4 @@
 class Wishlist < ActiveRecord::Base
-  belongs_to :user
-  has_many :wishes, foreign_key: "game_id", dependent: :destroy
+  belongs_to :wisher, class_name: "User"
+  belongs_to :wished, class_name: "Game"
 end

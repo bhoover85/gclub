@@ -2,7 +2,7 @@ class Game < ActiveRecord::Base
   include Filterable
   scope :year, -> (year) { where year: year }
 
-  has_many :wishlists
+  has_many :wishlists, foreign_key: "wished_id", dependent: :destroy
   
   validates :name, presence: true
   validates :year, presence: true
