@@ -6,12 +6,15 @@ Rails.application.routes.draw do
   
   resources :users, :only => [:index, :show] do
     member do
-      get :wishlist
+      get :wished_games
     end
   end
-  
 
-  resources :games
+  resources :games do
+    member do
+      get :wishers
+    end
+  end
 
   root 'main#index'
   match '/admin',      to: 'admin#index', via: 'get'
