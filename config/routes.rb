@@ -16,6 +16,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :wishlists, :only => [:create, :destroy]
+
   root 'main#index'
   match '/admin',      to: 'admin#index', via: 'get'
   match '/year/:year', to: 'main#index',  via: 'get'
