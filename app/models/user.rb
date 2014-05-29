@@ -36,7 +36,7 @@ class User < ActiveRecord::Base
   end
 
   # Check if game is in user wishlist
-  def in_wishlist?(game)
+  def wished?(game)
     wishlists.find_by(wished_id: game.id)
   end
 

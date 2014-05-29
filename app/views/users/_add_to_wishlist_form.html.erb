@@ -1,0 +1,7 @@
+<div id="wishlist_form">
+  <% if current_user.wished?(@game) %>
+    <%= render 'remove_from_wishlist' %>
+  <% else %>
+    <%= render 'add_to_wishlist' %>
+  <% end %>
+</div>
