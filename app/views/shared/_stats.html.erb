@@ -1,0 +1,9 @@
+<% @user ||= current_user %>
+<div class="stats">
+  <a href="<%= wished_games_user_path(@user) %>">
+    <strong id="wished" class="stat">
+      <%= @user.wished_games.count %>
+    </strong>
+    wished
+  </a>
+</div>

@@ -13,4 +13,11 @@
       <%= render @games %>
     </ul>
   </div>
+
+  <div class="col-md-4">
+    <% if user_signed_in? %>
+      <%= render 'shared/user_info' %>
+      <%= render 'shared/stats' %>
+    <% end %>
+  </div>
 </div>
