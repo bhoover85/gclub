@@ -3,6 +3,7 @@ namespace :db do
   task populate: :environment do
     create_users
     create_games
+    create_wishlists
   end
 end
 
@@ -43,4 +44,15 @@ def create_games
                       monitor and hack all who surround you while manipulating the city's systems to stop traffic lights, download 
                       personal information, manipulate the electrical grid and more. Use the entire city of Chicago as your personal 
                       weapon and exact your signature brand of revenge.")
+end
+
+def create_wishlists
+  users  = User.all
+  games = Game.all
+
+  user = users.first
+
+  games.each do |game|
+    user.add_to_wishlist!(game)
+  end
 end
