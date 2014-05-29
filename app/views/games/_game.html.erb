@@ -8,6 +8,7 @@
     </div>
     <% if user_signed_in? %>
         <div class="pull-left">
+          <% @game = game %>
           <%= render 'games/wishlist_form' %>
         </div>
       <% if current_user.admin? %>
