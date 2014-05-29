@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
   devise :omniauthable, :omniauth_providers => [:facebook, :twitter, :google_oauth2]
 
   has_many :wishlists, foreign_key: "wisher_id", dependent: :destroy
+  has_many :wished_games, through: :wishlists, source: :wished
 
   def self.find_for_oauth(auth)
     where(auth.slice(:provider, :uid)).first_or_create do |user|
@@ -32,5 +33,20 @@ class User < ActiveRecord::Base
 
   def password_required?
     super && provider.blank?
+  end
+
+  # Check if game is in user wishlist
+  def in_wishlist?(game)
+    wishlists.find_by(wished_id: game.id)
+  end
+
+  # Add game to wishlist
+  def add_to_wishlist!(game)
+    wishlists.create!(wished_id: game.id)
+  end
+
+  # Remove game from wishlist
+  def remove_from_wishlist!(game)
+    wishlists.find_by(wished_id: game.id).destroy
   end
 end
