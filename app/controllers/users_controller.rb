@@ -9,10 +9,10 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
-  def wishlist
+  def wished_games
+    @title = "Wishlist"
     @user = User.find(params[:id])
-    @wishlist = Wishlist.find_or_create_by(user_id: current_user.id)
-    @wishlist = @user.wishlist
+    @games = @user.wished_games.paginate(page: params[:page])
     render 'users/wishlist'
   end
 end

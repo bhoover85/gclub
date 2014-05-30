@@ -19,8 +19,9 @@ Rails.application.routes.draw do
   resources :wishlists, :only => [:create, :destroy]
 
   root 'main#index'
-  match '/admin',      to: 'admin#index', via: 'get'
-  match '/year/:year', to: 'main#index',  via: 'get'
+  match '/admin',              to: 'admin#index', via: 'get'
+  match '/year/:year',         to: 'main#index',  via: 'get'
+  match '/users/:id/wishlist', to: 'users#wished_games',  via: 'get'
 
   get 'games/:id/edit' => 'games#edit', as: :edit
 
