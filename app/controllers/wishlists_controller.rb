@@ -1,20 +1,20 @@
 class WishlistsController < ApplicationController
-  before_action :signed_in_user
+  before_action :authenticate_user!
 
   def create
-    @user = User.find(params[:wishlist][:wished_id])
-    current_user.follow!(@game)
+    @game = User.find(params[:wishlist][:wished_id])
+    current_user.add_to_wishlist!(@game)
     respond_to do |format|
-      format.html { redirect_to @game }
+      format.html { redirect_to :back }
       format.js
     end
   end
 
   def destroy
-    @user = Wishlist.find(params[:id]).wished
-    current_user.unfollow!(@game)
+    @game = Wishlist.find(params[:id]).wished
+    current_user.remove_from_wishlist!(@game)
     respond_to do |format|
-      format.html { redirect_to @game }
+      format.html { redirect_to :back }
       format.js
     end
   end
