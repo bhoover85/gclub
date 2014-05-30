@@ -2,7 +2,7 @@ class WishlistsController < ApplicationController
   before_action :authenticate_user!
 
   def create
-    @game = User.find(params[:wishlist][:wished_id])
+    @game = Game.find(params[:wishlist][:wished_id])
     current_user.add_to_wishlist!(@game)
     respond_to do |format|
       format.html { redirect_to :back }

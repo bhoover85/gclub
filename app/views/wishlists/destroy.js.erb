@@ -1,0 +1,4 @@
+<% wishlist_form_id = "wishlist_form_#{@game.id}" %>
+
+$(".<%= wishlist_form_id %>").html("<%= escape_javascript(render('games/add_to_wishlist')) %>")
+$("#wished").html('<%= current_user.wished_games.count %>')
