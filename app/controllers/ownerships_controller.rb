@@ -1,9 +1,9 @@
-class WishlistsController < ApplicationController
+class OwnershipsController < ApplicationController
   before_action :authenticate_user!
 
   def create
-    @game = Game.find(params[:wishlist][:wished_id])
-    current_user.add_to_wishlist!(@game)
+    @game = Game.find(params[:ownership][:owned_id])
+    current_user.add_to_library!(@game)
     respond_to do |format|
       format.html { redirect_to :back }
       format.js
@@ -11,8 +11,8 @@ class WishlistsController < ApplicationController
   end
 
   def destroy
-    @game = Wishlist.find(params[:id]).wished
-    current_user.remove_from_wishlist!(@game)
+    @game = Ownership.find(params[:id]).owned
+    current_user.remove_from_library!(@game)
     respond_to do |format|
       format.html { redirect_to :back }
       format.js

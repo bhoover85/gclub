@@ -6,8 +6,13 @@ class User < ActiveRecord::Base
 
   devise :omniauthable, :omniauth_providers => [:facebook, :twitter, :google_oauth2]
 
+  # Wishlist relationship
   has_many :wishlists, foreign_key: "wisher_id", dependent: :destroy
   has_many :wished_games, through: :wishlists, source: :wished
+
+  # Ownership (Library) relationship
+  has_many :ownerships, foreign_key: "owner_id", dependent: :destroy
+  has_many :owned_games, through: :ownerships, source: :owned
 
   def self.find_for_oauth(auth)
     where(auth.slice(:provider, :uid)).first_or_create do |user|
@@ -48,5 +53,20 @@ class User < ActiveRecord::Base
   # Remove game from wishlist
   def remove_from_wishlist!(game)
     wishlists.find_by(wished_id: game.id).destroy
+  end
+
+  # Check if game is in user library
+  def owned?(game)
+    ownerships.find_by(owned_id: game.id)
+  end
+
+  # Add game to library
+  def add_to_library!(game)
+    ownerships.create!(owned_id: game.id)
+  end
+
+  # Remove game from library
+  def remove_from_library!(game)
+    ownerships.find_by(owned_id: game.id).destroy
   end
 end
