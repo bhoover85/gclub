@@ -3,7 +3,7 @@
 <li>
     <div class="pull-left">
       <h4><%= link_to game.name, game %></h4>
-      <%= image_tag(@thumbnail, size: "98x138", class: "pull-left game-thumbnail") %>
+      <%= image_tag(game.cover.url(:thumb), class: "pull-left game-thumbnail") %>
       <%= game.description %>
     </div>
     <% if user_signed_in? %>

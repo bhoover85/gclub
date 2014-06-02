@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 4.1.0'
+gem 'rails', '~> 4.1.1'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use SCSS for stylesheets
@@ -72,6 +72,9 @@ gem 'figaro'
 
 # Vacuum
 gem 'vacuum'
+
+# Fix malformed header error (https://github.com/hakanensari/vacuum/issues/46)
+gem 'excon', '0.33.0'
 
 # Paperclip
 gem "paperclip", "~> 4.1"
