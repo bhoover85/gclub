@@ -70,10 +70,14 @@ gem 'unirest', :require => 'unirest'
 # Figaro
 gem 'figaro'
 
+# Vacuum
 gem 'vacuum'
 
+# Paperclip
+gem "paperclip", "~> 4.1"
+
 group :development, :test do
-  gem 'rspec-rails', '~> 3.0.0.beta'
+  gem 'rspec-rails'
   gem 'rspec-its'
   gem 'capybara'
   gem 'faker'
