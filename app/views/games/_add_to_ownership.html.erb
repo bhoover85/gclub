@@ -1,4 +1,4 @@
 <%= form_for(current_user.ownerships.build(owned_id: @game.id), remote: true) do |f| %>
   <div><%= f.hidden_field :owned_id %></div>
-  <%= f.submit "Add to Library", class: "btn btn-large btn-primary" %>
+  <%= f.submit "I own this!", class: "btn btn-large btn-primary" %>
 <% end %>
