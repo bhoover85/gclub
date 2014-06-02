@@ -1,6 +1,6 @@
 <% ownership_form_id = "ownership_form_#{@game.id}" %>
 
-<div class=<%= ownership_form_id %>>
+<div class='<%= ownership_form_id %> inline-block'>
   <% if current_user.owned?(@game) %>
     <%= render 'games/remove_from_ownership' %>
   <% else %>

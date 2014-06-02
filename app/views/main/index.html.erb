@@ -8,16 +8,16 @@
 </div>
 
 <div class="row">
-  <div class="col-md-8">
-    <ul class="games">
-      <%= render @games %>
-    </ul>
-  </div>
-
   <div class="col-md-4">
     <% if user_signed_in? %>
       <%= render 'shared/user_info' %>
       <%= render 'shared/stats' %>
     <% end %>
+  </div>
+
+  <div class="col-md-8">
+    <ul class="games">
+      <%= render @games %>
+    </ul>
   </div>
 </div>

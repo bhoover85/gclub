@@ -14,3 +14,7 @@
  *= require_self
   *= require font-awesome
  */
+
+.inline-block {
+  display: inline-block;
+}
