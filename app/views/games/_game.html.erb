@@ -1,24 +1,14 @@
 <%# metacritic_info(game.name, game.platform) %>
 
+<% @game = game %>
+
 <li>
     <div class="pull-left">
       <h4><%= link_to game.name, game %></h4>
       <%= image_tag(game.cover.url(:thumb), class: "pull-left game-thumbnail") %>
       <%= game.description %>
     </div>
-    <% if user_signed_in? %>
-        <div class="pull-left">
-          <% @game = game %>
-          <%= render 'games/wishlist_form' %>
-          <%= render 'games/ownership_form' %>
-        </div>
-      <% if current_user.admin? %>
-        <div class="pull-right">
-            <%= link_to "<i class='fa fa-pencil'></i> Edit".html_safe, edit_url(id: game.id), class: "btn btn-default" %>
-            <%= link_to "<i class='fa fa-ban'></i> Delete".html_safe, game, class: "btn btn-danger", 
-              method: :delete, 
-              data: { confirm: "You sure?" }  %>
-        </div>  
-      <% end %>
-    <% end %>
+
+    <%= render 'shared/wishlist_ownership_admin_buttons' %>
+    
 </li>
