@@ -38,46 +38,28 @@ gem 'bcrypt', '~> 3.1.7'
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
-# Simple Form
+# Fix malformed header error (https://github.com/hakanensari/vacuum/issues/46)
+gem 'excon', '0.33.0'
+
+# Unirest for Metacritic API
+gem 'unirest', :require => 'unirest'
+
 gem 'simple_form'
-
-# Font Awesome
 gem 'font-awesome-sass'
-
-# Bootstrap Sass
 gem 'bootstrap-sass', '~> 3.1.1'
-
-# Will Paginate
 gem 'will_paginate'
 gem 'bootstrap-will_paginate'
-
-# Devise
 gem 'devise'
-
-# Session Store
 gem 'activerecord-session_store'
-
-# OAuth
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-twitter'
 gem 'omniauth-steam'
 gem 'omniauth-google-oauth2'
-
-# Unirest for Metacritic API
-gem 'unirest', :require => 'unirest'
-
-# Figaro
 gem 'figaro'
-
-# Vacuum
 gem 'vacuum'
-
-# Fix malformed header error (https://github.com/hakanensari/vacuum/issues/46)
-gem 'excon', '0.33.0'
-
-# Paperclip
-gem "paperclip", "~> 4.1"
+gem 'paperclip', '~> 4.1'
+gem 'friendly_id', '~> 5.0.0'
 
 group :development, :test do
   gem 'rspec-rails'

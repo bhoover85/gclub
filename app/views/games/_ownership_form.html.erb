@@ -1,9 +1,11 @@
-<% ownership_form_id = "ownership_form_#{@game.id}" %>
+<% if user_signed_in? %>
+  <% ownership_form_id = "ownership_form_#{@game.id}" %>
 
-<div class='<%= ownership_form_id %> inline-block'>
-  <% if current_user.owned?(@game) %>
-    <%= render 'games/remove_from_ownership' %>
-  <% else %>
-    <%= render 'games/add_to_ownership' %>
-  <% end %>
-</div>
+  <div class='<%= ownership_form_id %> inline-block'>
+    <% if current_user.owned?(@game) %>
+      <%= render 'games/remove_from_ownership' %>
+    <% else %>
+      <%= render 'games/add_to_ownership' %>
+    <% end %>
+  </div>
+<% end %>

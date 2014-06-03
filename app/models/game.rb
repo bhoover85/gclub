@@ -2,6 +2,13 @@ class Game < ActiveRecord::Base
   include Filterable
   scope :year, -> (year) { where year: year }
 
+  extend FriendlyId
+  friendly_id :name_platform, use: :slugged
+
+  def name_platform
+    "#{name} #{platform}"
+  end
+
   has_attached_file :cover, :styles => { :medium => "196x276>", :thumb => "98x138>" }, :default_url => "../assets/images/:style/missing.png"
   validates_attachment_content_type :cover, :content_type => /\Aimage\/.*\Z/
 
