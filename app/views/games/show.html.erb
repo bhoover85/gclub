@@ -1,4 +1,4 @@
-<% provide(:title, @game.name) %>
+<% provide(:title, "#{@game.name} - #{@game.platform}") %>
 
 <% metacritic_info(@game.name, @game.platform) %>
 <% item_search(@game.name, @game.platform) %>

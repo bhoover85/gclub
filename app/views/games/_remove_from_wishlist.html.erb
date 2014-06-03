@@ -1,4 +1,4 @@
 <%= form_for(current_user.wishlists.find_by(wished_id: @game.id),
              html: { method: :delete }, remote: true) do |f| %>
-  <%= f.submit "I don't want this!", class: "btn btn-large btn-danger" %>
+  <%= f.submit "I don't want this!", class: "btn btn-large btn-default" %>
 <% end %>
