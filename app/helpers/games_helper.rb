@@ -47,10 +47,11 @@ module GamesHelper
     @release_date     = item_attributes['ReleaseDate']
     @publisher        = item_attributes['Publisher']
     @list_price       = item_attributes['ListPrice']['FormattedPrice']
-    @review           = editorial_review['Content']
     @lowest_price     = offer_summary['LowestNewPrice']['FormattedPrice']
     @savings          = number_to_currency(@list_price.gsub(/[^\d\.]/, '').to_f - @lowest_price.gsub(/[^\d\.]/, '').to_f)
     @similar_products = similar_products
+
+    @review = (editorial_review.is_a? Array) ? editorial_review.first['Content'] : editorial_review['Content']
 
     x=0
     item_link.each do |item|
