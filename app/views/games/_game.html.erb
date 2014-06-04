@@ -3,12 +3,12 @@
 <% @game = game %>
 
 <li>
-    <div class="pull-left">
+    <section class="pull-left">
       <h4><%= link_to game.name, game %></h4>
       <%= image_tag(game.cover.url(:thumb), class: "pull-left game-thumbnail") %>
       <%= game.description %>
-    </div>
+    </section>
 
     <%= render 'shared/wishlist_ownership_admin_buttons' %>
-    
+
 </li>

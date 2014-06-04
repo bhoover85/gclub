@@ -1,8 +1,8 @@
 <% if user_signed_in? %>
-    <div class="pull-left">
-      <%= render 'games/wishlist_form' %>
-      <%= render 'games/ownership_form' %>
-    </div>
+  <div class="pull-left">
+    <%= render 'games/wishlist_form' %>
+    <%= render 'games/ownership_form' %>
+  </div>
   <% if current_user.admin? %>
     <div class="pull-right">
         <%= link_to "<i class='fa fa-pencil'></i> Edit".html_safe, edit_url(id: @game.id), class: "btn btn-default" %>

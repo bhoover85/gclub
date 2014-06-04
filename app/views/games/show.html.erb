@@ -5,23 +5,22 @@
 <% item_lookup(@asin, "Accessories, EditorialReview, Images, ItemAttributes, OfferSummary, Reviews, SalesRank, Similarities") %>
 
 <div class="row">
-  <div class="col-md-12">
-    <h1 class="pull-left"><%= @game.name %></h1>
+  <div class="col-md-1">
+    <%= render 'shared/user_info' %>
+    <%= render 'shared/stats' %>
   </div>
-</div>
 
-<div class="row">
   <div class="col-md-8">
     <%= render 'games/game_info' %>
   </div>
 
-  <div class="col-md-4">
+  <div class="col-md-3">
     <%= render 'games/amazon_info' %>
   </div>
 </div>
 
-<% if !Rails.env.production? %>
-  <pre>
-  <%= raw JSON.pretty_generate(@res).gsub(" ","&nbsp;") %>
-  </pre>
-<% end %>
+<%# if !Rails.env.production? %>
+  <!-- <pre> -->
+  <%#= raw JSON.pretty_generate(@res).gsub(" ","&nbsp;") %>
+  <!-- </pre> -->
+<%# end %>

@@ -1,11 +1,14 @@
 <div class="row">
+
+  <!-- Left Column -->
   <% if user_signed_in? %>
-    <div class="col-md-2">
-        <%= render 'shared/user_info' %>
-        <%= render 'shared/stats' %>
+    <div class="col-md-1">
+      <%= render 'shared/user_info' %>
+      <%= render 'shared/stats' %>
     </div>
   <% end %>
 
+  <!-- Middle Column -->
   <div class="col-md-8">
     <h3>
       Filter: 
@@ -16,5 +19,10 @@
     <ul class="games">
       <%= render @games %>
     </ul>
+  </div>
+
+  <!-- Right Column -->
+  <div class="col-md-3">
+      
   </div>
 </div>
