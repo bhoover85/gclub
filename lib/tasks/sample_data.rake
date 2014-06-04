@@ -44,6 +44,32 @@ def create_games
                       monitor and hack all who surround you while manipulating the city's systems to stop traffic lights, download 
                       personal information, manipulate the electrical grid and more. Use the entire city of Chicago as your personal 
                       weapon and exact your signature brand of revenge.")
+
+game = Game.create!(name: "Grand Theft Auto V",
+                      year: "2013",
+                      genre: "Modern",
+                      platform: "Xbox 360",
+                      description: "Los Santos is a sprawling sun-soaked metropolis full of self-help gurus, starlets and once-important 
+                      stars. The city was once the envy of the Western world, but is now struggling to stay relevant in an era of economic 
+                      uncertainty and reality TV. Amidst the chaos, three very different criminals chart their own chances of survival and 
+                      success: Franklin, a former street gangster, now looking for real opportunities and fat stacks of cash; Michael, a 
+                      professional ex-con whose retirement is significantly less rosy than he hoped it would be; and Trevor, a violent maniac 
+                      driven by the chance of a cheap high and the next big score. Rapidly running out of options, the crew risks everything 
+                      in a series of bolt and dangerous heists that could set them up for the long haul.")
+
+game = Game.create!(name: "Red Dead Redemption",
+                      year: "2010",
+                      genre: "Action Adventure",
+                      platform: "Playstation 3",
+                      description: "Developed by Rockstar San Diego, as a follow up to the 2004 hit game Red Dead Revolver, Red Dead Redemption 
+                      is a Western epic, set at the turn of the 20th century when the lawless and chaotic badlands began to give way to the 
+                      expanding reach of government and the spread of the Industrial Age. The story of former outlaw, John Marston, Red Dead 
+                      Redemption takes players on a great adventure across the American frontier. Utilizing Rockstar's proprietary Rockstar 
+                      Advanced Game Engine (RAGE), Red Dead Redemption features an open-world environment for players to explore, including 
+                      frontier towns, rolling prairies teeming with wildlife, and perilous mountain passes - each packed with an endless flow of 
+                      varied distractions. Along the way, players experience the heat of gunfights and battles, meet a host of unique characters, 
+                      struggle against the harshness of one of the world’s last remaining wildernesses, and ultimately pick their own precarious 
+                      path through an epic story about the death of the Wild West and the gunslingers that inhabited it. [Rockstar Games]")
 end
 
 def create_wishlists
