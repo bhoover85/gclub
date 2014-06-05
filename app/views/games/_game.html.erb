@@ -6,7 +6,7 @@
     <section class="pull-left">
       <h4><%= link_to game.name, game %></h4>
       <%= image_tag(game.cover.url(:thumb), class: "pull-left game-thumbnail") %>
-      <%= game.description %>
+      <p><%= game.description %></p>
     </section>
 
     <%= render 'shared/wishlist_ownership_admin_buttons' %>
