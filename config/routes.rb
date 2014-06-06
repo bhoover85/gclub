@@ -27,6 +27,8 @@ Rails.application.routes.draw do
   get 'games/:id/edit'     => 'games#edit',         as: :edit
   get 'users/:id/wishlist' => 'users#wished_games', as: :user_wishlist
   get 'users/:id/library'  => 'users#owned_games',  as: :user_library
+  get 'games/:id/wanted'   => 'games#wishers',      as: :game_wanted
+  get 'games/:id/owned'    => 'games#owners',       as: :game_owners
   get 'admin/'             => 'admin#index',        as: :admin
 
   # The priority is based upon order of creation: first created -> highest priority.

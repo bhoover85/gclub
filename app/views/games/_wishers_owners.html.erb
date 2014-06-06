@@ -1,17 +1,11 @@
 <% provide(:title, @title) %>
 
 <div class="row">
-
-  <div class="col-md-1">
-    <%= render 'shared/user_info' %>
-    <%= render 'shared/stats' %>
-  </div>
-
-  <div class="col-md-8">
+  <div class="col-md-12">
     <h1><%= @title %></h1>
-    <% if @games.any? %>
-      <ul class="games">
-        <%= render @games %>
+    <% if @users.any? %>
+      <ul class="users">
+        <%= render @users %>
       </ul>
     <% else %>
       <p>There's nothing in your <%= @title.downcase %>! Try browsing some games and see if you find anything you like.</p>

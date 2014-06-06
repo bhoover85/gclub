@@ -6,4 +6,12 @@ module UsersHelper
     gravatar_url = "https://secure.gravatar.com/avatar/#{gravatar_id}?s=#{size}"
     image_tag(gravatar_url, alt: user.email, class: "gravatar")
   end
+
+  def wisher_path wisher
+     "/users/#{wisher.id}"
+  end
+
+  def owner_path owner
+     "/users/#{owner.id}"
+  end
 end

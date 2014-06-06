@@ -8,6 +8,23 @@ class GamesController < ApplicationController
 
   def show
     @game = Game.friendly.find(params[:id])
+    @wishers = @game.wishers.paginate(page: params[:page])
+    @owners = @game.owners.paginate(page: params[:page])
+    @wishers = @game.wishers.paginate(page: params[:page])
+  end
+
+  def wishers
+    @title = "Wanted By"
+    @game = Game.friendly.find(params[:id])
+    @users = @game.wishers.paginate(page: params[:page])
+    render 'games/wishers'
+  end
+
+  def owners
+    @title = "Owned By"
+    @game = Game.friendly.find(params[:id])
+    @users = @game.owners.paginate(page: params[:page])
+    render 'games/owners'
   end
 
   def new

@@ -1,9 +1,9 @@
 <h1 class="game-name"><%= @game.name %></h1>
 <%= image_tag(@game.cover.url(:medium), class: "pull-left game-thumbnail") %>
-<div>Release Date: <%= @rlsdate %></div>
-<div>Platform: <%= @platform %></div>
-<div>Metacritic Score: <%= @score %></div>
-<div>Publisher: <%= @publisher %></div>
+<h4>Release Date: <%= @rlsdate %></h4>
+<h4>Platform: <%= @platform %></h4>
+<h4>Publisher: <%= @publisher %></h4>
+<h4>Metacritic Score: <%= @score %></h4>
 
 <div class="clearfix"></div>
 
@@ -16,4 +16,18 @@
 <section>
   <h3>Description</h3>
   <p><%= @game.description %></p>
+</section>
+
+<div class="clearfix"></div>
+
+<section>
+  <h3>Users Who Want This</h3>
+  <%= render 'games/wishers' %>
+</section>
+
+<div class="clearfix"></div>
+
+<section>
+  <h3>Users Who Own This</h3>
+  <%= render 'games/owners' %>
 </section>

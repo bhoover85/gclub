@@ -1,0 +1,11 @@
+<div class="row">
+  <div class="col-md-12">
+    <% if @owners.any? %>
+      <% @owners.each do |owner| %>
+        <%= link_to gravatar_for(owner, size: 52, class: "pull-left"), owner_path(owner) %>
+      <% end %>
+    <% else %>
+      <p><i class="fa fa-exclamation-circle"></i> Nobody owns <%= @game.name %>. Be the first!</p>
+    <% end %>
+  </div>
+</div>

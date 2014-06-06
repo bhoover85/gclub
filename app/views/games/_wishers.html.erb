@@ -1,0 +1,11 @@
+<div class="row">
+  <div class="col-md-12">
+    <% if @wishers.any? %>
+      <% @wishers.each do |wisher| %>
+        <%= link_to gravatar_for(wisher, size: 52, class: "pull-left"), wisher_path(wisher) %>
+      <% end %>
+    <% else %>
+      <p><i class="fa fa-exclamation-circle"></i> Nobody wants <%= @game.name %>. Be the first!</p>
+    <% end %>
+  </div>
+</div>
