@@ -1,9 +1,9 @@
 <h2 class="amazon">Amazon</h2>
 <div>List Price: <%= @list_price %></div>
-<div>Amazon Price: <strong><%= @lowest_price %></strong></div>
+<div>Amazon Price: <strong class="amzn-price"><%= @lowest_price %></strong></div>
 
 <% if @savings.gsub(/[^\d\.]/, '').to_f > 0 %>
-  <div>Savings: <span class="savings"><%= @savings %></span></div>
+  <div>Savings: <%= @savings %></div>
 <% end %>
 
 <form method="GET" action="http://www.amazon.com/gp/aws/cart/add.html"> <input type="hidden" name="gregamclu-20" value="storeid-20"/> <input type="hidden" name="SubscriptionId" value="[AWSAccessKeyId]"/> <input type="hidden" name="ASIN.1" value="<%= @asin %>"/><br/> <input type="hidden" name="Quantity.1" value="1"/><br/> <input type="image" name="add" value="Buy from Amazon.com" border="0" alt="Buy from Amazon.com" src="https://images-na.ssl-images-amazon.com/images/G/01/associates/remote-buy-box/buy1._V192207739_.gif"></form>

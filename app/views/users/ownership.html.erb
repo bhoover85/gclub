@@ -1,12 +1,1 @@
-<% provide(:title, @title) %>
-
-<div class="row">
-  <div class="col-md-12">
-    <h3><%= @title %></h3>
-    <% if @games.any? %>
-      <ul class="games">
-        <%= render @games %>
-      </ul>
-    <% end %>
-  </div>
-</div>
+<%= render 'users/wishlist_ownership' %>
