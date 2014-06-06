@@ -44,8 +44,8 @@ module GamesHelper
     similar_products = @res['SimilarProducts']['SimilarProduct']
 
     # Session variables for view
-    @release_date     = item_attributes['ReleaseDate']
-    @publisher        = item_attributes['Publisher']
+    # @release_date     = item_attributes['ReleaseDate']
+    # @publisher        = item_attributes['Publisher']
     @list_price       = item_attributes['ListPrice']['FormattedPrice']
     @lowest_price     = offer_summary['LowestNewPrice']['FormattedPrice']
     @savings          = number_to_currency(@list_price.gsub(/[^\d\.]/, '').to_f - @lowest_price.gsub(/[^\d\.]/, '').to_f)
@@ -109,9 +109,9 @@ module GamesHelper
     @name      = response.body['result']['name']
     @thumbnail = response.body['result']['thumbnail']
     @score     = response.body['result']['score']
-    # @rlsdate   = response.body['result']['rlsdate']
+    @rlsdate   = response.body['result']['rlsdate']
     @platform  = response.body['result']['platform']
-    # @publisher = response.body['result']['publisher']
+    @publisher = response.body['result']['publisher']
     @developer = response.body['result']['developer']
     @genre     = response.body['result']['genre']
   end

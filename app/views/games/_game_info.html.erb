@@ -1,6 +1,6 @@
 <h1 class="game-name"><%= @game.name %></h1>
 <%= image_tag(@game.cover.url(:medium), class: "pull-left game-thumbnail") %>
-<div>Release Date: <%= @release_date %></div>
+<div>Release Date: <%= @rlsdate %></div>
 <div>Platform: <%= @platform %></div>
 <div>Metacritic Score: <%= @score %></div>
 <div>Publisher: <%= @publisher %></div>
@@ -8,12 +8,12 @@
 <div class="clearfix"></div>
 
 <div>
-  <%= render 'shared/wishlist_ownership_admin_buttons' %>
+  <%= render 'users/wishlist_ownership_admin_buttons' %>
 </div>
 
 <div class="clearfix"></div>
 
 <section>
   <h3>Description</h3>
-  <p><%= @review.html_safe %></p>
+  <p><%= @game.description %></p>
 </section>
