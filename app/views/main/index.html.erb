@@ -11,23 +11,27 @@
   <% end %>
 
   <!-- Middle Column -->
-  <div class="col-md-8">
-    <h2>
-      <%= "Great Games of #{@filter}" %>
-    </h2>
-    <h4>
-      <i class="fa fa-filter"></i>  
-      <%= link_to "All",  root_url %> |
-      <%= link_to "2014", '/year/2014' %> | 
-      <%= link_to "2013", '/year/2013' %> | 
-      <%= link_to "2012", '/year/2012' %> | 
-      <%= link_to "2011", '/year/2011' %> | 
-      <%= link_to "2010", '/year/2010' %>
-    </h4>
-    <ul class="games">
-      <%= render @games %>
-    </ul>
-  </div>
+  <% if user_signed_in? %>
+    <div class="col-md-8">
+  <% else %>
+    <div class="col-md-9">
+  <% end %>
+      <h2>
+        <%= "Great Games of #{@filter}" %>
+      </h2>
+      <h4>
+        <i class="fa fa-filter"></i>  
+        <%= link_to "All",  root_url %> |
+        <%= link_to "2014", '/year/2014' %> | 
+        <%= link_to "2013", '/year/2013' %> | 
+        <%= link_to "2012", '/year/2012' %> | 
+        <%= link_to "2011", '/year/2011' %> | 
+        <%= link_to "2010", '/year/2010' %>
+      </h4>
+      <ul class="games">
+        <%= render @games %>
+      </ul>
+    </div>
 
   <!-- Right Column -->
   <div class="col-md-3">

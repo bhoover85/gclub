@@ -8,12 +8,18 @@
 <% end %>
 
 <div class="row">
-  <div class="col-md-1">
-    <%= render 'shared/user_info' %>
-    <%= render 'shared/stats' %>
-  </div>
+  <% if user_signed_in? %>
+    <div class="col-md-1">
+      <%= render 'shared/user_info' %>
+      <%= render 'shared/stats' %>
+    </div>
+  <% end %>
 
-  <div class="col-md-8">
+  <% if user_signed_in? %>
+    <div class="col-md-8">
+  <% else %>
+    <div class="col-md-9">
+  <% end %>
     <%= render 'games/game_info' %>
   </div>
 
