@@ -6,6 +6,7 @@
       <% @owners.each do |owner| %>
         <%= link_to gravatar_for(owner, size: 52, class: "pull-left"), owner_path(owner) %>
       <% end %>
+      <div><%= link_to "View All", game_owners_path %></div>
     <% else %>
       <p><i class="fa fa-frown-o"></i> Nobody owns <%= @game.name %>. Be the first!</p>
     <% end %>

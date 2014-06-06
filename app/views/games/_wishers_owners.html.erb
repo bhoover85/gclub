@@ -8,7 +8,7 @@
         <%= render @users %>
       </ul>
     <% else %>
-      <p>There's nothing in your <%= @title.downcase %>! Try browsing some games and see if you find anything you like.</p>
+      <p><%= @game.name %> isn't <%= @title.downcase %> anyone. Be the first!</p>
     <% end %>
   </div>
 </div>

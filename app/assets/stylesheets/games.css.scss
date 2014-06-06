@@ -8,7 +8,8 @@
   -webkit-padding-start: 0;
   li {
     overflow: auto;
-    padding: 10px 0;
+    padding-top: 10px;
+    padding-bottom: 30px;
     border-bottom: 1px solid #ccc;
     &:last-child {
       border-bottom: 0;
