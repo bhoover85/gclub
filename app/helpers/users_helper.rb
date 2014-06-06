@@ -14,4 +14,12 @@ module UsersHelper
   def owner_path owner
      "/users/#{owner.id}"
   end
+
+  def wished_path wished
+     "/games/#{wished.friendly_id}"
+  end
+
+  def owned_path owned
+     "/games/#{owned.friendly_id}"
+  end
 end

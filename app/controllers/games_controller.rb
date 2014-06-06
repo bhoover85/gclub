@@ -10,7 +10,6 @@ class GamesController < ApplicationController
     @game = Game.friendly.find(params[:id])
     @wishers = @game.wishers.paginate(page: params[:page])
     @owners = @game.owners.paginate(page: params[:page])
-    @wishers = @game.wishers.paginate(page: params[:page])
   end
 
   def wishers

@@ -7,6 +7,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @wished = @user.wished_games.paginate(page: params[:page])
+    @owned = @user.owned_games.paginate(page: params[:page])
   end
 
   def wished_games
