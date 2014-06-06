@@ -20,8 +20,13 @@ module GamesHelper
       'Keywords'    => "#{name} #{platform}"
     }
 
-    asin = req.item_search(query: params).to_h
-    @asin = asin['ItemSearchResponse']['Items']['Item'].first['ASIN']
+    res = req.item_search(query: params).to_h
+
+    if res['ItemSearchResponse']['Items']['Request'].include?('Errors')
+      @asin = "Error"
+    else
+      @asin = res['ItemSearchResponse']['Items']['Item'].first['ASIN']
+    end
   end
 
   # Amazon item lookup

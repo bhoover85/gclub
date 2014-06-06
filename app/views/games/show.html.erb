@@ -2,7 +2,10 @@
 
 <% metacritic_info(@game.name, @game.platform) %>
 <% item_search(@game.name, @game.platform) %>
-<% item_lookup(@asin, "Accessories, EditorialReview, Images, ItemAttributes, OfferSummary, Reviews, SalesRank, Similarities") %>
+
+<% if @asin != "Error" %>
+  <% item_lookup(@asin, "Accessories, EditorialReview, Images, ItemAttributes, OfferSummary, Reviews, SalesRank, Similarities") %>
+<% end %>
 
 <div class="row">
   <div class="col-md-1">
@@ -20,7 +23,9 @@
 </div>
 
 <%# if !Rails.env.production? %>
-  <!-- <pre> -->
-  <%#= raw JSON.pretty_generate(@res).gsub(" ","&nbsp;") %>
-  <!-- </pre> -->
+  <%# if @res %>
+    <%#= "<pre>" %>
+      <%#= raw JSON.pretty_generate(@res).gsub(" ","&nbsp;") %>
+    <%#= "</pre>" %>
+  <%# end %>
 <%# end %>
