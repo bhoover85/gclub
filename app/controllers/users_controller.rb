@@ -10,14 +10,14 @@ class UsersController < ApplicationController
   end
 
   def wished_games
-    @title = "Wishlist"
+    @title = "Wanted"
     @user = User.find(params[:id])
     @games = @user.wished_games.paginate(page: params[:page])
     render 'users/wishlist'
   end
 
   def owned_games
-    @title = "Library"
+    @title = "Owned"
     @user = User.find(params[:id])
     @games = @user.owned_games.paginate(page: params[:page])
     render 'users/ownership'

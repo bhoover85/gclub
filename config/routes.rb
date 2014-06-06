@@ -25,8 +25,8 @@ Rails.application.routes.draw do
   match '/year/:year', to: 'main#index', via: 'get'
 
   get 'games/:id/edit'     => 'games#edit',         as: :edit
-  get 'users/:id/wishlist' => 'users#wished_games', as: :user_wishlist
-  get 'users/:id/library'  => 'users#owned_games',  as: :user_library
+  get 'users/:id/wanted'   => 'users#wished_games', as: :user_wanted
+  get 'users/:id/owned'    => 'users#owned_games',  as: :user_owned
   get 'games/:id/wanted'   => 'games#wishers',      as: :game_wanted
   get 'games/:id/owned'    => 'games#owners',       as: :game_owners
   get 'admin/'             => 'admin#index',        as: :admin
