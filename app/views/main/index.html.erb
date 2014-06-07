@@ -28,9 +28,18 @@
         <%= link_to "2011", '/year/2011' %> | 
         <%= link_to "2010", '/year/2010' %>
       </h4>
+
+      <div class="text-center">
+        <%= will_paginate @games %>
+      </div>
+
       <ul class="games">
         <%= render @games %>
       </ul>
+
+      <div class="text-center">
+        <%= will_paginate @games %>
+      </div>
     </div>
 
   <!-- Right Column -->
