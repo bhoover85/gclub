@@ -8,7 +8,7 @@
       <% end %>
       <div><%= link_to "View All", game_owners_path %></div>
     <% else %>
-      <p><i class="fa fa-frown-o"></i> Nobody owns <%= @game.name %>. Be the first!</p>
+      <p>Nobody owns <%= @game.name %>. <i class="fa fa-frown-o"></i> </p>
     <% end %>
   </div>
 </div>

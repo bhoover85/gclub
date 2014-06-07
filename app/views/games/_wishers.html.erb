@@ -8,7 +8,7 @@
       <% end %>
       <div><%= link_to "View All", game_wanted_path %></div>
     <% else %>
-      <p><i class="fa fa-frown-o"></i> Nobody wants <%= @game.name %>. Be the first!</p>
+      <p>Nobody wants <%= @game.name %>. <i class="fa fa-frown-o"></i></p>
     <% end %>
   </div>
 </div>
