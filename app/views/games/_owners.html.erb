@@ -1,12 +1,23 @@
-<h3>Users Who Own This (<%= @owners.count %>)</h3>
+<div class="row">
+  <div class="col-md-12">
+    <section class="pull-left">
+      <h3>Members Who Own This (<%= @owners.count %>)</h3>
+    </section>
+
+    <div class="pull-right view-all">
+      <% if @owners.any? %>
+        <h3><%= link_to "View All", game_owners_path %></h3>
+      <% end %>
+    </div>
+  </div>
+</div>
 
 <div class="row">
   <div class="col-md-12">
     <% if @owners.any? %>
       <% @owners.each do |owner| %>
-        <%= link_to gravatar_for(owner, size: 52, class: "pull-left"), owner_path(owner) %>
+        <%= link_to gravatar_for(owner, size: 54, class: "pull-left"), owner_path(owner) %>
       <% end %>
-      <div><%= link_to "View All", game_owners_path %></div>
     <% else %>
       <p>Nobody owns <%= @game.name %>. <i class="fa fa-frown-o"></i> </p>
     <% end %>

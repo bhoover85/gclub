@@ -1,12 +1,23 @@
-<h3>Users Who Want This (<%= @wishers.count %>)</h3>
+<div class="row">
+  <div class="col-md-12">
+    <section class="pull-left">
+      <h3>Members Who Want This (<%= @wishers.count %>)</h3>
+    </section>
+
+    <div class="pull-right view-all">
+      <% if @wishers.any? %>
+        <h3><%= link_to "View All", game_wanted_path %></h3>
+      <% end %>
+    </div>
+  </div>
+</div>
 
 <div class="row">
   <div class="col-md-12">
     <% if @wishers.any? %>
       <% @wishers.each do |wisher| %>
-        <%= link_to gravatar_for(wisher, size: 52, class: "pull-left"), wisher_path(wisher) %>
+        <%= link_to gravatar_for(wisher, size: 54, class: "pull-left gravatar"), wisher_path(wisher) %>
       <% end %>
-      <div><%= link_to "View All", game_wanted_path %></div>
     <% else %>
       <p>Nobody wants <%= @game.name %>. <i class="fa fa-frown-o"></i></p>
     <% end %>
