@@ -30,7 +30,20 @@
       </h4>
 
       <ul class="games">
-        <%= render @games %>
+        <%= @games.each do |game| %>
+          <% @game = game %>
+          
+          <li>
+            <section class="pull-left">
+              <h3><%= link_to game.name, game %></h3>
+              <%= image_tag(game.cover.url(:thumb), class: "pull-left game-thumbnail") %>
+              <p><%= game.description %></p>
+            </section>
+
+            <%= render 'users/wishlist_ownership_admin_buttons' %>
+
+          </li>
+        <% end %>
       </ul>
 
       <div class="text-center">

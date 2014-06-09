@@ -25,13 +25,4 @@ class UsersController < ApplicationController
     @games = @user.owned.paginate(page: params[:page]).order(sort_column + ' ' + sort_direction)
     render 'users/ownership'
   end
-
-  private
-    def sort_column
-      Game.column_names.include?(params[:sort]) ? params[:sort] : "name"
-    end
-    
-    def sort_direction
-      %w[asc desc].include?(params[:direction]) ?  params[:direction] : "asc"
-    end
 end

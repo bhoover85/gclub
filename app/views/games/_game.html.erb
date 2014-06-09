@@ -1,14 +1,9 @@
 <%# metacritic_info(game.name, game.platform) %>
-
 <% @game = game %>
 
-<li>
-    <section class="pull-left">
-      <h3><%= link_to game.name, game %></h3>
-      <%= image_tag(game.cover.url(:thumb), class: "pull-left game-thumbnail") %>
-      <p><%= game.description %></p>
-    </section>
-
-    <%= render 'users/wishlist_ownership_admin_buttons' %>
-
-</li>
+<tr>
+  <td><%= link_to game.name, game %></td>
+  <td><%= game.platform %></td>
+  <td><%= game.year %></td>
+  <td><%= game.genre %></td>
+</tr>

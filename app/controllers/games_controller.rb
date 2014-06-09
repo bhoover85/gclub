@@ -1,9 +1,10 @@
 class GamesController < ApplicationController
   # before_action :authenticate_user!
   before_action :admin_user, only: [:new, :edit, :update, :destroy]
+  helper_method :sort_column, :sort_direction
 
   def index
-    @games = Game.paginate(page: params[:page])
+    @games = Game.paginate(page: params[:page], :per_page => 50).order(sort_column + ' ' + sort_direction)
   end
 
   def show

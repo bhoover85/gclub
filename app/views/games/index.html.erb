@@ -3,13 +3,11 @@
 <h1>All Games</h1>
 
 <div class="text-center">
-  <%= will_paginate %>
+  <%= will_paginate @games %>
 </div>
 
-<ul class="games">
-  <%= render @games %>
-</ul>
+<%= render 'shared/games_table' %>
 
 <div class="text-center">
-  <%= will_paginate %>
+  <%= will_paginate @games %>
 </div>
