@@ -50,5 +50,13 @@ $google: #d34836;
 
 
 .gray-vertical-border {
-  border-right: $grayVerticalBorder;
+  border-left: $grayVerticalBorder;
+}
+
+.radio input[type="radio"], .radio-inline input[type="radio"], .checkbox input[type="checkbox"], .checkbox-inline input[type="checkbox"] {
+  margin-left: 0;
+}
+
+.sign-up-btn {
+  margin-top: 10px;
 }

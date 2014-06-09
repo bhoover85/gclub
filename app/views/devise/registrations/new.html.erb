@@ -1,11 +1,11 @@
 <% provide(:title, 'Sign up') %>
 
 <div class="row">
-  <div class="col-sm-6 gray-vertical-border">
+  <div class="col-sm-6">
     <h2>Sign up</h2>
 
     <p>
-      Aenean hendrerit lectus ac ante volutpat aliquet. Pellentesque quis mi sed felis tempor rutrum eget eget eros. Morbi et diam sollicitudin, rhoncus erat vitae, ornare nulla. Fusce vel orci ullamcorper, interdum tellus non, fringilla mauris. Morbi sit amet neque lacus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed tincidunt ac nibh sit amet laoreet. Sed vulputate varius tortor, vitae elementum lacus tincidunt vel.
+      You must have an account in order to track and add games. You can sign up with a Great Games Club account or you can use one of the providers listed to the right. Signing in with a provider will create a new account if one hasn't been created already.
     </p>
 
     <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
@@ -23,11 +23,11 @@
         <%= f.input :password_confirmation, autocomplete: "off" %>
       <% end %>
 
-      <%= f.submit "Sign up", class: "btn btn-primary" %>
+      <%= f.submit "Sign up", class: "btn btn-primary sign-up-btn" %>
     <% end %>
   </div>
 
-  <div class="col-sm-6">
+  <div class="col-sm-6 gray-vertical-border">
     <%= render "devise/shared/links" %>
   </div>
 </div>

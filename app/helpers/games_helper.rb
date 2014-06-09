@@ -42,7 +42,7 @@ module GamesHelper
     @res = req.item_lookup(query: params).to_h
     @res = @res['ItemLookupResponse']['Items']['Item']
 
-    editorial_review = @res['EditorialReviews']['EditorialReview']
+    # editorial_review = @res['EditorialReviews']['EditorialReview']
     item_attributes  = @res['ItemAttributes']
     offer_summary    = @res['OfferSummary']
     item_link        = @res['ItemLinks']['ItemLink']
@@ -56,7 +56,7 @@ module GamesHelper
     @savings          = number_to_currency(@list_price.gsub(/[^\d\.]/, '').to_f - @lowest_price.gsub(/[^\d\.]/, '').to_f)
     @similar_products = similar_products
 
-    @review = (editorial_review.is_a? Array) ? editorial_review.first['Content'] : editorial_review['Content']
+    # @review = (editorial_review.is_a? Array) ? editorial_review.first['Content'] : editorial_review['Content']
 
     x=0
     item_link.each do |item|

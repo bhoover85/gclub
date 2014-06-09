@@ -14,16 +14,16 @@ class GamesController < ApplicationController
   end
 
   def wishers
-    @title = "Wanted By"
     @game = Game.friendly.find(params[:id])
     @users = @game.wishers.paginate(page: params[:page])
+    @title = "#{@game.name} Is Wanted By"
     render 'games/wishers'
   end
 
   def owners
-    @title = "Owned By"
     @game = Game.friendly.find(params[:id])
     @users = @game.owners.paginate(page: params[:page])
+    @title = "#{@game.name} Is Owned By"
     render 'games/owners'
   end
 

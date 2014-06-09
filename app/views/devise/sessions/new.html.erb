@@ -1,11 +1,11 @@
 <% provide(:title, 'Sign in') %>
 
 <div class="row">
-  <div class="col-sm-6 gray-vertical-border">
+  <div class="col-sm-6">
     <h2>Sign in</h2>
 
     <p>
-      Aenean hendrerit lectus ac ante volutpat aliquet. Pellentesque quis mi sed felis tempor rutrum eget eget eros. Morbi et diam sollicitudin, rhoncus erat vitae, ornare nulla. Fusce vel orci ullamcorper, interdum tellus non, fringilla mauris. Morbi sit amet neque lacus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed tincidunt ac nibh sit amet laoreet. Sed vulputate varius tortor, vitae elementum lacus tincidunt vel.
+      You can sign in using a variety of methods. If you have a Great Games Club account, use the sign in form below. If you've signed up with an external account (or have yet to sign up), you can use one of the providers listed to the right.
     </p>
 
     <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -17,11 +17,11 @@
         <%= f.input_field :remember_me, as: :boolean, inline_label: 'Remember me' %>
       <% end -%>
 
-      <%= f.submit "Submit", class: "btn btn-primary" %>
+      <%= f.submit "Sign in", class: "btn btn-primary" %>
     <% end %>
   </div>
 
-    <div class="col-sm-6">
+    <div class="col-sm-6 gray-vertical-border">
       <%= render "devise/shared/links" %>
     </div>
 </div>
