@@ -81,6 +81,20 @@ module GamesHelper
     return res['ItemLookupResponse']['Items']['Item']['DetailPageURL']
   end
 
+  def lowest_price(asin)
+    req = req_config()
+
+    params = {
+      'ItemId'        => asin,
+      'Condition'     => 'All',
+      'ResponseGroup' => 'OfferSummary'
+    }
+
+    res = req.item_lookup(query: params).to_h
+
+    return res['ItemLookupResponse']['Items']['Item']['OfferSummary']['LowestNewPrice']['FormattedPrice']
+  end
+
 
   # Returns metacritic information on a game.
   # 1 = PS3, 2 = Xbox360, 3 = PC, 72496 = PS4, 80000 = Xbone
