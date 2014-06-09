@@ -6,8 +6,8 @@ Rails.application.routes.draw do
   
   resources :users, :only => [:index, :show] do
     member do
-      get :wished_games
-      get :owned_games
+      get :wanted
+      get :owned
     end
   end
 
@@ -24,12 +24,10 @@ Rails.application.routes.draw do
   root 'main#index'
   match '/year/:year', to: 'main#index', via: 'get'
 
-  get 'games/:id/edit'     => 'games#edit',         as: :edit
-  get 'users/:id/wanted'   => 'users#wished_games', as: :user_wanted
-  get 'users/:id/owned'    => 'users#owned_games',  as: :user_owned
-  get 'games/:id/wanted'   => 'games#wishers',      as: :game_wanted
-  get 'games/:id/owned'    => 'games#owners',       as: :game_owners
-  get 'admin/'             => 'admin#index',        as: :admin
+  get 'games/:id/edit'     => 'games#edit',     as: :edit
+  get 'games/:id/wanted'   => 'games#wishers',  as: :game_wanted
+  get 'games/:id/owned'    => 'games#owners',   as: :game_owners
+  get 'admin/'             => 'admin#index',    as: :admin
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

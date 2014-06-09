@@ -8,11 +8,11 @@ class User < ActiveRecord::Base
 
   # Wishlist relationship
   has_many :wishlists, foreign_key: "wisher_id", dependent: :destroy
-  has_many :wished_games, through: :wishlists, source: :wished
+  has_many :wanted, through: :wishlists, source: :wished
 
   # Ownership (Library) relationship
   has_many :ownerships, foreign_key: "owner_id", dependent: :destroy
-  has_many :owned_games, through: :ownerships, source: :owned
+  has_many :owned, through: :ownerships, source: :owned
 
   def self.find_for_oauth(auth)
     where(auth.slice(:provider, :uid)).first_or_create do |user|

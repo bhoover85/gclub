@@ -7,7 +7,7 @@
         <%= link_to image_tag(owned.cover.url(:thumb), class: "pull-left game-thumbnail"), owned_path(owned) %>
       <% end %>
       <div class="clearfix"></div>
-      <div><%= link_to "View All", user_owned_path %></div>
+      <div><%= link_to "View All", owned_user_path %></div>
     <% else %>
       <p>None</p>
     <% end %>
