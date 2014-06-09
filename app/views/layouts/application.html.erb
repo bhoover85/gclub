@@ -13,11 +13,8 @@
 
 <div class="container">
   <%= render 'layouts/header' %>
-
-  <% if Rails.env.production? %>
-    <%= render 'layouts/header_ad' %>
-  <% end %>
-
+  <%= render 'layouts/header_ad' %>
+  
   <% if notice %>
     <p class="alert alert-success"><%= notice %></p>
   <% end %>
