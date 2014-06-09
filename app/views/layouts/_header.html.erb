@@ -4,6 +4,7 @@
   </div>
 
   <nav class="col-md6 pull-right header-signin">
+    <%= link_to "<i class='fa fa-gamepad'></i> Games".html_safe, games_path, class: "btn btn-default" %> 
     <% if user_signed_in? %>
       <% if current_user.admin? %>
         <%= link_to "<i class='fa fa-gavel'></i> Admin".html_safe, admin_path, class: "btn btn-default" %> 

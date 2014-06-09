@@ -1,7 +1,5 @@
 <% provide(:title, 'All Games') %>
 
-<h1>All Games</h1>
-
 <div class="row">
 
   <% if user_signed_in? %>
@@ -10,10 +8,12 @@
       <%= render 'shared/stats' %>
     </div>
 
-    <div class="col-md-11">
+    <div class="col-md-8">
   <% else %>
-    <div class="col-md-12">
+    <div class="col-md-9">
   <% end %>
+    <h1>All Games</h1>
+    
     <div class="text-center">
       <%= will_paginate @games %>
     </div>
@@ -23,5 +23,9 @@
     <div class="text-center">
       <%= will_paginate @games %>
     </div>
+  </div>
+
+  <div class="col-md-3">
+    
   </div>
 </div>
