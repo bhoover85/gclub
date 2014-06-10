@@ -5,7 +5,8 @@
     <h2>Sign up</h2>
 
     <p>
-      You must have an account in order to track and add games. You can sign up with a Great Games Club account or you can use one of the providers listed to the right. Signing in with a provider will create a new account if one hasn't been created already.
+      You must have an account in order to track and add games. You can sign up with a Great Games Club account or you can use one 
+      of the providers listed to the right. Signing in with a provider will create a new account if one hasn't been created already.
     </p>
 
     <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
@@ -15,19 +16,22 @@
         <% flash[:alert] = "Please enter an email address to complete your registration." %>
       <% end %>
 
-      <%= f.input :email, autofocus: true %>
+      <div class="form-inputs">
+        <%= f.input :email, required: true, autofocus: true %>
 
-      <% if f.object.password_required? %>
-        <%= f.input :password, autocomplete: "off" %>
+        <% if f.object.password_required? %>
+          <%= f.input :password, required: true %>
+          <%= f.input :password_confirmation, required: true %>
+        <% end %>
+      </div>
 
-        <%= f.input :password_confirmation, autocomplete: "off" %>
-      <% end %>
-
-      <%= f.submit "Sign up", class: "btn btn-primary sign-up-btn" %>
+      <div class="form-actions">
+        <%= f.button :submit, "Sign up", class: "btn btn-primary sign-up-btn" %>
+      </div>
     <% end %>
-  </div>
+    </div>
 
-  <div class="col-sm-6 gray-vertical-border">
-    <%= render "devise/shared/links" %>
-  </div>
+    <div class="col-sm-6 gray-vertical-border">
+      <%= render "devise/shared/links" %>
+    </div>
 </div>
