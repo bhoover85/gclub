@@ -1,6 +1,6 @@
 <h2 class="amazon">Amazon</h2>
 
-<% if @asin == "Error" %>
+<% if @game.asin == "Error" %>
   <p>There was a problem retrieving this item from Amazon.</p>
 <% else %>
   <div>List Price: <%= @list_price %></div>
@@ -10,7 +10,7 @@
     <div>Savings: <%= @savings %></div>
   <% end %>
 
-  <form method="GET" action="http://www.amazon.com/gp/aws/cart/add.html"> <input type="hidden" name="gregamclu-20" value="storeid-20"/> <input type="hidden" name="SubscriptionId" value="[AWSAccessKeyId]"/> <input type="hidden" name="ASIN.1" value="<%= @asin %>"/><br/> <input type="hidden" name="Quantity.1" value="1"/><br/> <input type="image" name="add" value="Buy from Amazon.com" border="0" alt="Buy from Amazon.com" src="https://images-na.ssl-images-amazon.com/images/G/01/associates/remote-buy-box/buy1._V192207739_.gif"></form>
+  <form method="GET" action="http://www.amazon.com/gp/aws/cart/add.html"> <input type="hidden" name="gregamclu-20" value="storeid-20"/> <input type="hidden" name="SubscriptionId" value="[AWSAccessKeyId]"/> <input type="hidden" name="ASIN.1" value="<%= @game.asin %>"/><br/> <input type="hidden" name="Quantity.1" value="1"/><br/> <input type="image" name="add" value="Buy from Amazon.com" border="0" alt="Buy from Amazon.com" src="https://images-na.ssl-images-amazon.com/images/G/01/associates/remote-buy-box/buy1._V192207739_.gif"></form>
 
   <%= link_to "Add To Amazon Wishlist", @add_to_wishlist, class: "btn btn-default" %> 
 

@@ -29,6 +29,7 @@ def create_games
                         year: "2014",
                         genre: "Sci-Fi",
                         platform: "PC",
+                        asin: "B00DTWEOZ8",
                         description: "Crafted by one of the co-creators of Call of Duty and other key developers behind the Call of Duty 
                         franchise, Titanfall, with its advanced combat techniques, gives you the freedom to fight your way as both elite 
                         assault Pilot and fast, heavily armored Titan. The experience combines fast-paced multiplayer action with the 
@@ -38,6 +39,7 @@ def create_games
                         year: "2014",
                         genre: "Modern",
                         platform: "Xbox One",
+                        asin: "B00CX8VY4S",
                         description: "In the modern uber-connected world, Chicago has the nation's most advanced and integrated computer 
                         system – one which controls almost every facet of city technology and maintains critical information on all of 
                         the city's residents. You assume the role of Aiden Pearce, a notorious hacker and former thug, whose criminal past 
@@ -50,6 +52,7 @@ def create_games
                         year: "2013",
                         genre: "Modern",
                         platform: "Xbox 360",
+                        asin: "B0050SYILE",
                         description: "Los Santos is a sprawling sun-soaked metropolis full of self-help gurus, starlets and once-important 
                         stars. The city was once the envy of the Western world, but is now struggling to stay relevant in an era of economic 
                         uncertainty and reality TV. Amidst the chaos, three very different criminals chart their own chances of survival and 
@@ -62,6 +65,7 @@ def create_games
                         year: "2010",
                         genre: "Action Adventure",
                         platform: "Playstation 3",
+                        asin: "B001SGZL2W",
                         description: "Developed by Rockstar San Diego, as a follow up to the 2004 hit game Red Dead Revolver, Red Dead Redemption 
                         is a Western epic, set at the turn of the 20th century when the lawless and chaotic badlands began to give way to the 
                         expanding reach of government and the spread of the Industrial Age. The story of former outlaw, John Marston, Red Dead 
@@ -76,6 +80,7 @@ def create_games
                         year: "2014",
                         genre: "2D",
                         platform: "Playstation 4",
+                        asin: "Error",
                         description: "In Fez, you play as Gomez, a 2D creature living in what he believes is a 2D world. Until a strange and powerful 
                         artifact reveals to him the existence of a mysterious third dimension!")
   end

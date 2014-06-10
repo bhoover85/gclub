@@ -1,10 +1,9 @@
 <% provide(:title, "#{@game.name} - #{@game.platform}") %>
 
 <% metacritic_info(@game.name, @game.platform) %>
-<% item_search(@game.name, @game.platform) %>
 
-<% if @asin != "Error" %>
-  <% item_lookup(@asin, "Accessories, EditorialReview, Images, ItemAttributes, OfferSummary, Reviews, SalesRank, Similarities") %>
+<% if @game.asin != "Error" %>
+  <% item_lookup(@game.asin, "Accessories, ItemAttributes, OfferSummary, Reviews, SalesRank, Similarities") %>
 <% end %>
 
 <div class="row">

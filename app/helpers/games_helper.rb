@@ -1,7 +1,7 @@
 module GamesHelper
 
   # Vacuum config for Amazon API
-  def req_config
+  def self.req_config
     req = Vacuum.new
 
     req.configure(
@@ -11,8 +11,12 @@ module GamesHelper
     )
   end
 
-  # Amazon item search
-  def item_search(name, platform)
+  def req_config
+    GamesHelper.req_config
+  end
+
+  # Get item's asin from Amazon
+  def self.get_asin(name, platform)
     req = req_config()
 
     params = {
@@ -23,13 +27,19 @@ module GamesHelper
     res = req.item_search(query: params).to_h
 
     if res['ItemSearchResponse']['Items']['Request'].include?('Errors')
-      @asin = "Error"
+      asin = "Error"
     else
-      @asin = res['ItemSearchResponse']['Items']['Item'].first['ASIN']
+      asin = res['ItemSearchResponse']['Items']['Item'].first['ASIN']
     end
+
+    return asin
   end
 
-  # Amazon item lookup
+  def get_asin(name, platform)
+    GamesHelper.get_asin(name, platform)
+  end
+
+  # Get item information from Amazon
   def item_lookup(asin, response)
     req = req_config()
 

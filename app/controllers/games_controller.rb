@@ -33,6 +33,7 @@ class GamesController < ApplicationController
 
   def create
     @game = Game.new(game_params)
+    @game.asin = GamesHelper.get_asin(@game.name, @game.platform)
     if @game.save
       flash[:success] = "New game added!"
       redirect_to @game

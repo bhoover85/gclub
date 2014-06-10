@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140603143125) do
+ActiveRecord::Schema.define(version: 20140610135105) do
 
   create_table "friendly_id_slugs", force: true do |t|
     t.string   "slug",                      null: false
@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(version: 20140603143125) do
     t.integer  "cover_file_size"
     t.datetime "cover_updated_at"
     t.string   "slug"
+    t.string   "asin"
   end
 
   add_index "games", ["genre"], name: "index_games_on_genre"
