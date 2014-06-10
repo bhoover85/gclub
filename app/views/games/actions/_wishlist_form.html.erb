@@ -2,8 +2,8 @@
 
 <div class='<%= wishlist_form_id %> inline-block'>
   <% if current_user.wished?(@game) %>
-    <%= render 'games/remove_from_wishlist' %>
+    <%= render 'games/actions/remove_from_wishlist' %>
   <% else %>
-    <%= render 'games/add_to_wishlist' %>
+    <%= render 'games/actions/add_to_wishlist' %>
   <% end %>
 </div>
