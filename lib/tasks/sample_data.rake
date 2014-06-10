@@ -24,7 +24,6 @@ def create_users
 end
 
 def create_games
-  5.times do |n|
     game = Game.create!(name: "Titanfall",
                         year: "2014",
                         genre: "Sci-Fi",
@@ -83,7 +82,6 @@ def create_games
                         asin: "Error",
                         description: "In Fez, you play as Gomez, a 2D creature living in what he believes is a 2D world. Until a strange and powerful 
                         artifact reveals to him the existence of a mysterious third dimension!")
-  end
 end
 
 def create_wishlists
