@@ -1,10 +1,13 @@
 <h1 class="game-name"><%= @game.name %></h1>
 <%= image_tag(@game.cover.url(:medium), class: "pull-left game-thumbnail") %>
-<h4>Release Date: <%= @game.rlsdate %></h4>
-<h4>Platform: <% @game.platform %></h4>
-<h4>Developer: <%= @game.developer %></h4>
-<h4>Publisher: <%= @game.publisher %></h4>
-<h4>Metacritic Score: <%= @game.score %></h4>
+<h4>Platform: <%= @game.platform %></h4>
+
+<!-- Metacritic info -->
+<%= "<h4>Release Date: #{@game.rlsdate}</h4>".html_safe if @game.rlsdate %>
+<%= "<h4>Developer: #{@game.developer}</h4>".html_safe if @game.developer %>
+<%= "<h4>Publisher: #{@game.publisher}</h4>".html_safe if @game.publisher %>
+<%= "<h4>Metacritic Score: #{@game.score}</h4>".html_safe if @game.score %>
+<!-- Metacritic info -->
 
 <div class="clearfix"></div>
 
