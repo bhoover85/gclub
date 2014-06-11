@@ -18,3 +18,9 @@
 # end
 
 # Learn more: http://github.com/javan/whenever
+
+set :output, {:error => 'log/error.log', :standard => 'log/cron.log'}
+
+every 1.day, :at => '12:00 am' do
+  runner "Game.update_metacritic_info", :environment => 'development'
+end
