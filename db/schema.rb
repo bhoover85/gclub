@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140610135105) do
+ActiveRecord::Schema.define(version: 20140611122958) do
 
   create_table "friendly_id_slugs", force: true do |t|
     t.string   "slug",                      null: false
@@ -40,6 +40,10 @@ ActiveRecord::Schema.define(version: 20140610135105) do
     t.datetime "cover_updated_at"
     t.string   "slug"
     t.string   "asin"
+    t.date     "rlsdate"
+    t.string   "developer"
+    t.string   "publisher"
+    t.integer  "score"
   end
 
   add_index "games", ["genre"], name: "index_games_on_genre"

@@ -33,7 +33,14 @@ class GamesController < ApplicationController
 
   def create
     @game = Game.new(game_params)
+    metacritic = GamesHelper.metacritic_info(@game.name, @game.platform)
     @game.asin = GamesHelper.get_asin(@game.name, @game.platform)
+    @game.score = metacritic.first['score']
+    @game.rlsdate = metacritic.first['rlsdate']
+    @game.publisher = metacritic.first['publisher']
+    @game.developer = metacritic.first['developer']
+    @game.genre = metacritic.first['genre']
+
     if @game.save
       flash[:success] = "New game added!"
       redirect_to @game
@@ -65,7 +72,7 @@ class GamesController < ApplicationController
   private
 
     def game_params
-      params.require(:game).permit(:name, :year, :description, :genre, :platform, :cover)
+      params.require(:game).permit(:name, :year, :description, :platform, :cover)
     end
     
 end

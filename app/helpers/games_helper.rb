@@ -108,8 +108,8 @@ module GamesHelper
 
   # Returns metacritic information on a game.
   # 1 = PS3, 2 = Xbox360, 3 = PC, 72496 = PS4, 80000 = Xbone
-  def metacritic_info(name, platform)
-    case platform.downcase!
+  def self.metacritic_info(name, platform)
+    case platform.downcase
     when "playstation 3"
       platform = 1
     when "xbox 360"
@@ -135,13 +135,21 @@ module GamesHelper
         "platform" => platform
       }
 
-    # @name      = response.body['result']['name']
-    # @thumbnail = response.body['result']['thumbnail']
-    @score     = response.body['result']['score']
-    @rlsdate   = response.body['result']['rlsdate']
-    # @platform  = response.body['result']['platform']
-    @publisher = response.body['result']['publisher']
-    @developer = response.body['result']['developer']
-    # @genre     = response.body['result']['genre']
+    metacritic = []
+
+    item = OpenStruct.new
+    item.score     = response.body['result']['score']
+    item.rlsdate   = response.body['result']['rlsdate']
+    item.publisher = response.body['result']['publisher']
+    item.developer = response.body['result']['developer']
+    item.genre     = response.body['result']['genre']
+
+    metacritic << item
+
+    return metacritic
+  end
+
+  def metacritic_info(name, platform)
+    GamesHelper.metacritic_info(name, platform)
   end
 end
