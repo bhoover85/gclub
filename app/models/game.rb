@@ -1,8 +1,12 @@
 class Game < ActiveRecord::Base
+  include GamesHelper
   include Filterable
+  extend FriendlyId
+  
+  # Used to filter games by year
   scope :year, -> (year) { where year: year }
 
-  extend FriendlyId
+  # Pretty URLs
   friendly_id :name_platform, use: :slugged
 
   def name_platform
@@ -20,6 +24,7 @@ class Game < ActiveRecord::Base
   has_many :reverse_ownerships, foreign_key: "owned_id", class_name: "Ownership", dependent: :destroy
   has_many :owners, through: :reverse_ownerships, source: :owner
   
+  # New record validation
   validates :name, presence: true
   validates :year, presence: true
   validates :platform, presence: true

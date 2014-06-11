@@ -55,6 +55,14 @@ class GamesController < ApplicationController
 
   def update
     @game = Game.friendly.find(params[:id])
+    metacritic = GamesHelper.metacritic_info(@game.name, @game.platform)
+    @game.asin = GamesHelper.get_asin(@game.name, @game.platform)
+    @game.score = metacritic.first['score']
+    @game.rlsdate = metacritic.first['rlsdate']
+    @game.publisher = metacritic.first['publisher']
+    @game.developer = metacritic.first['developer']
+    @game.genre = metacritic.first['genre']
+    
     if @game.update_attributes(game_params)
       flash[:success] = "Game updated"
       redirect_to @game
