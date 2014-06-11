@@ -135,13 +135,13 @@ module GamesHelper
         "platform" => platform
       }
 
-    @name      = response.body['result']['name']
-    @thumbnail = response.body['result']['thumbnail']
+    # @name      = response.body['result']['name']
+    # @thumbnail = response.body['result']['thumbnail']
     @score     = response.body['result']['score']
     @rlsdate   = response.body['result']['rlsdate']
-    @platform  = response.body['result']['platform']
+    # @platform  = response.body['result']['platform']
     @publisher = response.body['result']['publisher']
     @developer = response.body['result']['developer']
-    @genre     = response.body['result']['genre']
+    # @genre     = response.body['result']['genre']
   end
 end

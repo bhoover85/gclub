@@ -16,7 +16,7 @@ class Game < ActiveRecord::Base
   has_many :reverse_wishlists, foreign_key: "wished_id", class_name: "Wishlist", dependent: :destroy
   has_many :wishers, through: :reverse_wishlists, source: :wisher
 
-  # Ownership (Library)
+  # Ownership
   has_many :reverse_ownerships, foreign_key: "owned_id", class_name: "Ownership", dependent: :destroy
   has_many :owners, through: :reverse_ownerships, source: :owner
   

@@ -1,7 +1,8 @@
 <h1 class="game-name"><%= @game.name %></h1>
 <%= image_tag(@game.cover.url(:medium), class: "pull-left game-thumbnail") %>
 <h4>Release Date: <%= @rlsdate %></h4>
-<h4>Platform: <%= @platform %></h4>
+<h4>Platform: <%= @game.platform.titleize %></h4>
+<h4>Developer: <%= @developer %></h4>
 <h4>Publisher: <%= @publisher %></h4>
 <h4>Metacritic Score: <%= @score %></h4>
 

@@ -60,6 +60,7 @@ gem 'figaro'
 gem 'vacuum'
 gem 'paperclip', '~> 4.1'
 gem 'friendly_id', '~> 5.0.0'
+gem 'whenever', :require => false
 
 group :development, :test do
   gem 'rspec-rails'
