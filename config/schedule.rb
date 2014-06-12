@@ -25,6 +25,6 @@ every 1.day, :at => '12:00 am' do
   runner "Game.update_metacritic_info", :environment => 'development'
 end
 
-every 15.minutes do
+every 1.day, :at => '3:00 am' do
   runner "Game.update_amazon_info", :environment => 'development'
 end

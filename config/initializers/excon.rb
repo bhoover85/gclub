@@ -1,1 +1,1 @@
-Excon.defaults[:read_timeout] = 60
+Excon.defaults[:read_timeout] = 300
