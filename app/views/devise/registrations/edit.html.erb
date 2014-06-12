@@ -1,7 +1,7 @@
 <% provide(:title, 'Settings') %>
 
 <div class="row">
-  <div class="col-sm-12">
+  <div class="col-sm-6">
     <h2>Edit <%= resource_name.to_s.humanize %></h2>
 
     <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
@@ -24,8 +24,18 @@
       </div>
     <% end %>
 
-    <h3>Cancel my account</h3>
+    <div class="edit-gravatar">
+      <%= gravatar_for(current_user, size: 102) %>
+      <a href="http://gravatar.com/emails">Change</a>
+    </div>
+  </div>
 
-    <p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+  <div class="col-sm-6">
+    <h2>Delete Account</h2>
+
+    <p>
+      Deleting your account is irreversible. All information associated with your account will be removed. Click the following link to 
+      continue: <%= link_to "Delete my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %>
+    </p>
   </div>
 </div>
