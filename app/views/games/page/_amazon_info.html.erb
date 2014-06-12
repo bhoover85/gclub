@@ -3,19 +3,21 @@
 <% if @game.asin == "Error" %>
   <p>There was a problem retrieving this item from Amazon.</p>
 <% else %>
-  <div>List Price: <%= @list_price %></div>
-  <div>Amazon Price: <strong class="amzn-price"><%= @lowest_price %></strong></div>
+  <% savings = calc_savings(@game.list_price, @game.lowest_price) %>
 
-  <% if @savings.gsub(/[^\d\.]/, '').to_f > 0 %>
-    <div>Savings: <%= @savings %></div>
+  <div>List Price: <%= @game.list_price %></div>
+  <div>Amazon Price: <strong class="amzn-price"><%= @game.lowest_price %></strong></div>
+
+  <% if savings.gsub(/[^\d\.]/, '').to_f > 0 %>
+    <div>Savings: <%= savings %></div>
   <% end %>
 
   <form method="GET" action="http://www.amazon.com/gp/aws/cart/add.html"> <input type="hidden" name="gregamclu-20" value="storeid-20"/> <input type="hidden" name="SubscriptionId" value="[AWSAccessKeyId]"/> <input type="hidden" name="ASIN.1" value="<%= @game.asin %>"/><br/> <input type="hidden" name="Quantity.1" value="1"/><br/> <input type="image" name="add" value="Buy from Amazon.com" border="0" alt="Buy from Amazon.com" src="https://images-na.ssl-images-amazon.com/images/G/01/associates/remote-buy-box/buy1._V192207739_.gif"></form>
 
-  <%= link_to "Add To Amazon Wishlist", @add_to_wishlist, class: "btn btn-default" %> 
+  <%= link_to "Add To Amazon Wishlist", @game.wishlist_url, class: "btn btn-default" %> 
 
   <h3>Similar</h3>
-  <% @similar_products.each do |product| %>
-    <div><%= link_to product['Title'], similar_products_url(product['ASIN']) %></div>
+  <% @game.similar_products.each do |name, url| %>
+    <div><%= link_to name, url %></div>
   <% end %>
 <% end %>

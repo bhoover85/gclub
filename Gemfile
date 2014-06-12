@@ -39,7 +39,7 @@ gem 'bcrypt', '~> 3.1.7'
 # gem 'debugger', group: [:development, :test]
 
 # Fix malformed header error (https://github.com/hakanensari/vacuum/issues/46)
-gem 'excon', '0.33.0'
+gem 'excon'
 
 # Unirest for Metacritic API
 gem 'unirest', :require => 'unirest'

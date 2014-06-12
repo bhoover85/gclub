@@ -35,7 +35,8 @@ class GamesController < ApplicationController
     @game = Game.new(game_params)
     @game.asin = GamesHelper.get_asin(@game.name, @game.platform)
     
-    get_metacritic_info(@game.name, @game.platform)    
+    get_metacritic_info(@game.name, @game.platform)
+    get_amazon_info(@game.asin, "ItemAttributes, OfferSummary, Similarities") if @game.asin != "Error" 
 
     if @game.save
       flash[:success] = "New game added!"
@@ -54,6 +55,7 @@ class GamesController < ApplicationController
     @game.asin = GamesHelper.get_asin(@game.name, @game.platform)
     
     get_metacritic_info(@game.name, @game.platform)
+    get_amazon_info(@game.asin, "ItemAttributes, OfferSummary, Similarities") if @game.asin != "Error"
 
     if @game.update_attributes(game_params)
       flash[:success] = "Game updated"
@@ -77,11 +79,20 @@ class GamesController < ApplicationController
 
     def get_metacritic_info(name, platform)
       metacritic = GamesHelper.metacritic_info(name, platform)
-      @game.score = metacritic.first['score']
-      @game.rlsdate = metacritic.first['rlsdate']
+      @game.score     = metacritic.first['score']
+      @game.rlsdate   = metacritic.first['rlsdate']
       @game.publisher = metacritic.first['publisher']
       @game.developer = metacritic.first['developer']
-      @game.genre = metacritic.first['genre']
+      @game.genre     = metacritic.first['genre']
+    end
+
+    def get_amazon_info(asin, response)
+      amazon = GamesHelper.amazon_info(asin, response)
+      @game.list_price       = amazon.first['list_price']
+      @game.lowest_price     = amazon.first['lowest_price']
+      @game.savings          = amazon.first['savings']
+      @game.wishlist_url     = amazon.first['wishlist_url']
+      @game.similar_products = amazon.first['similar_products']
     end
     
 end

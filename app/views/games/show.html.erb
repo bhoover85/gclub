@@ -1,8 +1,8 @@
 <% provide(:title, "#{@game.name} - #{@game.platform}") %>
 
-<% if @game.asin != "Error" %>
-  <% item_lookup(@game.asin, "Accessories, ItemAttributes, OfferSummary, Reviews, SalesRank, Similarities") %>
-<% end %>
+<%# if @game.asin != "Error" %>
+  <%# item_lookup(@game.asin, "ItemAttributes, OfferSummary, Reviews, Similarities") %>
+<%# end %>
 
 <div class="row">
   <% if user_signed_in? %>

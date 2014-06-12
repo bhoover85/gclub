@@ -40,7 +40,7 @@ module GamesHelper
   end
 
   # Get item information from Amazon
-  def item_lookup(asin, response)
+  def self.amazon_info(asin, response)
     req = req_config()
 
     params = {
@@ -49,36 +49,65 @@ module GamesHelper
       'ResponseGroup' => response
     }
 
-    @res = req.item_lookup(query: params).to_h
-    @res = @res['ItemLookupResponse']['Items']['Item']
+    sleep 1
+    res = req.item_lookup(query: params).to_h
+    res = res['ItemLookupResponse']['Items']['Item']
 
-    # editorial_review = @res['EditorialReviews']['EditorialReview']
-    item_attributes  = @res['ItemAttributes']
-    offer_summary    = @res['OfferSummary']
-    item_link        = @res['ItemLinks']['ItemLink']
-    similar_products = @res['SimilarProducts']['SimilarProduct']
+    item_attributes  = res['ItemAttributes']
+    offer_summary    = res['OfferSummary']
+    item_link        = res['ItemLinks']['ItemLink']
+    similar = res['SimilarProducts']['SimilarProduct']
 
-    # Session variables for view
-    # @release_date     = item_attributes['ReleaseDate']
-    # @publisher        = item_attributes['Publisher']
-    @list_price       = item_attributes['ListPrice']['FormattedPrice']
-    @lowest_price     = offer_summary['LowestNewPrice']['FormattedPrice']
-    @savings          = number_to_currency(@list_price.gsub(/[^\d\.]/, '').to_f - @lowest_price.gsub(/[^\d\.]/, '').to_f)
-    @similar_products = similar_products
+    # Get similar product titles and links
+    similar_products = Hash.new
+    similar.each do |product|
+      similar_products[product['Title']] = similar_products_url(product['ASIN'])
+    end
 
-    # @review = (editorial_review.is_a? Array) ? editorial_review.first['Content'] : editorial_review['Content']
+    amazon = []
 
+    game = OpenStruct.new
+    game.list_price       = item_attributes['ListPrice']['FormattedPrice']
+    game.lowest_price     = offer_summary['LowestNewPrice']['FormattedPrice']
+    game.savings          = "$0.00"
+    game.wishlist_url     = "get_wishlist_url(item_link)"
+    game.similar_products = similar_products
+
+    amazon << game
+
+    return amazon
+  end
+
+  def amazon_info(asin, response)
+    GamesHelper.amazon_info(asin, response)
+  end
+
+  def calc_savings(list_price, lowest_price)
+    return number_to_currency(list_price.gsub(/[^\d\.]/, '').to_f - lowest_price.gsub(/[^\d\.]/, '').to_f)
+  end
+
+  def self.get_wishlist_url(item_link)
     x=0
     item_link.each do |item|
       if item_link[x]['Description'] == "Add To Wishlist"
-        @add_to_wishlist = item_link[x]['URL']
+        add_to_wishlist = item_link[x]['URL']
       end
       x+=1
     end
+
+    return add_to_wishlist
+  end
+
+  def get_wishlist_url(item_link)
+    GamesHelper.get_wishlist_url(item_link)
+  end
+
+  def item_lookup(asin, response)
+    GamesHelper.item_lookup(asin, response)
   end
 
   # Return similar product URLs of current game
-  def similar_products_url(asin)
+  def self.similar_products_url(asin)
     req = req_config()
 
     params = {
@@ -86,25 +115,15 @@ module GamesHelper
       'Condition'     => 'All'
     }
 
+    sleep 1
     res = req.item_lookup(query: params).to_h
 
     return res['ItemLookupResponse']['Items']['Item']['DetailPageURL']
   end
 
-  def lowest_price(asin)
-    req = req_config()
-
-    params = {
-      'ItemId'        => asin,
-      'Condition'     => 'All',
-      'ResponseGroup' => 'OfferSummary'
-    }
-
-    res = req.item_lookup(query: params).to_h
-
-    return res['ItemLookupResponse']['Items']['Item']['OfferSummary']['LowestNewPrice']['FormattedPrice']
+  def similar_products_url(asin)
+    GamesHelper.similar_products_url(asin)
   end
-
 
   # Returns metacritic information on a game.
   # 1 = PS3, 2 = Xbox360, 3 = PC, 72496 = PS4, 80000 = Xbone
@@ -137,14 +156,14 @@ module GamesHelper
 
     metacritic = []
 
-    item = OpenStruct.new
-    item.score     = response.body['result']['score']
-    item.rlsdate   = response.body['result']['rlsdate']
-    item.publisher = response.body['result']['publisher']
-    item.developer = response.body['result']['developer']
-    item.genre     = response.body['result']['genre']
+    game = OpenStruct.new
+    game.score     = response.body['result']['score']
+    game.rlsdate   = response.body['result']['rlsdate']
+    game.publisher = response.body['result']['publisher']
+    game.developer = response.body['result']['developer']
+    game.genre     = response.body['result']['genre']
 
-    metacritic << item
+    metacritic << game
 
     return metacritic
   end
