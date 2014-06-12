@@ -71,7 +71,7 @@ module GamesHelper
     game.lowest_price     = offer_summary['LowestNewPrice']['FormattedPrice']
     game.savings          = "$0.00"
     game.page_url         = res['DetailPageURL']
-    game.wishlist_url     = "get_wishlist_url(item_link)"
+    game.wishlist_url     = get_wishlist_url(item_link)
     game.similar_products = similar_products
 
     amazon << game
@@ -88,15 +88,13 @@ module GamesHelper
   end
 
   def self.get_wishlist_url(item_link)
-    x=0
     item_link.each do |item|
-      if item_link[x]['Description'] == "Add To Wishlist"
-        add_to_wishlist = item_link[x]['URL']
+      if item['Description'] == "Add To Wishlist"
+        @add_to_wishlist = item['URL']
       end
-      x+=1
     end
 
-    return add_to_wishlist
+    return @add_to_wishlist
   end
 
   def get_wishlist_url(item_link)

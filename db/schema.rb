@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140611183024) do
+ActiveRecord::Schema.define(version: 20140612143450) do
 
   create_table "friendly_id_slugs", force: true do |t|
     t.string   "slug",                      null: false
@@ -44,11 +44,12 @@ ActiveRecord::Schema.define(version: 20140611183024) do
     t.string   "developer"
     t.string   "publisher"
     t.integer  "score"
-    t.float    "list_price"
-    t.float    "lowest_price"
-    t.float    "savings"
+    t.string   "list_price"
+    t.string   "lowest_price"
+    t.string   "savings"
     t.string   "wishlist_url"
     t.binary   "similar_products"
+    t.string   "page_url"
   end
 
   add_index "games", ["genre"], name: "index_games_on_genre"
