@@ -91,6 +91,7 @@ class GamesController < ApplicationController
       @game.list_price       = amazon.first['list_price']
       @game.lowest_price     = amazon.first['lowest_price']
       @game.savings          = amazon.first['savings']
+      @game.page_url         = amazon.first['page_url']
       @game.wishlist_url     = amazon.first['wishlist_url']
       @game.similar_products = amazon.first['similar_products']
     end

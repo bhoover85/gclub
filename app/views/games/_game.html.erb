@@ -1,9 +1,9 @@
-<%# metacritic_info(game.name, game.platform) %>
 <% @game = game %>
 
 <tr>
   <td><%= link_to game.name, game %></td>
   <td><%= game.platform %></td>
-  <td><%= game.year %></td>
   <td><%= game.genre %></td>
+  <td><%= game.year %></td>
+  <td><%= game_table_data(@game, params[:action]) %></td>
 </tr>

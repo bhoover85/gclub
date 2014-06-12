@@ -47,8 +47,8 @@ class Game < ActiveRecord::Base
       if game.asin != "Error"
         amazon = GamesHelper.amazon_info(game.asin, "ItemAttributes, OfferSummary, Similarities")
         game.update_attributes(:list_price => amazon.first['list_price'], :lowest_price => amazon.first['lowest_price'], 
-                               :savings => amazon.first['savings'], :wishlist_url => amazon.first['wishlist_url'],
-                               :similar_products => amazon.first['similar_products'])
+                               :savings => amazon.first['savings'], :page_url => amazon.first['page_url'], 
+                               :wishlist_url => amazon.first['wishlist_url'], :similar_products => amazon.first['similar_products'])
       end
     end
   end

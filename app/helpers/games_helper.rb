@@ -56,7 +56,7 @@ module GamesHelper
     item_attributes  = res['ItemAttributes']
     offer_summary    = res['OfferSummary']
     item_link        = res['ItemLinks']['ItemLink']
-    similar = res['SimilarProducts']['SimilarProduct']
+    similar          = res['SimilarProducts']['SimilarProduct']
 
     # Get similar product titles and links
     similar_products = Hash.new
@@ -70,6 +70,7 @@ module GamesHelper
     game.list_price       = item_attributes['ListPrice']['FormattedPrice']
     game.lowest_price     = offer_summary['LowestNewPrice']['FormattedPrice']
     game.savings          = "$0.00"
+    game.page_url         = res['DetailPageURL']
     game.wishlist_url     = "get_wishlist_url(item_link)"
     game.similar_products = similar_products
 
@@ -100,10 +101,6 @@ module GamesHelper
 
   def get_wishlist_url(item_link)
     GamesHelper.get_wishlist_url(item_link)
-  end
-
-  def item_lookup(asin, response)
-    GamesHelper.item_lookup(asin, response)
   end
 
   # Return similar product URLs of current game
@@ -170,5 +167,27 @@ module GamesHelper
 
   def metacritic_info(name, platform)
     GamesHelper.metacritic_info(name, platform)
+  end
+
+  def game_table_column(action)
+    case action
+    when "owned"
+      column = "score"
+    when "wanted", "index"
+      column = "lowest_price"
+    end
+
+    return column
+  end
+
+  def game_table_data(game, action)
+    case action
+    when "owned"
+      data = game.score
+    when "wanted", "index"
+      data = game.lowest_price ? game.lowest_price : "N/A"
+    end
+
+    return data
   end
 end

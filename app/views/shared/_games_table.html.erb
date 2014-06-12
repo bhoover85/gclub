@@ -3,8 +3,9 @@
     <tr>
       <th><%= sortable "name" %></th>
       <th><%= sortable "platform" %></th>
-      <th><%= sortable "year" %></th>
       <th><%= sortable "genre" %></th>
+      <th><%= sortable "year" %></th>
+      <th><%= sortable game_table_column(params[:action]) %></th>
     </tr>
   </thead>
   <tbody>
