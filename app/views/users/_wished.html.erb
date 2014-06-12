@@ -1,4 +1,16 @@
-<h3>Games I Want (<%= @wished.count %>)</h3>
+<div class="row">
+  <div class="col-md-12">
+    <section class="pull-left">
+      <h3>Games I Want (<%= @wished.count %>)</h3>
+    </section>
+
+    <div class="pull-right view-all">
+      <% if @wished.any? %>
+        <h3><%= link_to "View All", wanted_user_path %></h3>
+      <% end %>
+    </div>
+  </div>
+</div>
 
 <div class="row">
   <div class="col-md-12">
@@ -6,10 +18,8 @@
       <% @wished.each do |wished| %>
         <%= link_to image_tag(wished.cover.url(:thumb), class: "pull-left game-thumbnail"), wished_path(wished) %>
       <% end %>
-      <div class="clearfix"></div>
-      <div><%= link_to "View All", wanted_user_path %></div>
     <% else %>
-      <p>None</p>
+      <p>No games wanted!</p>
     <% end %>
   </div>
 </div>

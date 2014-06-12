@@ -1,4 +1,16 @@
-<h3>Games I Own (<%= @owned.count %>)</h3>
+<div class="row">
+  <div class="col-md-12">
+    <section class="pull-left">
+      <h3>Games I Own (<%= @owned.count %>)</h3>
+    </section>
+
+    <div class="pull-right view-all">
+      <% if @owned.any? %>
+        <h3><%= link_to "View All", owned_user_path %></h3>
+      <% end %>
+    </div>
+  </div>
+</div>
 
 <div class="row">
   <div class="col-md-12">
@@ -6,10 +18,8 @@
       <% @owned.each do |owned| %>
         <%= link_to image_tag(owned.cover.url(:thumb), class: "pull-left game-thumbnail"), owned_path(owned) %>
       <% end %>
-      <div class="clearfix"></div>
-      <div><%= link_to "View All", owned_user_path %></div>
     <% else %>
-      <p>None</p>
+      <p>No games owned!</p>
     <% end %>
   </div>
 </div>
