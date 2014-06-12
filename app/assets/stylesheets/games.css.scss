@@ -2,6 +2,9 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+$amazon: #fcc235;
+$wishlist: #146eb4;
+
 .games {
   list-style: none;
   margin: 0;
@@ -40,4 +43,24 @@
 
 .amzn-btn {
   margin: 10px 0;
+}
+
+.amzn-btn {
+  background-color: $amazon!important;
+  border-color: darken($amazon, 10%)!important;
+  color: #000!important;
+  margin-bottom: 10px!important;
+}
+
+.amzn-btn:hover {
+  background-color: darken($amazon, 10%)!important;
+}
+
+.wishlist-btn {
+  background-color: $wishlist!important;
+  border-color: darken($wishlist, 10%)!important;
+}
+
+.wishlist-btn:hover {
+  background-color: darken($wishlist, 10%)!important;
 }

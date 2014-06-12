@@ -19,33 +19,30 @@ $google: #d34836;
 
 .btn-facebook {
   background-color: $facebook;
-  border-color: $facebook;
+  border-color: darken($facebook, 10%);
 }
 
   .btn-facebook:hover {
     background-color: darken($facebook, 10%);
-    border-color: darken($facebook, 10%);
   }
 
 .btn-twitter {
   background-color: $twitter;
-  border-color: $twitter;
+  border-color: darken($twitter, 10%);
 }
 
   .btn-twitter:hover {
     background-color: darken($twitter, 10%);
-    border-color: darken($twitter, 10%);
   }
 
 
 .btn-google_oauth2 {
   background-color: $google;
-  border-color: $google;
+  border-color: darken($google, 10%);
 }
 
   .btn-google_oauth2:hover {
     background-color: darken($google, 10%);
-    border-color: darken($google, 10%);
   }
 
 

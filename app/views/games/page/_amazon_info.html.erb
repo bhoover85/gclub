@@ -1,8 +1,6 @@
-<h2 class="amazon">Amazon</h2>
+<% if @game.asin != "Error" %>
+  <h2 class="amazon">Amazon</h2>
 
-<% if @game.asin == "Error" %>
-  <p>There was a problem retrieving this item from Amazon.</p>
-<% else %>
   <% savings = calc_savings(@game.list_price, @game.lowest_price) %>
 
   <div>List Price: <%= @game.list_price %></div>
@@ -13,7 +11,7 @@
   <% end %>
 
   <%= link_to "Buy from Amazon", @game.page_url, class: "btn btn-primary amzn-btn" %> 
-  <%= link_to "Add To Amazon Wishlist", @game.wishlist_url, class: "btn btn-default amzn-btn" %> 
+  <%= link_to "Add To Amazon Wishlist", @game.wishlist_url, class: "btn btn-primary wishlist-btn" %> 
 
   <h3>Similar</h3>
   <% @game.similar_products.each do |name, url| %>
