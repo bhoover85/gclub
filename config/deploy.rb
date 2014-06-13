@@ -23,24 +23,20 @@ set :deploy_to, '/var/rails/greatgames.club'
 # set :pty, true
 
 # Default value for :linked_files is []
-# set :linked_files, %w{config/database.yml}
+set :linked_files, %w{config/application.yml}
+set :linked_files, %w{config/schedule.rb}
 
 # Default value for linked_dirs is []
 # set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
 
 # Default value for default_env is {}
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
+set :default_env, :production
 
 # Default value for keep_releases is 5
 # set :keep_releases, 5
 
 namespace :deploy do
-
-  desc "Symlink shared config files"
-  task :symlink_config_files do
-      run "ln -s #{ deploy_to }/shared/config/application.yml #{ current_path }/config/application.yml"
-      run "ln -s #{ deploy_to }/shared/config/schedule.rb #{ current_path }/config/schedule.rb"
-  end
 
   desc 'Restart application'
   task :restart do
@@ -50,7 +46,6 @@ namespace :deploy do
     end
   end
 
-  after :deploy, :symlink_config_files
   after :publishing, :restart
 
   after :restart, :clear_cache do
