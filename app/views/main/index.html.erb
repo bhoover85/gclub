@@ -36,8 +36,11 @@
           <li>
             <section class="pull-left">
               <h3><%= link_to game.name, game %></h3>
-              <%= image_tag(game.cover.url(:thumb), class: "pull-left game-thumbnail") %>
-              <p><%= game.description %></p>
+              <blockquote>
+                <%= image_tag(game.cover.url(:thumb), class: "pull-left game-thumbnail") %>
+                <p><%= truncate(game.description, length: 1000) %></p>
+                <footer>Metacritic</footer>
+              </blockquote>
             </section>
 
             <%= render 'users/wishlist_ownership_admin_buttons' %>
