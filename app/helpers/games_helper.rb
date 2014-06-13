@@ -174,11 +174,11 @@ module GamesHelper
     metacritic = []
 
     game = OpenStruct.new
-    game.score     = response.body['result']['score']
-    game.rlsdate   = response.body['result']['rlsdate']
-    game.publisher = response.body['result']['publisher']
-    game.developer = response.body['result']['developer']
-    game.genre     = response.body['result']['genre']
+    game.score     = response.body['result']['score']  if response.body['result']['score']
+    game.rlsdate   = response.body['result']['rlsdate'] if response.body['result']['rlsdate']
+    game.publisher = response.body['result']['publisher'] if response.body['result']['publisher']
+    game.developer = response.body['result']['developer'] if response.body['result']['developer']
+    game.genre     = response.body['result']['genre'] if response.body['result']['genre']
 
     metacritic << game
 
