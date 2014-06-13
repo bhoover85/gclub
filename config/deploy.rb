@@ -38,16 +38,15 @@ namespace :deploy do
 
   desc "Symlink shared config files"
   task :symlink_config_files do
-      run "#ln -s #{ deploy_to }/shared/config/application.yml #{ current_path }/config/application.yml"
-      run "#ln -s #{ deploy_to }/shared/config/schedule.rb #{ current_path }/config/schedule.rb"
+      run "ln -s #{ deploy_to }/shared/config/application.yml #{ current_path }/config/application.yml"
+      run "ln -s #{ deploy_to }/shared/config/schedule.rb #{ current_path }/config/schedule.rb"
   end
 
   desc 'Restart application'
   task :restart do
     on roles(:app), in: :sequence, wait: 5 do
       # Your restart mechanism here, for example:
-      # execute :touch, release_path.join('tmp/restart.txt')
-      run "#{ try_sudo } touch #{ File.join(current_path, 'tmp', 'restart.txt') }"
+      execute :touch, release_path.join('tmp/restart.txt')
     end
   end
 
