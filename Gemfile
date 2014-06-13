@@ -33,13 +33,11 @@ gem 'bcrypt', '~> 3.1.7'
 # gem 'unicorn'
 
 # Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
+gem 'capistrano',  '~> 3.1', group: :development
+gem 'capistrano-rails', '~> 1.1', group: :development
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
-
-# Fix malformed header error (https://github.com/hakanensari/vacuum/issues/46)
-gem 'excon'
 
 # Unirest for Metacritic API
 gem 'unirest', :require => 'unirest'
@@ -60,6 +58,7 @@ gem 'figaro'
 gem 'vacuum'
 gem 'paperclip', '~> 4.1'
 gem 'friendly_id', '~> 5.0.0'
+gem 'excon'
 gem 'whenever', :require => false
 
 group :development, :test do
