@@ -39,6 +39,7 @@ namespace :deploy do
   desc "Symlink shared config files"
   task :symlink_config_files do
       run "#{ try_sudo } ln -s #{ deploy_to }/shared/config/application.yml #{ current_path }/config/application.yml"
+      run "#{ try_sudo } ln -s #{ deploy_to }/shared/config/schedule.rb #{ current_path }/config/schedule.rb"
   end
 
   desc 'Restart application'
