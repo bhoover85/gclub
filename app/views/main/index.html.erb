@@ -38,7 +38,7 @@
               <h3><%= link_to game.name, game %></h3>
               <blockquote>
                 <%= image_tag(game.cover.url(:thumb), class: "pull-left game-thumbnail") %>
-                <p><%= truncate(game.description, length: 1000) %></p>
+                <p><%= truncate(game.description, length: 750) %></p>
                 <footer>Metacritic</footer>
               </blockquote>
             </section>
