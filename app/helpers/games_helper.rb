@@ -121,7 +121,7 @@ module GamesHelper
   end
 
   # Returns metacritic information on a game.
-  # 1 = PS3, 2 = Xbox360, 3 = PC, 72496 = PS4, 80000 = Xbone
+  # 1 = PS3, 2 = Xbox360, 3 = PC, 72496 = PS4, 80000 = Xbox One
   def self.metacritic_info(name, platform)
     case platform.downcase
     when "playstation 3"
@@ -130,8 +130,30 @@ module GamesHelper
       platform = 2
     when "pc"
       platform = 3
+    when "ds"
+      platform = 4
+    when "playstation 2"
+      platform = 6
+    when "psp"
+      platform = 7
     when "wii"
       platform = 8
+    when "playstation"
+      platform = 10
+    when "game boy advance"
+      platform = 11
+    when "xbox"
+      platform = 12
+    when "gamecube"
+      platform = 13
+    when "nintendo 64"
+      platform = 14
+    when "dreamcast"
+      platform = 15
+    when "3ds"
+      platform = 16
+    when "playstation vita"
+      platform = 67365
     when "wii u"
       platform = 68410
     when "playstation 4"
