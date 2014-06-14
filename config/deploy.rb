@@ -26,7 +26,7 @@ set :deploy_to, '/var/rails/greatgames.club'
 set :linked_files, %w{config/application.yml config/schedule.rb config/secrets.yml public/.htaccess}
 
 # Default value for linked_dirs is []
-set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
+set :linked_dirs, %w{log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
 
 # Default value for default_env is {}
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
