@@ -52,7 +52,7 @@ class GamesController < ApplicationController
 
   def update
     @game = Game.friendly.find(params[:id])
-    @game.asin = GamesHelper.get_asin(@game.name, @game.platform)
+    # @game.asin = GamesHelper.get_asin(@game.name, @game.platform)
     
     get_metacritic_info(@game.name, @game.platform)
     get_amazon_info(@game.asin, "ItemAttributes, OfferSummary, Similarities") if @game.asin != "Error"
