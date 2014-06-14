@@ -33,7 +33,7 @@
           
           <li>
             <section class="pull-left">
-              <h3><%= link_to game.name, game %></h3>
+              <h3><%= link_to game.name, game %> <small><%= "#{game.platform}" %></small></h3>
               <blockquote>
                 <%= image_tag(game.cover.url(:thumb), class: "pull-left game-thumbnail") %>
                 <p><%= truncate(game.description, length: 700) %></p>
