@@ -33,7 +33,7 @@ class GamesController < ApplicationController
 
   def create
     @game = Game.new(game_params)
-    @game.asin = GamesHelper.get_asin(@game.name, @game.platform) unless @game.asin
+    @game.asin = GamesHelper.get_asin(@game.name, @game.platform) unless !@game.asin.blank?
 
     get_metacritic_info(@game.name, @game.platform)
     get_amazon_info(@game.asin, "ItemAttributes, OfferSummary, Similarities") unless @game.asin == "Error"
