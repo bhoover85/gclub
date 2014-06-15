@@ -33,10 +33,10 @@ class GamesController < ApplicationController
 
   def create
     @game = Game.new(game_params)
-    @game.asin = GamesHelper.get_asin(@game.name, @game.platform)
-    
+    @game.asin = GamesHelper.get_asin(@game.name, @game.platform) unless @game.asin
+
     get_metacritic_info(@game.name, @game.platform)
-    get_amazon_info(@game.asin, "ItemAttributes, OfferSummary, Similarities") if @game.asin != "Error" 
+    get_amazon_info(@game.asin, "ItemAttributes, OfferSummary, Similarities") unless @game.asin == "Error"
 
     if @game.save
       flash[:success] = "New game added!"
@@ -55,7 +55,7 @@ class GamesController < ApplicationController
     # @game.asin = GamesHelper.get_asin(@game.name, @game.platform)
     
     get_metacritic_info(@game.name, @game.platform)
-    get_amazon_info(@game.asin, "ItemAttributes, OfferSummary, Similarities") if @game.asin != "Error"
+    get_amazon_info(@game.asin, "ItemAttributes, OfferSummary, Similarities") unless @game.asin == "Error"
 
     if @game.update_attributes(game_params)
       flash[:success] = "Game updated"
@@ -74,7 +74,7 @@ class GamesController < ApplicationController
   private
 
     def game_params
-      params.require(:game).permit(:name, :year, :description, :platform, :cover)
+      params.require(:game).permit(:asin, :name, :year, :description, :platform, :cover)
     end
 
     def get_metacritic_info(name, platform)
