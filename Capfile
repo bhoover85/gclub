@@ -6,7 +6,6 @@ require 'capistrano/deploy'
 
 require 'capistrano/rails'
 require "whenever/capistrano"
-require 'capistrano/file-permissions'
 
 # Includes tasks from other gems included in your Gemfile
 #

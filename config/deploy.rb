@@ -34,12 +34,7 @@ set :linked_dirs, %w{log tmp/pids tmp/cache tmp/sockets vendor/bundle public/sys
 # Default value for keep_releases is 5
 # set :keep_releases, 5
 
-set :file_permissions_paths, ["bin"]
-set :file_permissions_chmod_mode, "0775"
-
 namespace :deploy do
-
-  before "deploy:updated", "deploy:set_permissions:acl"
 
   desc 'Restart application'
   task :restart do
@@ -54,9 +49,9 @@ namespace :deploy do
   after :restart, :clear_cache do
     on roles(:web), in: :groups, limit: 3, wait: 10 do
       # Here we can do anything such as:
-      # within release_path do
-      #   execute :rake, 'cache:clear'
-      # end
+      within release_path do
+        execute "chmod u+x bin/rails"
+      end
     end
   end
 
