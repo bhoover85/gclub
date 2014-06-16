@@ -16,7 +16,7 @@
   <div class="col-md-12">
     <% if @wished.any? %>
       <% @wished.each do |wished| %>
-        <%= link_to image_tag(wished.cover.url(:thumb), class: "pull-left game-thumbnail"), wished_path(wished) %>
+        <%= link_to image_tag(wished.cover.url(:thumb), class: "pull-left game-thumbnail wanted-owned"), wished_path(wished) %>
       <% end %>
     <% else %>
       <p>No games wanted!</p>
