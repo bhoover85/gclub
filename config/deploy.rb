@@ -50,7 +50,7 @@ namespace :deploy do
     on roles(:web), in: :groups, limit: 3, wait: 10 do
       # Here we can do anything such as:
       within release_path do
-        execute "chmod u+x /var/rails/greatgames.club/current/bin/rails"
+        execute "chmod u+x /var/rails/greatgames.club/current/bin/*"
       end
     end
   end
