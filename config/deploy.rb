@@ -34,7 +34,12 @@ set :linked_dirs, %w{log tmp/pids tmp/cache tmp/sockets vendor/bundle public/sys
 # Default value for keep_releases is 5
 # set :keep_releases, 5
 
+set :file_permissions_paths, ["bin"]
+set :file_permissions_chmod_mode, "0775"
+
 namespace :deploy do
+
+  before "deploy:updated", "deploy:set_permissions:acl"
 
   desc 'Restart application'
   task :restart do
