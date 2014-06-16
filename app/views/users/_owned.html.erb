@@ -16,7 +16,9 @@
   <div class="col-md-12">
     <% if @owned.any? %>
       <% @owned.each do |owned| %>
-        <%= link_to image_tag(owned.cover.url(:thumb), class: "pull-left game-thumbnail wanted-owned"), owned_path(owned) %>
+        <div class="wanted-owned">
+          <%= link_to image_tag(owned.cover.url(:thumb), class: "pull-left game-thumbnail"), owned_path(owned) %>
+        </div>
       <% end %>
     <% else %>
       <p>No games owned!</p>

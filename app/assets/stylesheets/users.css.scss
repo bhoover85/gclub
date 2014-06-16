@@ -13,5 +13,8 @@
 }
 
 .wanted-owned {
+  position: relative;
+  clear: none;
+  display: inline-block;
   min-height: 148px;
 }
