@@ -3,7 +3,7 @@
     <h1><%= link_to 'Great Games Club', root_url %></h1>
   </div>
 
-  <nav class="col-md6 pull-right header-signin">
+  <nav class="col-md-6 text-right pull-right header-signin">
     <%= link_to "<i class='fa fa-gamepad'></i> Games".html_safe, games_path, class: "btn btn-default" %> 
     <% if user_signed_in? %>
       <% if current_user.admin? %>
