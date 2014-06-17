@@ -1,7 +1,7 @@
 <li>
   <%= gravatar_for user, size: 52 %>
   <%= link_to user.email, user %>
-  <% if current_user.admin? && !current_user?(user) %>
+  <% if user_signed_in? && current_user.admin? && !current_user?(user) %>
       <%= link_to "<i class='fa fa-ban'></i> Delete".html_safe, user, 
         class: "btn btn-danger pull-right", 
         method: :delete, 

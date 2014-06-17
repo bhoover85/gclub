@@ -4,9 +4,9 @@
   <div class="col-md-12">
     <h1><%= @title %></h1>
     <% if @users.any? %>
-      <ul class="users">
-        <%= render @users %>
-      </ul>
+      <% @users.each do |user| %>
+        <%= link_to gravatar_for(user, size: 54, class: "pull-left gravatar"), user_path(user) %>
+      <% end %>
     <% else %>
       <p><%= @game.name %> isn't <%= @title.downcase %> anyone. Be the first!</p>
     <% end %>
