@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
+  before_action :admin_user, only: [:index]
   helper_method :sort_column, :sort_direction
 
   def index
