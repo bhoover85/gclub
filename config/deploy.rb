@@ -23,7 +23,7 @@ set :deploy_to, '/var/rails/greatgames.club'
 # set :pty, true
 
 # Default value for :linked_files is []
-set :linked_files, %w{config/application.yml config/secrets.yml public/.htaccess}
+set :linked_files, %w{config/application.yml config/secrets.yml public/.htaccess public/sitemap.xml}
 
 # Default value for linked_dirs is []
 set :linked_dirs, %w{log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
