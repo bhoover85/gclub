@@ -168,20 +168,21 @@ module GamesHelper
         "X-Mashape-Authorization" => "ElTFsB39JKhu7EpQxrqksMhe9xhrzioJ"
       },
       parameters: { 
-        "title" => name,
+        "title"    => name,
         "platform" => platform
+        "retry"    => 4
       }
 
     metacritic = []
 
-    game = OpenStruct.new
-    game.score     = response.body['result']['score']  if response.body['result']['score']
-    game.rlsdate   = response.body['result']['rlsdate'] if response.body['result']['rlsdate']
-    game.publisher = response.body['result']['publisher'] if response.body['result']['publisher']
-    game.developer = response.body['result']['developer'] if response.body['result']['developer']
-    game.genre     = response.body['result']['genre'] if response.body['result']['genre']
+    req = OpenStruct.new
+    req.score     = response.body['result']['score']
+    req.rlsdate   = response.body['result']['rlsdate']
+    req.publisher = response.body['result']['publisher']
+    req.developer = response.body['result']['developer']
+    req.genre     = response.body['result']['genre']
 
-    metacritic << game
+    metacritic << req
 
     return metacritic
   end
