@@ -169,7 +169,7 @@ module GamesHelper
       },
       parameters: { 
         "title"    => name,
-        "platform" => platform
+        "platform" => platform,
         "retry"    => 4
       }
 
