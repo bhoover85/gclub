@@ -8,7 +8,9 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 
-  <meta name="description" content="Cataloging great games that deserve to be remembered, played and enjoyed.">
+  <% if current_page?('/') %>
+    <meta name="description" content="Cataloging great games that deserve to be remembered, played and enjoyed.">
+  <% end %>
 
   <!-- Facebook Open Graph Info -->
   <meta property="og:title" content="Great Games Club" />
