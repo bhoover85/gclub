@@ -3,11 +3,19 @@
 <head>
   <title><%= full_title(yield(:title)) %></title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= stylesheet_link_tag    'application', 'http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700' %>
   <%= stylesheet_link_tag    'application', 'http://fonts.googleapis.com/css?family=Roboto:400,700' %>
   <%= stylesheet_link_tag    'application', 'http://fonts.googleapis.com/css?family=Lato:400,700' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+
+  <meta name="description" content="Cataloging great games that deserve to be remembered, played and enjoyed.">
+
+  <!-- Facebook Open Graph Info -->
+  <meta property="og:title" content="Great Games Club" />
+  <meta property="og:url" content="http://greatgames.club/" />
+  <meta property="og:description" content="Cataloging great games that deserve to be remembered, played and enjoyed." />
+  <meta property="og:image" content="" />
+  <!-- End Facebook Open Graph Info -->
 
   <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
