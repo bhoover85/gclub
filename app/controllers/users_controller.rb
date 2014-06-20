@@ -9,8 +9,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @wished = @user.wanted.paginate(page: params[:page])
-    @owned = @user.owned.paginate(page: params[:page])
+    @wished = @user.wanted.paginate(page: params[:page]).sort_by &:name
+    @owned = @user.owned.paginate(page: params[:page]).sort_by &:name
   end
 
   def wanted
