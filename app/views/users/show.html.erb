@@ -3,7 +3,7 @@
 <div class="row">
   <div class="col-md-12">
     <h2 class="pull-left">
-      <%= gravatar_for @user, size: 80 %> <%= @user.email %>'s profile
+      <%= gravatar_for @user, size: 80 %> <%= @user.email[/[^@]+/] %>'s profile
     </h2>
     <h2 class="pull-right">
       <% if user_signed_in? && current_user?(@user) %>
