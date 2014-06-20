@@ -3,10 +3,13 @@
 
   <% savings = calc_savings(@game.list_price, @game.lowest_price) %>
 
-  <div>List Price: <%= @game.list_price %></div>
-  <div>Lowest Price: <strong class="amzn-price"><%= @game.lowest_price %></strong></div>
+  <% if @game.list_price > @game.lowest_price %>
+    <div>List Price: <%= @game.list_price %></div>
+  <% end %>
 
-  <% if savings.gsub(/[^\d\.]/, '').to_f > 0 %>
+  <div>Lowest New Price: <strong class="amzn-price"><%= @game.lowest_price %></strong></div>
+
+  <% if @game.list_price > @game.lowest_price %>
     <div>Savings: <%= savings %></div>
   <% end %>
 
