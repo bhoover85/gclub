@@ -38,6 +38,15 @@
 <div class="clearfix"></div>
 
 <section>
+  <h3>Most Watched YouTube Videos</h3>
+  <% get_youtube_videos(@game.name, @game.platform).each do |title, youtube_id| %>
+    <p>
+      <%= content_tag(:iframe, nil, src: "//www.youtube.com/embed/#{youtube_id}") %>
+    </p>
+  <% end %>
+</section>
+
+<section>
   <%= render 'games/users/wishers' %>
 </section>
 

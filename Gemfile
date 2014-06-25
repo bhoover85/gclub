@@ -60,6 +60,8 @@ gem 'paperclip', '~> 4.1'
 gem 'friendly_id', '~> 5.0.0'
 gem 'excon'
 gem 'whenever', :require => false
+gem 'google-api-client'
+gem 'trollop'
 
 group :development, :test do
   gem 'rspec-rails'
