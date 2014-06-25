@@ -40,9 +40,9 @@
 <section>
   <h3>Most Watched YouTube Videos</h3>
   <% get_youtube_videos(@game.name, @game.platform).each do |title, youtube_id| %>
-    <p>
+    <div class="video">
       <%= content_tag(:iframe, nil, src: "//www.youtube.com/embed/#{youtube_id}") %>
-    </p>
+    </div>
   <% end %>
 </section>
 
