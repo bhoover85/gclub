@@ -8,6 +8,6 @@
       <%= render 'games/actions/add_to_ownership' %>
     <% end %>
   <% else %>
-    <button type="button" class="btn btn-large btn-default" disabled="disabled">Owned</button>
+    <%= link_to "Owned", new_user_registration_path, class: "btn btn-default btn-large" %> 
   <% end %>
 </div>
