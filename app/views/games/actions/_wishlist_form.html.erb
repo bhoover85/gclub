@@ -1,9 +1,13 @@
 <% wishlist_form_id = "wishlist_form_#{@game.id}" %>
 
 <div class='<%= wishlist_form_id %> inline-block'>
-  <% if current_user.wished?(@game) %>
-    <%= render 'games/actions/remove_from_wishlist' %>
+  <% if user_signed_in? %>
+    <% if current_user.wished?(@game) %>
+      <%= render 'games/actions/remove_from_wishlist' %>
+    <% else %>
+      <%= render 'games/actions/add_to_wishlist' %>
+    <% end %>
   <% else %>
-    <%= render 'games/actions/add_to_wishlist' %>
+    <button type="button" class="btn btn-large btn-default" disabled="disabled">Wanted</button>
   <% end %>
 </div>

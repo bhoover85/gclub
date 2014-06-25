@@ -32,8 +32,13 @@
           <% @game = game %>
           
           <li>
-            <section class="pull-left">
-              <h3><%= link_to game.name, game %> <small><%= "#{game.platform}" %></small></h3>
+            <section>
+              <h3 class="pull-left"><%= link_to game.name, game %> <small><%= "#{game.platform}" %></small></h3>
+              <h3 class="pull-right">
+                <%= render 'games/actions/wishlist_form' %>
+                <%= render 'games/actions/ownership_form' %>
+              </h3>
+              <div class="clearfix"></div>
               <blockquote>
                 <%= image_tag(game.cover.url(:thumb), class: "pull-left game-thumbnail") %>
                 <p><%= truncate(game.description, length: 700) %></p>

@@ -1,4 +1,13 @@
-<h1 class="game-name"><%= @game.name %></h1>
+<div class="row">
+  <div class="col-md-12">
+    <h1 class="game-name pull-left"><%= @game.name %></h1>
+    <h1 class="pull-right">
+      <%= render 'games/actions/wishlist_form' %>
+      <%= render 'games/actions/ownership_form' %>
+    </h1>
+  </div>
+</div>
+
 <%= image_tag(@game.cover.url(:medium), class: "pull-left game-thumbnail") %>
 <h4>Platform: <%= @game.platform %></h4>
 
