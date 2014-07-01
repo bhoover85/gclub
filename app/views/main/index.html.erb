@@ -1,4 +1,4 @@
-<% provide(:title, "Great Games of #{@filter}") %>
+<% provide(:title, "#{@filter} Games") %>
 
 <div class="row">
 
@@ -17,13 +17,13 @@
     <div class="col-md-9">
   <% end %>
       <h2>
-        <i class="fa fa-trophy"></i> <%= "Great Games of #{@filter}" %>
+        <%= "#{@filter} Games" %>
       </h2>
       <h4>
         <i class="fa fa-filter"></i>  
         <%= link_to "All", root_url %> 
-          <% Game.select("DISTINCT(YEAR)").reverse.each do |game| %>
-            | <%= link_to game.year, "/year/#{game.year}" %>
+          <% Game.select("DISTINCT(PLATFORM)").each do |game| %>
+            | <%= link_to game.platform, "/platform/#{game.platform}" %>
           <% end %>
       </h4>
 

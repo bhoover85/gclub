@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   resources :ownerships, :only => [:create, :destroy]
 
   root 'main#index'
-  match '/year/:year', to: 'main#index', via: 'get'
+  match '/platform/:platform', to: 'main#index', via: 'get'
 
   get 'games/:id/edit'     => 'games#edit',     as: :edit
   get 'games/:id/wanted'   => 'games#wishers',  as: :game_wanted

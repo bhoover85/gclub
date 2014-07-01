@@ -3,8 +3,8 @@ class Game < ActiveRecord::Base
   include Filterable
   extend FriendlyId
   
-  # Used to filter games by year
-  scope :year, -> (year) { where year: year }
+  # Used to filter games by platform
+  scope :platform, -> (platform) { where platform: platform }
 
   # Pretty URLs
   friendly_id :name_platform, use: :slugged
