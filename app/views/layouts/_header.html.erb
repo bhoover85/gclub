@@ -4,16 +4,16 @@
   </div>
 
   <nav class="col-md-6 text-right pull-right header-signin">
-    <%= link_to "<i class='fa fa-gamepad'></i> Games".html_safe, games_path, class: "btn btn-default" %> 
+    <%= link_to "<i class='fa fa-gamepad'></i> All Games".html_safe, games_path, class: "btn btn-default" %> 
     <% if user_signed_in? %>
       <% if current_user.admin? %>
         <%= link_to "<i class='fa fa-gavel'></i> Admin".html_safe, admin_path, class: "btn btn-default" %> 
       <% end %>
       <%= link_to "<i class='fa fa-user'></i> Profile".html_safe, current_user, class: "btn btn-default" %> 
-      <%= link_to "<i class='fa fa-sign-out'></i> Logout".html_safe, destroy_user_session_path, method: :delete, class: "btn btn-primary" %>
+      <%= link_to "<i class='fa fa-sign-out'></i> Sign Out".html_safe, destroy_user_session_path, method: :delete, class: "btn btn-primary" %>
     <% else %>
-      <%= link_to "<i class='fa fa-plus'></i> Sign up".html_safe, new_user_registration_path, class: "btn btn-success" %> 
-      <%= link_to "<i class='fa fa-sign-in'></i> Sign in".html_safe, new_user_session_path, class: "btn btn-primary" %>
+      <%= link_to "<i class='fa fa-plus'></i> Sign Up".html_safe, new_user_registration_path, class: "btn btn-success" %> 
+      <%= link_to "<i class='fa fa-sign-in'></i> Sign In".html_safe, new_user_session_path, class: "btn btn-primary" %>
     <% end %>
   </nav>
 </header>
