@@ -22,27 +22,13 @@
 <!-- Metacritic info -->
 </div>
 
-<div class="pull-right social-share">
-  <div id="fb-root"></div>
-  <div class="fb-like" data-href="<%= request.original_url %>" data-layout="box_count" data-action="like" data-show-faces="false" data-share="false"></div>
-
-  <a href="https://twitter.com/share" class="twitter-share-button" data-url="<%= request.original_url %>" data-counturl="<%= request.original_url %>" data-lang="en" data-count="vertical">Tweet</a>
-  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-
-  <!-- Place this tag where you want the +1 button to render. -->
-  <div class="g-plusone" data-size="tall"></div>
-
-  <!-- Place this tag after the last +1 button tag. -->
-  <script type="text/javascript">
-    (function() {
-      var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-      po.src = 'https://apis.google.com/js/platform.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-    })();
-  </script>
-</div>
-
 <div class="clearfix"></div>
+
+<div class="social-likes">
+  <div class="facebook" title="Share link on Facebook">Facebook</div>
+  <div class="twitter" title="Share link on Twitter">Twitter</div>
+  <div class="plusone" title="Share link on Google+">Google+</div>
+</div>
 
 <div>
   <%= render 'users/wishlist_ownership_admin_buttons' %>
