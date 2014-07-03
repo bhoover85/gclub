@@ -62,6 +62,7 @@ gem 'excon'
 gem 'whenever', :require => false
 gem 'google-api-client'
 gem 'trollop'
+gem 'jquery-turbolinks'
 
 group :development, :test do
   gem 'rspec-rails'
