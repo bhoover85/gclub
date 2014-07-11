@@ -1,29 +1,24 @@
 <% provide(:title, "#{@game.name} - #{@game.platform}") %>
 
-<%# if @game.asin != "Error" %>
-  <%# item_lookup(@game.asin, "ItemAttributes, OfferSummary, Reviews, Similarities") %>
-<%# end %>
-
 <div class="row">
-  <% if user_signed_in? %>
-    <div class="col-md-1">
-      <%= render 'shared/user_info' %>
-      <%= render 'shared/stats' %>
-    </div>
-  <% end %>
+  
+  <!-- User Info -->
+  <%= render 'shared/user_section' %>
 
+  <!-- Main Content -->
   <% if user_signed_in? %>
-    <div class="col-md-8">
+    <section class="col-md-8">
   <% else %>
-    <div class="col-md-9">
+    <section class="col-md-9">
   <% end %>
     <%= render 'games/page/game_info' %>
-  </div>
+  </section>
 
-  <div class="col-md-3">
+  <!-- Amazon Info -->
+  <section class="col-md-3">
     <%= render 'games/page/amazon_info' %>
     <%= render 'layouts/vertical_ad' %>
-  </div>
+  </section>
 </div>
 
 <%# if !Rails.env.production? %>

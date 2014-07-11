@@ -1,16 +1,16 @@
 <div class="row">
-  <div class="col-md-12">
+  <section class="col-md-12">
     <h1 class="game-name pull-left"><%= @game.name %></h1>
     <h1 class="pull-right">
       <%= render 'games/actions/wishlist_form' %>
       <%= render 'games/actions/ownership_form' %>
     </h1>
-  </div>
+  </section>
 </div>
 
 <%= image_tag(@game.cover.url(:medium), class: "pull-left game-thumbnail") %>
 
-<div class="pull-left">
+<section class="pull-left">
 <h4>Platform: <%= @game.platform %></h4>
 
 <!-- Metacritic info -->
@@ -20,7 +20,7 @@
 <%= "<h4>Genre: #{@game.genre}</h4>".html_safe if @game.genre %>
 <%= "<h4>Metacritic Score: #{@game.score}</h4>".html_safe if @game.score %>
 <!-- Metacritic info -->
-</div>
+</section>
 
 <div class="clearfix"></div>
 

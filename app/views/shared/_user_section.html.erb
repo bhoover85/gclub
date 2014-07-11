@@ -1,0 +1,6 @@
+<% if user_signed_in? %>
+  <section id="user-info" class="col-md-1">
+    <%= render 'shared/user_info' %>
+    <%= render 'shared/stats' %>
+  </section>
+<% end %>
