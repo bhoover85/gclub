@@ -193,9 +193,9 @@ module GamesHelper
 
   def game_table_column(action)
     case action
-    when "owned"
+    when "owned", "index"
       column = "score"
-    when "wanted", "index"
+    when "wanted"
       column = "lowest_price"
     end
 
@@ -204,9 +204,9 @@ module GamesHelper
 
   def game_table_data(game, action)
     case action
-    when "owned"
+    when "owned", "index"
       data = game.score
-    when "wanted", "index"
+    when "wanted"
       data = game.lowest_price ? game.lowest_price : "N/A"
     end
 

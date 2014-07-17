@@ -4,7 +4,7 @@ class GamesController < ApplicationController
   helper_method :sort_column, :sort_direction
 
   def index
-    @games = Game.paginate(page: params[:page], :per_page => 50).order(sort_column + ' ' + sort_direction)
+    @games = Game.paginate(page: params[:page], :per_page => 25).order(sort_column + ' ' + sort_direction)
   end
 
   def show
