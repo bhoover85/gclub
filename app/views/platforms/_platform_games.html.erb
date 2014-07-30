@@ -1,0 +1,30 @@
+<% provide(:title, @title) %>
+
+<div class="row">
+
+  <!-- User Info -->
+  <%= render 'shared/user_section' %>
+
+  <!-- Main Content -->
+  <% if user_signed_in? %>
+    <section id="main-content" class="col-md-8">
+  <% else %>
+    <section id="main-content" class="col-md-9">
+  <% end %>
+      <h2>
+        <%= @title %>
+      </h2>
+
+      <% @games.each do |game| %>
+        <div class="wanted-owned">
+          <%= link_to image_tag(game.cover.url(:thumb), class: "pull-left game-thumbnail"), game %>
+        </div>
+      <% end %>
+
+    </section>
+
+  <!-- About -->
+  <section id="about" class="col-md-3">
+      <%= render 'layouts/vertical_ad' %>
+  </section>
+</div>
