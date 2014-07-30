@@ -20,6 +20,22 @@ Rails.application.routes.draw do
 
   resources :wishlists,  :only => [:create, :destroy]
   resources :ownerships, :only => [:create, :destroy]
+  
+  resources :platforms,  :only => [:index] do
+    collection do
+      get :threeds, path: "3ds"
+      get :gamecube
+      get :pc
+      get :playstation_2, path: "playstation-2"
+      get :playstation_3, path: "playstation-3"
+      get :playstation_4, path: "playstation-4"
+      get :wii
+      get :wii_u, path: "wii-u"
+      get :xbox
+      get :xbox_360, path: "xbox-360"
+      get :xbox_one, path: "xbox-one"
+    end
+  end
 
   root 'main#index'
   match '/platform/:platform', to: 'main#index', via: 'get'
