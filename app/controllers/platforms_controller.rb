@@ -4,56 +4,56 @@ class PlatformsController < ApplicationController
 
   def threeds
     @title = "Great 3DS Games"
-    @games = Game.where(:platform => '3DS')
+    @games = Game.where(:platform => '3DS').paginate(page: params[:page], :per_page => 30).sort_by &:name
   end
 
   def gamecube
     @title = "Great Gamecube Games"
-    @games = Game.where(:platform => 'Gamecube')
+    @games = Game.where(:platform => 'Gamecube').paginate(page: params[:page], :per_page => 30).sort_by &:name
   end
 
   def pc
     @title = "Great PC Games"
-    @games = Game.where(:platform => 'PC')
+    @games = Game.where(:platform => 'PC').paginate(page: params[:page], :per_page => 30).sort_by &:name
   end
 
   def playstation_2
     @title = "Great Playstation 2 Games"
-    @games = Game.where(:platform => 'Playstation 2')
+    @games = Game.where(:platform => 'Playstation 2').paginate(page: params[:page], :per_page => 30).sort_by &:name
   end
 
   def playstation_3
     @title = "Great Playstation 3 Games"
-    @games = Game.where(:platform => 'Playstation 3')
+    @games = Game.where(:platform => 'Playstation 3').paginate(page: params[:page], :per_page => 30).sort_by &:name
   end
 
   def playstation_4
     @title = "Great Playstation 4 Games"
-    @games = Game.where(:platform => 'Playstation 4')
+    @games = Game.where(:platform => 'Playstation 4').paginate(page: params[:page], :per_page => 30).sort_by &:name
   end
 
   def wii
     @title = "Great Wii Games"
-    @games = Game.where(:platform => 'Wii')
+    @games = Game.where(:platform => 'Wii').paginate(page: params[:page], :per_page => 30).sort_by &:name
   end
 
   def wii_u
     @title = "Great Wii U Games"
-    @games = Game.where(:platform => 'Wii U')
+    @games = Game.where(:platform => 'Wii U').paginate(page: params[:page], :per_page => 30).sort_by &:name
   end
 
   def xbox
     @title = "Great Xbox Games"
-    @games = Game.where(:platform => 'Xbox')
+    @games = Game.where(:platform => 'Xbox').paginate(page: params[:page], :per_page => 30).sort_by &:name
   end
 
   def xbox_360
     @title = "Great Xbox 360 Games"
-    @games = Game.where(:platform => 'Xbox 360')
+    @games = Game.where(:platform => 'Xbox 360').paginate(page: params[:page], :per_page => 30).sort_by &:name
   end
 
   def xbox_one
     @title = "Great Xbox One Games"
-    @games = Game.where(:platform => 'Xbox One')
+    @games = Game.where(:platform => 'Xbox One').paginate(page: params[:page], :per_page => 30).sort_by &:name
   end
 end
