@@ -16,7 +16,7 @@
       </h2>
       <h4>
         <i class="fa fa-filter"></i>  
-        <%= link_to "All", root_url %> 
+        <%= link_to "All", games_path %> 
           <% Game.select("DISTINCT(PLATFORM)").each do |game| %>
             | <%= link_to game.platform, "/platforms/#{game.platform.parameterize}" %>
           <% end %>
