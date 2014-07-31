@@ -12,13 +12,13 @@
     <section id="main-content" class="col-md-9">
   <% end %>
       <h2>
-        <%= "#{@filter} Games" %>
+        <%= "Great Games" %>
       </h2>
       <h4>
         <i class="fa fa-filter"></i>  
         <%= link_to "All", root_url %> 
           <% Game.select("DISTINCT(PLATFORM)").each do |game| %>
-            | <%= link_to game.platform, "/platform/#{game.platform}" %>
+            | <%= link_to game.platform, "/platforms/#{game.platform.parameterize}" %>
           <% end %>
       </h4>
 
