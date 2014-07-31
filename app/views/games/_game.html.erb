@@ -2,7 +2,7 @@
 
 <tr>
   <td><%= link_to game.name, game %></td>
-  <td><%= game.platform %></td>
+  <td><%= link_to game.platform, "/platforms/#{game.platform.parameterize}" %></td>
   <td><%= game.genre %></td>
   <td><%= game.year %></td>
   <td><%= game_table_data(@game, params[:action]) %></td>
