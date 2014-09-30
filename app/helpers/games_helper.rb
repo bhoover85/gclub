@@ -67,8 +67,8 @@ module GamesHelper
     amazon = []
 
     game = OpenStruct.new
-    game.list_price       = item_attributes['ListPrice']['FormattedPrice']
-    game.lowest_price     = offer_summary['LowestNewPrice']['FormattedPrice']
+    game.list_price       = item_attributes['ListPrice']['FormattedPrice'] if item_attributes['ListPrice']['FormattedPrice']
+    game.lowest_price     = offer_summary['LowestNewPrice']['FormattedPrice'] if offer_summary['LowestNewPrice']['FormattedPrice']
     game.savings          = "$0.00"
     game.page_url         = res['DetailPageURL']
     game.wishlist_url     = get_wishlist_url(item_link)
