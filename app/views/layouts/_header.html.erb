@@ -1,17 +1,42 @@
-<header class="row">
-  <h1 class="col-md-6 pull-left"><%= link_to 'Great Games Club', root_url %></h1>
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <%= link_to 'Great Games Club', root_url, class: "navbar-brand" %>
+    </div>
 
-  <nav class="col-md-6 text-right pull-right header-signin">
-    <%= link_to "<i class='fa fa-gamepad'></i> All Games".html_safe, games_path, class: "btn btn-default" %> 
-    <% if user_signed_in? %>
-      <% if current_user.admin? %>
-        <%= link_to "<i class='fa fa-gavel'></i> Admin".html_safe, admin_path, class: "btn btn-default" %> 
-      <% end %>
-      <%= link_to "<i class='fa fa-user'></i> Profile".html_safe, current_user, class: "btn btn-default" %> 
-      <%= link_to "<i class='fa fa-sign-out'></i> Sign Out".html_safe, destroy_user_session_path, method: :delete, class: "btn btn-primary" %>
-    <% else %>
-      <%= link_to "<i class='fa fa-plus'></i> Sign Up".html_safe, new_user_registration_path, class: "btn btn-success" %> 
-      <%= link_to "<i class='fa fa-sign-in'></i> Sign In".html_safe, new_user_session_path, class: "btn btn-primary" %>
-    <% end %>
-  </nav>
-</header>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <!-- <form class="navbar-form navbar-left" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search">
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+      </form> -->
+      <ul class="nav navbar-nav">
+        <li><%= link_to "All", games_path %></li>
+        <% Game.select("DISTINCT(PLATFORM)").each do |game| %>
+          <li><%= link_to game.platform, "/platforms/#{game.platform.parameterize}" %></li>
+        <% end %>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <% if user_signed_in? %>
+          <% if current_user.admin? %>
+            <li><%= link_to "Admin".html_safe, admin_path %> </li>
+          <% end %>
+          <li><%= render 'shared/user_section' %></li>
+          <li><%= link_to "Sign Out".html_safe, destroy_user_session_path, method: :delete %></li>
+        <% else %>
+          <li><%= link_to "Sign Up".html_safe, new_user_registration_path %> </li>
+          <li><%= link_to "Sign In".html_safe, new_user_session_path %></li>
+        <% end %>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>

@@ -1,16 +1,9 @@
 <% provide(:title, "#{@game.name} - #{@game.platform}") %>
 
 <div class="row">
-  
-  <!-- User Info -->
-  <%= render 'shared/user_section' %>
 
   <!-- Main Content -->
-  <% if user_signed_in? %>
-    <section class="col-md-8">
-  <% else %>
     <section class="col-md-9">
-  <% end %>
     <%= render 'games/page/game_info' %>
   </section>
 

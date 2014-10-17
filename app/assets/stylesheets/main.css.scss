@@ -4,7 +4,10 @@
 
 @import "bootstrap";
 
-/* links */
+
+/*********/
+/* Links */
+/*********/
 
 a, input {
   -webkit-transition: 0.3s;
@@ -19,9 +22,13 @@ a:active  { text-decoration: none }
 a:visited { text-decoration: none }
 a:hover   { text-decoration: none }
 
-/* page */
+
+/********/
+/* Page */
+/********/
 
 body {
+  padding-top: 70px;
   font-family: 'Lato', sans-serif;
   background: image-url('background.gif') no-repeat center center fixed; 
   -webkit-background-size: cover;
@@ -40,4 +47,35 @@ h1, h2, h3, h4, h5, h6 {
 
 .ad-margin {
   margin: 15px 0;
+}
+
+
+/**********/
+/* Navbar */
+/**********/
+
+.navbar-nav a:hover { 
+  border-bottom: 5px solid #428bca;
+  padding-bottom: 10px;
+  transition: all .1s linear;
+  -o-transition: all .1s linear;
+  -moz-transition: all .1s linear;
+  -webkit-transition: all .1s linear;
+}
+
+.navbar-brand:hover { color: #428bca!important; }
+.navbar-toggle { border: 0; }
+
+.navbar-collapse { border: 0; }
+
+  @media (max-width: 768px) {
+    .navbar-collapse a:hover {
+      border-bottom: 0;
+      color: #fff!important;
+      background-color: #428bca!important;
+    }
+
+    .gravatar {
+      padding-left: 15px;
+    }
 }

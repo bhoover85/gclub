@@ -2,15 +2,8 @@
 
 <div class="row">
 
-  <!-- User Info -->
-  <%= render 'shared/user_section' %>
-
   <!-- Main Content -->
-  <% if user_signed_in? %>
-    <section id="main-content" class="col-md-8">
-  <% else %>
     <section id="main-content" class="col-md-9">
-  <% end %>
       <h2>
         <%= @title %>
       </h2>
