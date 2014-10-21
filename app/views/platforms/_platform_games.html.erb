@@ -3,16 +3,22 @@
 <div class="row">
 
   <!-- Main Content -->
-    <section id="main-content" class="col-md-9">
-      <h2>
-        <%= @title %>
-      </h2>
+    <section id="main-content" class="col-md-12">
+      <div class="section-header"><h2><%= @title %></h2></div>
 
+      <div class="text-center">
       <% @games.each do |game| %>
-        <div class="wanted-owned">
-          <%= link_to image_tag(game.cover.url(:thumb), class: "pull-left game-thumbnail"), game %>
+        <div class="game-space">
+          <%= link_to image_tag(game.cover.url(:medium), class: "pull-left"), game %>
+          <div class="game-name">
+            <%= link_to game.name, game %>
+          </div>
+          <div class="game-score" style="width: <%= game.score %>%;">
+            <small><span class="pull-right"><%= game.score %></span></small>
+          </div>
         </div>
       <% end %>
+    </div>
 
       <div class="text-center">
         <%= will_paginate @games %>
