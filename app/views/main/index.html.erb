@@ -1,46 +1,65 @@
 <% provide(:title, "Great Games from the PC, Xbox, Playstation, Wii and more!") %>
 
+<!-- Suggested -->
 <div class="row">
-
-  <!-- Main Content -->
-  <section id="main-content" class="col-md-9">
-    <h2>
-      <%= "Great Games" %>
-    </h2>
-
-    <ul class="games">
-      <% @games.each do |game| %>
-        <% @game = game %>
-        
-        <li>
-          <article>
-            <h3 class="pull-left"><%= link_to game.name, game %> <small><%= "#{game.platform}" %></small></h3>
-            <h3 class="pull-right">
-              <%= render 'games/actions/wishlist_form' %>
-              <%= render 'games/actions/ownership_form' %>
-            </h3>
-            <div class="clearfix"></div>
-            <blockquote>
-              <%= image_tag(game.cover.url(:thumb), class: "pull-left game-thumbnail") %>
-              <p><%= truncate(game.description, length: 275) %></p>
-              <footer>Metacritic</footer>
-            </blockquote>
-          </article>
-
-          <%= render 'users/wishlist_ownership_admin_buttons' %>
-
-        </li>
-      <% end %>
-    </ul>
+  <section id="suggested" class="col-md-12">
+    <div class="section-header"><h2>Suggested Games</h2></div>
 
     <div class="text-center">
-      <%= will_paginate @games %>
+      <% @suggested.each do |game| %>
+      <div class="game-space">
+        <%= link_to image_tag(game.cover.url(:medium), class: "pull-left"), game %>
+        <div class="game-name">
+          <%= link_to game.name, game %>
+        </div>
+        <div class="game-score" style="width: <%= game.score %>%;">
+          <small><span class="pull-right"><%= game.score %></span></small>
+        </div>
+      </div>
+      <% end %>
     </div>
   </section>
+</div>
 
-  <!-- About -->
-  <section id="about" class="col-md-3">
-      <%= render 'layouts/about' %>
-      <%= render 'layouts/vertical_ad' %>
+
+<!-- Top Rated -->
+<div class="row">
+  <section id="top-rated" class="col-md-12">
+    <div class="section-header"><h2>Top Rated Games</h2></div>
+
+    <div class="text-center">
+      <% @top_games.each do |game| %>
+      <div class="game-space">
+        <%= link_to image_tag(game.cover.url(:medium), class: "pull-left"), game %>
+        <div class="game-name">
+          <%= link_to game.name, game %>
+        </div>
+        <div class="game-score" style="width: <%= game.score %>%;">
+          <small><span class="pull-right"><%= game.score %></span></small>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </section>
+</div>
+
+<!-- Games to Try -->
+<div class="row">
+  <section id="games-to-try" class="col-md-12">
+    <div class="section-header"><h2>Games to Try</h2></div>
+
+    <div class="text-center">
+      <% @games_to_try.each do |game| %>
+        <div class="game-space">
+          <%= link_to image_tag(game.cover.url(:medium), class: "pull-left"), game %>
+          <div class="game-name">
+            <small><%= link_to game.name, game %></small>
+          </div>
+          <div class="game-score" style="width: <%= game.score %>%;">
+            <small><span class="pull-right"><%= game.score %></span></small>
+          </div>
+        </div>
+      <% end %>
+    </div>
   </section>
 </div>

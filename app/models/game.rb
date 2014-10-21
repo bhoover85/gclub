@@ -13,8 +13,11 @@ class Game < ActiveRecord::Base
     "#{name} #{platform}"
   end
 
-  has_attached_file :cover, :styles => { :medium => "196x276>", :thumb => "98x138>", :xs => "49x69>" }, 
-                    :default_url => "../assets/images/:style/missing.png"
+  has_attached_file :cover, :styles => { :large => "196x276>", :medium => "147x207", :thumb => "98x138>", :xs => "49x69>" }, 
+                    :default_url => "../assets/images/:style/missing.png",
+                    :convert_options => {
+                      :large => "-strip", :medium => "-strip", :thumb => "-strip", :xs => "-strip"
+                    }
   validates_attachment_content_type :cover, :content_type => /\Aimage\/.*\Z/
 
   # Wishlist

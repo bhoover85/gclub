@@ -23,6 +23,44 @@ a:visited { text-decoration: none }
 a:hover   { text-decoration: none }
 
 
+/**********/
+/* Navbar */
+/**********/
+
+.navbar-nav a:hover { 
+  border-bottom: 5px solid #fff;
+  padding-bottom: 9px;
+  transition: all .1s linear;
+  -o-transition: all .1s linear;
+  -moz-transition: all .1s linear;
+  -webkit-transition: all .1s linear;
+}
+
+@media (min-width: 768px) {
+  // .3ds:hover { border-bottom: 5px solid #ce171f!important; }
+  .xbox:hover, .xbox-360:hover, .xbox-one:hover { color: #21ff21!important; border-bottom: 5px solid #21ff21!important; }
+  .playstation-2:hover, .playstation-3:hover, .playstation-4:hover { color: #0085ff!important; border-bottom: 5px solid #0085ff!important; }
+  .wii:hover, .wii-u:hover { color: #00c0ff!important; border-bottom: 5px solid #00c0ff!important; }
+  .gamecube:hover, { color: #9c84ff!important; border-bottom: 5px solid #9c84ff!important; }
+}
+
+.navbar-brand:hover { color: #fff!important; }
+.navbar-toggle { border: 0; }
+
+.navbar-collapse { border: 0; }
+
+@media (max-width: 768px) {
+  .navbar-collapse a:hover {
+    border-bottom: 0;
+    color: #fff!important;
+    background-color: #428bca!important;
+  }
+
+  .gravatar {
+    padding-left: 15px;
+  }
+}
+
 /********/
 /* Page */
 /********/
@@ -41,41 +79,41 @@ h1, h2, h3, h4, h5, h6 {
   font-family: 'Roboto', sans-serif;
 }
 
-.about {
+.ad-margin { margin: 15px 0; }
+
+.section-header {
+  // border-left: 5px solid #000;
+  // padding-left: 5px;
   margin-bottom: 15px;
 }
 
-.ad-margin {
-  margin: 15px 0;
+.game-space {
+  position: relative;
+  clear: none;
+  display: inline-block;
+  /*min-height: 225px;*/
+  background-color: #fff;
+  margin: 0 35px 30px 0;
+  text-align: left;
 }
 
-
-/**********/
-/* Navbar */
-/**********/
-
-.navbar-nav a:hover { 
-  border-bottom: 5px solid #428bca;
-  padding-bottom: 10px;
-  transition: all .1s linear;
-  -o-transition: all .1s linear;
-  -moz-transition: all .1s linear;
-  -webkit-transition: all .1s linear;
+.game-space img {
+  -webkit-transition: all .5s ease;
+     -moz-transition: all .5s ease;
+       -o-transition: all .5s ease;
+      -ms-transition: all .5s ease;
+          transition: all .5s ease;
+}
+ 
+.game-space img:hover {
+  -webkit-filter: brightness(120%);
 }
 
-.navbar-brand:hover { color: #428bca!important; }
-.navbar-toggle { border: 0; }
+.game-name { padding: 5px; }
 
-.navbar-collapse { border: 0; }
-
-  @media (max-width: 768px) {
-    .navbar-collapse a:hover {
-      border-bottom: 0;
-      color: #fff!important;
-      background-color: #428bca!important;
-    }
-
-    .gravatar {
-      padding-left: 15px;
-    }
+.game-score { 
+  color: #fff;
+  background-color: green; 
+  min-height: 17px;
+  padding-right: 3px;
 }
