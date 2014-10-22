@@ -53,7 +53,7 @@
         <div class="game-space">
           <%= link_to image_tag(game.cover.url(:medium), class: "pull-left"), game %>
           <div class="game-name">
-            <small><%= link_to game.name, game %></small>
+            <%= link_to game.name, game %>
           </div>
           <div class="game-score" style="width: <%= game.score %>%;">
             <small><span class="pull-right"><%= game.score %></span></small>
