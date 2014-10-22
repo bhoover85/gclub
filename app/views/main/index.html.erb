@@ -43,13 +43,15 @@
   </section>
 </div>
 
-<!-- Games to Try -->
+<%= render 'layouts/mid_ad' %>
+
+<!-- More Great Games -->
 <div class="row">
-  <section id="games-to-try" class="col-md-12">
-    <div class="section-header"><h2>Games to Try</h2></div>
+  <section id="more-great-games" class="col-md-12">
+    <div class="section-header"><h2>More Great Games</h2></div>
 
     <div class="text-center">
-      <% @games_to_try.each do |game| %>
+      <% @more_great_games.each do |game| %>
         <div class="game-space">
           <%= link_to image_tag(game.cover.url(:medium), class: "pull-left"), game %>
           <div class="game-name">
