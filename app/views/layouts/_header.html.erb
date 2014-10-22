@@ -22,7 +22,8 @@
       <ul class="nav navbar-nav">
         <li><%= link_to "All", games_path %></li>
         <% Game.select("DISTINCT(PLATFORM)").each do |game| %>
-          <li><%= link_to game.platform, "/platforms/#{game.platform.parameterize}", class: "#{game.platform.parameterize}" %></li>
+          <% class_name = class_name(game) %>
+          <li><%= link_to game.platform, "/platforms/#{game.platform.parameterize}", class: "#{class_name}" %></li>
         <% end %>
       </ul>
       <ul class="nav navbar-nav navbar-right">

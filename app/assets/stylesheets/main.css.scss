@@ -37,7 +37,8 @@ a:hover   { text-decoration: none }
 }
 
 @media (min-width: 768px) {
-  // .3ds:hover { border-bottom: 5px solid #ce171f!important; }
+  .threeds:hover { color: #ce171f!important; border-bottom: 5px solid #ce171f!important; }
+  .pc:hover { color: #fcff00!important; border-bottom: 5px solid #fcff00!important; }
   .xbox:hover, .xbox-360:hover, .xbox-one:hover { color: #21ff21!important; border-bottom: 5px solid #21ff21!important; }
   .playstation-2:hover, .playstation-3:hover, .playstation-4:hover { color: #40c7ff!important; border-bottom: 5px solid #40c7ff!important; }
   .wii:hover, .wii-u:hover { color: #00c0ff!important; border-bottom: 5px solid #00c0ff!important; }
