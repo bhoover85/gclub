@@ -21,10 +21,22 @@
       </form> -->
       <ul class="nav navbar-nav">
         <li><%= link_to "All", games_path %></li>
-        <% Game.select("DISTINCT(PLATFORM)").each do |game| %>
-          <% class_name = class_name(game) %>
-          <li><%= link_to game.platform, "/platforms/#{game.platform.parameterize}", class: "#{class_name}" %></li>
-        <% end %>
+        <li><%= link_to "PC", pc_platforms_path, class: "pc" %></li>
+        <li><%= link_to "Playstation 4", playstation_4_platforms_path, class: "playstation-4" %></li>
+        <li><%= link_to "Wii U", wii_u_platforms_path, class: "wii-u" %></li>
+        <li><%= link_to "Xbox One", xbox_one_platforms_path, class: "xbox-one" %></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">More <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><%= link_to "3DS", threeds_platforms_path %></li>
+            <li><%= link_to "Gamecube", gamecube_platforms_path %></li>
+            <li><%= link_to "Playstation 2", playstation_2_platforms_path %></li>
+            <li><%= link_to "Playstation 3", playstation_3_platforms_path %></li>
+            <li><%= link_to "Wii", wii_platforms_path %></li>
+            <li><%= link_to "Xbox", xbox_platforms_path %></li>
+            <li><%= link_to "Xbox 360", xbox_360_platforms_path %></li>
+          </ul>
+        </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>

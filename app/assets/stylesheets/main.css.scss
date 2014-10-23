@@ -43,6 +43,8 @@ a:hover   { text-decoration: none }
   .playstation-2:hover, .playstation-3:hover, .playstation-4:hover { color: #40c7ff!important; border-bottom: 5px solid #40c7ff!important; }
   .wii:hover, .wii-u:hover { color: #ecebee!important; border-bottom: 5px solid #ecebee!important; }
   .gamecube:hover, { color: #b8a7ff!important; border-bottom: 5px solid #b8a7ff!important; }
+
+  .dropdown-menu a:hover { border-bottom: 0; padding-bottom: 3px; }
 }
 
 .navbar-brand:hover { color: #fff!important; }
