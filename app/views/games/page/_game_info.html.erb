@@ -1,34 +1,52 @@
 <div class="row">
   <section class="col-md-12">
-    <h1 class="game-name pull-left"><%= @game.name %></h1>
-    <h1 class="pull-right">
-      <%= render 'games/actions/wishlist_form' %>
-      <%= render 'games/actions/ownership_form' %>
-    </h1>
+    <h1 class="game-name pull-left"><%= @game.name %> <small><%= @game.platform %></small></h1>
   </section>
 </div>
 
-<%= image_tag(@game.cover.url(:medium), class: "pull-left game-thumbnail") %>
+<div class="row">
+  <section class="col-xs-9 pull-left">
+    <%= image_tag(@game.cover.url(:medium), class: "pull-left game-thumbnail") %>
 
-<section class="pull-left">
-<h4>Platform: <%= @game.platform %></h4>
+    <!-- Metacritic info -->
+    <%= "<h4>Release Date: #{@game.rlsdate}</h4>".html_safe if @game.rlsdate %>
+    <%= "<h4>Developer: #{@game.developer}</h4>".html_safe if @game.developer %>
+    <%= "<h4>Publisher: #{@game.publisher}</h4>".html_safe if @game.publisher %>
+    <%= "<h4>Genre: #{@game.genre}</h4>".html_safe if @game.genre %>
+    <!-- Metacritic info -->
+  </section>
 
-<!-- Metacritic info -->
-<%= "<h4>Release Date: #{@game.rlsdate}</h4>".html_safe if @game.rlsdate %>
-<%= "<h4>Developer: #{@game.developer}</h4>".html_safe if @game.developer %>
-<%= "<h4>Publisher: #{@game.publisher}</h4>".html_safe if @game.publisher %>
-<%= "<h4>Genre: #{@game.genre}</h4>".html_safe if @game.genre %>
-<%= "<h4>Metacritic Score: #{@game.score}</h4>".html_safe if @game.score %>
-<!-- Metacritic info -->
-</section>
+  <section class="col-xs-3 hidden-xs text-center metacritic-score">
+    <h3>Metacritic</h3>
+    <input type="text" value="<%= @game.score %>" class="dial" data-width="110" data-fgColor="green" data-readOnly=true>
+    <script>
+        $(function() {
+            $(".dial").knob();
+        });
+    </script>
+
+    <section class="wanted-owned-buttons">
+      <%= render 'games/actions/wishlist_form' %>
+      <%= render 'games/actions/ownership_form' %>
+    </section>
+  </section>
+
+  <section class="col-xs-12 visible-xs text-center metacritic-score">
+    <h3>Metacritic</h3>
+    <div class="game-score-container">
+      <div class="game-score" style="width: <%= @game.score %>%;">
+        <small><span class="pull-right"><%= @game.score %></span></small>
+      </div>
+    </div>
+
+    <section class="wanted-owned-buttons">
+      <%= render 'games/actions/wishlist_form' %>
+      <%= render 'games/actions/ownership_form' %>
+    </section>
+  </section>
+</div>
 
 <div class="clearfix"></div>
-
-<div class="social-likes" data-url="<%= request.original_url %>">
-  <div class="facebook" title="Share link on Facebook">Facebook</div>
-  <div class="twitter" title="Share link on Twitter">Twitter</div>
-  <div class="plusone" title="Share link on Google+">Google+</div>
-</div>
 
 <div>
   <%= render 'users/wishlist_ownership_admin_buttons' %>
@@ -36,8 +54,8 @@
 
 <div class="clearfix"></div>
 
-<section>
-  <h3>Description</h3>
+<section class="game-description">
+  <!-- <h3>Description</h3> -->
   <blockquote>
     <p><%= @game.description %></p>
     <footer>Metacritic</footer>

@@ -3,15 +3,14 @@
 <div class="row">
 
   <!-- Main Content -->
-    <section class="col-md-9">
+  <section class="col-md-9">
     <%= render 'games/page/game_info' %>
   </section>
 
-  <!-- Amazon Info -->
   <section class="col-md-3">
     <%= render 'games/page/amazon_info' %>
-    <%= render 'layouts/vertical_ad' %>
   </section>
+  
 </div>
 
 <%# if !Rails.env.production? %>
