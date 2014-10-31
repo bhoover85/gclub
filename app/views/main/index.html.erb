@@ -32,7 +32,7 @@
       <div class="game-space">
         <%= link_to image_tag(game.cover.url(:medium), class: "pull-left"), game %>
         <div class="game-name">
-          <%= link_to game.name, game %>
+          <%= link_to truncate(game.name, length: 18), game %>
         </div>
         <div class="game-score" style="width: <%= game.score %>%;">
           <small><span class="pull-right"><%= game.score %></span></small>
@@ -55,7 +55,7 @@
         <div class="game-space">
           <%= link_to image_tag(game.cover.url(:medium), class: "pull-left"), game %>
           <div class="game-name">
-            <%= link_to game.name, game %>
+            <%= link_to truncate(game.name, length: 18), game %>
           </div>
           <div class="game-score" style="width: <%= game.score %>%;">
             <small><span class="pull-right"><%= game.score %></span></small>
