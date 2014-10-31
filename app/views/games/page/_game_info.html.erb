@@ -20,7 +20,6 @@
   </section>
 
   <section class="col-md-4 col-xs-12 hidden-sm hidden-xs text-center metacritic-box">
-    <h3 class="no-top-margin">Metacritic</h3>
     <input type="text" value="<%= @game.score %>" class="dial" data-width="110" data-fgColor="green" data-readOnly=true>
     <script>
         $(function() {
@@ -29,8 +28,7 @@
     </script>
   </section>
 
-  <section class="col-xs-12 visible-sm visible-xs text-center metacritic-score">
-    <h3>Metacritic</h3>
+  <section class="col-xs-12 visible-sm visible-xs text-center">
     <div class="game-score-container">
       <div class="game-score" style="width: <%= @game.score %>%;">
         <small><span class="pull-right"><%= @game.score %></span></small>
@@ -48,7 +46,7 @@
 <div class="clearfix"></div>
 
 <section class="game-description">
-  <!-- <h3>Description</h3> -->
+  <h3>Description</h3>
   <blockquote>
     <p><%= @game.description %></p>
     <footer>Metacritic</footer>
@@ -64,14 +62,4 @@
       <%= content_tag(:iframe, nil, src: "//www.youtube.com/embed/#{youtube_id}") %>
     </div>
   <% end %>
-</section>
-
-<section>
-  <%= render 'games/users/wishers' %>
-</section>
-
-<div class="clearfix"></div>
-
-<section>
-  <%= render 'games/users/owners' %>
 </section>

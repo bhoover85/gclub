@@ -1,14 +1,8 @@
 <div class="row">
   <div class="col-md-12">
-    <section class="pull-left">
-      <h3>Members Who Own This (<%= @owners.count %>)</h3>
+    <section>
+      <h3><%= @owners.count %> Own This</h3>
     </section>
-
-    <div class="pull-right view-all">
-      <% if @owners.any? %>
-        <h3><%= link_to "View All", game_owners_path %></h3>
-      <% end %>
-    </div>
   </div>
 </div>
 
@@ -18,8 +12,7 @@
       <% @owners.each do |owner| %>
         <%= link_to gravatar_for(owner, size: 54, class: "pull-left"), owner_path(owner) %>
       <% end %>
-    <% else %>
-      <p>Nobody owns <%= @game.name %>. <i class="fa fa-frown-o"></i> </p>
+      <div><%= link_to "View All", game_owners_path %></div>
     <% end %>
   </div>
 </div>

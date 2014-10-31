@@ -9,8 +9,8 @@ class GamesController < ApplicationController
 
   def show
     @game = Game.friendly.find(params[:id])
-    @wishers = @game.wishers.order("RANDOM()").paginate(page: params[:page], :per_page => 52)
-    @owners = @game.owners.order("RANDOM()").paginate(page: params[:page], :per_page => 52)
+    @wishers = @game.wishers.order("RANDOM()").paginate(page: params[:page], :per_page => 16)
+    @owners = @game.owners.order("RANDOM()").paginate(page: params[:page], :per_page => 16)
   end
 
   def wishers
