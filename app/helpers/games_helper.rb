@@ -163,9 +163,10 @@ module GamesHelper
     end
     
     sleep 1
-    response = Unirest::post "https://byroredux-metacritic.p.mashape.com/find/game", 
-      headers: { 
-        "X-Mashape-Authorization" => ENV["MASHAPE_KEY"]
+    response = Unirest.post "https://byroredux-metacritic.p.mashape.com/find/game",
+      headers: {
+        "X-Mashape-Key" => ENV["MASHAPE_KEY"],
+        "Content-Type" => "application/x-www-form-urlencoded"
       },
       parameters: { 
         "title"    => name,
