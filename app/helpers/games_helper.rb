@@ -181,6 +181,16 @@ module GamesHelper
     req.publisher = response.body['result']['publisher']
     req.developer = response.body['result']['developer']
     req.genre     = response.body['result']['genre']
+    req.url       = response.body['result']['url']
+
+    sleep 1
+    response = Unirest.get "https://byroredux-metacritic.p.mashape.com/reviews?sort=most-active&url=" + req.url,
+      headers: {
+        "X-Mashape-Key" => ENV["MASHAPE_KEY"]
+      }
+
+    req.critic_reviews = response.body['result']
+
 
     metacritic << req
 

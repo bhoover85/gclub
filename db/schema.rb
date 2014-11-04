@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140612143450) do
+ActiveRecord::Schema.define(version: 20141103184515) do
 
   create_table "friendly_id_slugs", force: true do |t|
     t.string   "slug",                      null: false
@@ -50,6 +50,8 @@ ActiveRecord::Schema.define(version: 20140612143450) do
     t.string   "wishlist_url"
     t.binary   "similar_products"
     t.string   "page_url"
+    t.string   "url"
+    t.binary   "critic_reviews"
   end
 
   add_index "games", ["genre"], name: "index_games_on_genre"

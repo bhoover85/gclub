@@ -79,11 +79,13 @@ class GamesController < ApplicationController
 
     def get_metacritic_info(name, platform)
       metacritic = GamesHelper.metacritic_info(name, platform)
-      @game.score     = metacritic.first['score']
-      @game.rlsdate   = metacritic.first['rlsdate']
-      @game.publisher = metacritic.first['publisher']
-      @game.developer = metacritic.first['developer']
-      @game.genre     = metacritic.first['genre']
+      @game.score          = metacritic.first['score']
+      @game.rlsdate        = metacritic.first['rlsdate']
+      @game.publisher      = metacritic.first['publisher']
+      @game.developer      = metacritic.first['developer']
+      @game.genre          = metacritic.first['genre']
+      @game.url            = metacritic.first['url']
+      @game.critic_reviews = metacritic.first['critic_reviews']
     end
 
     def get_amazon_info(asin, response)

@@ -22,7 +22,7 @@ module YoutubeHelper
   def get_youtube_videos(name, platform)
     opts = Trollop::options do
       opt :q, 'Search term', :type => String, :default => "#{name} #{platform}"
-      opt :max_results, 'Max results', :type => :int, :default => 3
+      opt :max_results, 'Max results', :type => :int, :default => 1
       opt :order, 'Order', :type => String, :default => "viewCount"
       opt :regionCode, 'Region code', :type => String, :default => "US"
     end
