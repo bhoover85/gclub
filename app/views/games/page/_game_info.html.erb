@@ -55,6 +55,22 @@
 
 <div class="clearfix"></div>
 
+<section class="metacritic-reviews">
+  <h3>Reviews</h3>
+  <% @game.critic_reviews.first(4).each do |review| %>
+      <div class="col-sm-6">
+        <blockquote>
+          <%= review['excerpt'] %>
+          <footer>
+            <%= link_to "#{review['critic']} (#{review['score']})", review['link'] %>
+          </footer>
+        </blockquote>
+        <%#= review['link'] %>
+      </div>
+  <% end %>
+</section>
+
+<div class="clearfix"></div>
 <section>
   <h3>Most Watched YouTube Video</h3>
   <% get_youtube_videos(@game.name, @game.platform).each do |title, youtube_id| %>
@@ -66,19 +82,3 @@
 
 <div class="clearfix"></div>
 
-<section class="metacritic-reviews">
-  <h3>Reviews</h3>
-  <% @game.critic_reviews.first(4).each do |review| %>
-      <div class="col-sm-6">
-        <blockquote>
-          <%= review['excerpt'] %>
-          <footer>
-            <%= review['critic'] %> (<%= review['score'] %>)
-          </footer>
-        </blockquote>
-        <%#= review['link'] %>
-      </div>
-  <% end %>
-</section>
-
-<div class="clearfix"></div>
