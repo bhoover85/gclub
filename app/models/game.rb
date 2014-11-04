@@ -40,7 +40,7 @@ class Game < ActiveRecord::Base
     @games = Game.all
     @games.each do |game|
       metacritic = GamesHelper.metacritic_info(game.name, game.platform)
-      game.update_attributes(:score => metacritic.first['score'], :url => metacritic.first['url'], :critic_reviews => metacritic['critic_reviews'])
+      game.update_attributes(:score => metacritic.first['score'], :critic_reviews => metacritic['critic_reviews'])
     end
   end
 
