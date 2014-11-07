@@ -57,8 +57,9 @@
 
 <section class="metacritic-reviews">
   <h3>Reviews</h3>
+  <% x = 0 %>
   <% @game.critic_reviews.first(4).each do |review| %>
-      <div class="col-sm-6">
+      <div class="col-sm-6" style="min-height: 100px;">
         <blockquote>
           <%= review['excerpt'] %>
           <footer>
@@ -66,6 +67,10 @@
           </footer>
         </blockquote>
       </div>
+      <% x += 1 %>
+      <% if x%2 == 0 %>
+        <div class="clearfix"></div>
+      <% end %>
   <% end %>
 </section>
 
